@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GucharmapChaptersModel</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="gucharmap Reference Manual">
+<link rel="up" href="ch01.html" title="[Insert title here]">
+<link rel="prev" href="GucharmapBlockChaptersModel.html" title="GucharmapBlockChaptersModel">
+<link rel="next" href="GucharmapChartable.html" title="GucharmapChartable">
+<meta name="generator" content="GTK-Doc V1.12 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="[Insert title here]">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GucharmapBlockChaptersModel.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">gucharmap Reference Manual</th>
+<td><a accesskey="n" href="GucharmapChartable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GucharmapChaptersModel.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GucharmapChaptersModel.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GucharmapChaptersModel.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GucharmapChaptersModel.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GucharmapChaptersModel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GucharmapChaptersModel.top_of_page"></a>GucharmapChaptersModel</span></h2>
+<p>GucharmapChaptersModel</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GucharmapChaptersModel.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GucharmapChaptersModel.html#GucharmapChaptersModelPrivate" title="GucharmapChaptersModelPrivate">GucharmapChaptersModelPrivate</a>;
+                    <a class="link" href="GucharmapChaptersModel.html#GucharmapChaptersModel-struct" title="GucharmapChaptersModel">GucharmapChaptersModel</a>;
+<a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList">GucharmapCodepointList</a> * <a class="link" href="GucharmapChaptersModel.html#gucharmap-chapters-model-get-codepoint-list" title="gucharmap_chapters_model_get_codepoint_list ()">gucharmap_chapters_model_get_codepoint_list</a>
+                                                        (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters,
+                                                         GtkTreeIter *iter);
+const char *        <a class="link" href="GucharmapChaptersModel.html#gucharmap-chapters-model-get-title" title="gucharmap_chapters_model_get_title ()">gucharmap_chapters_model_get_title</a>  (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters);
+<a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList">GucharmapCodepointList</a> * <a class="link" href="GucharmapChaptersModel.html#gucharmap-chapters-model-get-book-codepoint-list" title="gucharmap_chapters_model_get_book_codepoint_list ()">gucharmap_chapters_model_get_book_codepoint_list</a>
+                                                        (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters);
+gboolean            <a class="link" href="GucharmapChaptersModel.html#gucharmap-chapters-model-character-to-iter" title="gucharmap_chapters_model_character_to_iter ()">gucharmap_chapters_model_character_to_iter</a>
+                                                        (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters,
+                                                         gunichar wc,
+                                                         GtkTreeIter *iter);
+gboolean            <a class="link" href="GucharmapChaptersModel.html#gucharmap-chapters-model-id-to-iter" title="gucharmap_chapters_model_id_to_iter ()">gucharmap_chapters_model_id_to_iter</a> (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *model,
+                                                         const char *id,
+                                                         GtkTreeIter *iter);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GucharmapChaptersModel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GtkListStore
+         +----GucharmapChaptersModel
+               +----<a class="link" href="GucharmapBlockChaptersModel.html" title="GucharmapBlockChaptersModel">GucharmapBlockChaptersModel</a>
+               +----<a class="link" href="GucharmapScriptChaptersModel.html" title="GucharmapScriptChaptersModel">GucharmapScriptChaptersModel</a>
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GucharmapChaptersModel.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GucharmapChaptersModel implements
+ GtkTreeModel,  GtkTreeDragSource,  GtkTreeDragDest,  GtkTreeSortable and  GtkBuildable.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GucharmapChaptersModel.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GucharmapChaptersModel.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GucharmapChaptersModelPrivate"></a><h3>GucharmapChaptersModelPrivate</h3>
+<pre class="programlisting">typedef struct _GucharmapChaptersModelPrivate GucharmapChaptersModelPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GucharmapChaptersModel-struct"></a><h3>GucharmapChaptersModel</h3>
+<pre class="programlisting">typedef struct _GucharmapChaptersModel GucharmapChaptersModel;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gucharmap-chapters-model-get-codepoint-list"></a><h3>gucharmap_chapters_model_get_codepoint_list ()</h3>
+<pre class="programlisting"><a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList">GucharmapCodepointList</a> * gucharmap_chapters_model_get_codepoint_list
+                                                        (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters,
+                                                         GtkTreeIter *iter);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chapters</code></em> :</span></p></td>
+<td> a <a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel"><span class="type">GucharmapChaptersModel</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a reference to a <a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList"><span class="type">GucharmapCodepointList</span></a> representing all the characters
+in all the chapters. It should not be modified, but must be <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>'d after use.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gucharmap-chapters-model-get-title"></a><h3>gucharmap_chapters_model_get_title ()</h3>
+<pre class="programlisting">const char *        gucharmap_chapters_model_get_title  (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chapters</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gucharmap-chapters-model-get-book-codepoint-list"></a><h3>gucharmap_chapters_model_get_book_codepoint_list ()</h3>
+<pre class="programlisting"><a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList">GucharmapCodepointList</a> * gucharmap_chapters_model_get_book_codepoint_list
+                                                        (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chapters</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gucharmap-chapters-model-character-to-iter"></a><h3>gucharmap_chapters_model_character_to_iter ()</h3>
+<pre class="programlisting">gboolean            gucharmap_chapters_model_character_to_iter
+                                                        (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *chapters,
+                                                         gunichar wc,
+                                                         GtkTreeIter *iter);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chapters</code></em> :</span></p></td>
+<td> a <a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel"><span class="type">GucharmapChaptersModel</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wc</code></em> :</span></p></td>
+<td> a character
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td> a <span class="type">GtkTreeIter</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gucharmap-chapters-model-id-to-iter"></a><h3>gucharmap_chapters_model_id_to_iter ()</h3>
+<pre class="programlisting">gboolean            gucharmap_chapters_model_id_to_iter (<a class="link" href="GucharmapChaptersModel.html" title="GucharmapChaptersModel">GucharmapChaptersModel</a> *model,
+                                                         const char *id,
+                                                         GtkTreeIter *iter);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>model</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.12</div>
+</body>
+</html>
