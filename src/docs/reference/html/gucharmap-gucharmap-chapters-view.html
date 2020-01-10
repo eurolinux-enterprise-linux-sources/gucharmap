@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GucharmapChaptersView: gucharmap Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<title>gucharmap Reference Manual: GucharmapChaptersView</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="gucharmap Reference Manual">
 <link rel="up" href="ch01.html" title="[Insert title here]">
 <link rel="prev" href="gucharmap-gucharmap-script-codepoint-list.html" title="GucharmapScriptCodepointList">
 <link rel="next" href="gucharmap-gucharmap-charmap.html" title="GucharmapCharmap">
-<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.20.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="gucharmap-gucharmap-chapters-view.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -134,7 +134,7 @@
 </div>
 <a name="GucharmapChaptersView"></a><div class="refsect1">
 <a name="gucharmap-gucharmap-chapters-view.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -180,7 +180,7 @@ GucharmapChaptersView implements
 gucharmap_chapters_view_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Creates a new <a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> object.</p>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-new.returns"></a><h4>Returns</h4>
+<a name="id-1.2.8.9.2.5"></a><h4>Returns</h4>
 <p> a new <a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a>. </p>
 <p><span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span></p>
 </div>
@@ -201,8 +201,8 @@ gucharmap_chapters_view_set_model (<em class="parameter"><code><a class="link" h
 gucharmap_chapters_view_get_model (<em class="parameter"><code><a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> *view</code></em>);</pre>
 <p>Gets the <a class="link" href="gucharmap-gucharmap-chapters-model.html#GucharmapChaptersModel"><span class="type">GucharmapChaptersModel</span></a> of <span class="type">view</span>.</p>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-get-model.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.8.9.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -216,7 +216,7 @@ gucharmap_chapters_view_get_model (<em class="parameter"><code><a class="link" h
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-get-model.returns"></a><h4>Returns</h4>
+<a name="id-1.2.8.9.4.6"></a><h4>Returns</h4>
 <p> the <a class="link" href="gucharmap-gucharmap-chapters-model.html#GucharmapChaptersModel"><span class="type">GucharmapChaptersModel</span></a>. </p>
 <p><span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span></p>
 </div>
@@ -229,8 +229,8 @@ gucharmap_chapters_view_select_character
                                (<em class="parameter"><code><a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> *view</code></em>,
                                 <em class="parameter"><code><span class="type">gunichar</span> wc</code></em>);</pre>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-select-character.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.8.9.5.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -251,8 +251,9 @@ gucharmap_chapters_view_select_character
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-select-character.returns"></a><h4>Returns</h4>
+<a name="id-1.2.8.9.5.5"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure.</p>
+<p></p>
 </div>
 </div>
 <hr>
@@ -264,8 +265,8 @@ gucharmap_chapters_view_get_codepoint_list
 <p>Creates a new <a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList"><span class="type">GucharmapCodepointList</span></a> representing the characters in the
 current chapter.</p>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-get-codepoint-list.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.8.9.6.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -279,7 +280,7 @@ current chapter.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-get-codepoint-list.returns"></a><h4>Returns</h4>
+<a name="id-1.2.8.9.6.6"></a><h4>Returns</h4>
 <p> the newly-created <a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList"><span class="type">GucharmapCodepointList</span></a>,
 or NULL if there is no chapter selected. The caller should release the
 result with <code class="function">g_object_unref()</code> when finished. </p>
@@ -293,8 +294,8 @@ result with <code class="function">g_object_unref()</code> when finished. </p>
 gucharmap_chapters_view_get_book_codepoint_list
                                (<em class="parameter"><code><a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> *view</code></em>);</pre>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-get-book-codepoint-list.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.8.9.7.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -308,7 +309,7 @@ gucharmap_chapters_view_get_book_codepoint_list
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-get-book-codepoint-list.returns"></a><h4>Returns</h4>
+<a name="id-1.2.8.9.7.5"></a><h4>Returns</h4>
 <p> a reference to a <a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList"><span class="type">GucharmapCodepointList</span></a> representing
 all the characters in all the chapters. It should not be modified, but must
 be <code class="function">g_object_unref()</code>'d after use. </p>
@@ -330,8 +331,8 @@ gucharmap_chapters_view_next (<em class="parameter"><code><a class="link" href="
 gucharmap_chapters_view_previous (<em class="parameter"><code><a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> *view</code></em>);</pre>
 <p>Moves to the previous chapter if applicable.</p>
 <div class="refsect3">
-<a name="gucharmap-chapters-view-previous.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.8.9.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -352,6 +353,10 @@ gucharmap_chapters_view_previous (<em class="parameter"><code><a class="link" hr
 gucharmap_chapters_view_get_selected (<em class="parameter"><code><a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> *view</code></em>);</pre>
 <p>
 </p>
+<div class="refsect3">
+<a name="id-1.2.8.9.10.5"></a><h4>Returns</h4>
+<p></p>
+</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -361,6 +366,10 @@ gucharmap_chapters_view_set_selected (<em class="parameter"><code><a class="link
                                       <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
 <p>
 </p>
+<div class="refsect3">
+<a name="id-1.2.8.9.11.5"></a><h4>Returns</h4>
+<p></p>
+</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -369,6 +378,10 @@ gucharmap_chapters_view_set_selected (<em class="parameter"><code><a class="link
 gucharmap_chapters_view_select_locale (<em class="parameter"><code><a class="link" href="gucharmap-gucharmap-chapters-view.html#GucharmapChaptersView"><span class="type">GucharmapChaptersView</span></a> *view</code></em>);</pre>
 <p>
 </p>
+<div class="refsect3">
+<a name="id-1.2.8.9.12.5"></a><h4>Returns</h4>
+<p></p>
+</div>
 </div>
 </div>
 <div class="refsect1">
@@ -389,6 +402,7 @@ gucharmap_chapters_view_select_locale (<em class="parameter"><code><a class="lin
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25</div>
+<hr>
+          Generated by GTK-Doc V1.20.1</div>
 </body>
 </html>

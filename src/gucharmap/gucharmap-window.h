@@ -14,7 +14,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
  
 #ifndef GUCHARMAP_WINDOW_H
@@ -68,9 +68,6 @@ GtkWidget * gucharmap_window_new       (GtkApplication *application);
 
 void        gucharmap_window_set_font  (GucharmapWindow *guw,
                                         const char *font);
-
-void        gucharmap_window_search    (GucharmapWindow *guw,
-                                        const char *str);
 
 G_END_DECLS
 

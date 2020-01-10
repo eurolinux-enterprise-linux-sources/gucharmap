@@ -13,15 +13,13 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
 
 #include <gtk/gtk.h>
 #include <string.h>
-
-#include <glib/gi18n-lib.h>
 
 #include "gucharmap.h"
 #include "gucharmap-private.h"
@@ -31,7 +29,9 @@
 #include "unicode-nameslist.h"
 #include "unicode-categories.h"
 #include "unicode-versions.h"
-#include "unicode-unihan.h"
+#if ENABLE_UNIHAN
+# include "unicode-unihan.h"
+#endif
 
 /* constants for hangul (de)composition, see UAX #15 */
 #define SBase 0xAC00
@@ -58,37 +58,26 @@ static const gchar JAMO_T_TABLE[][4] = {
   "S", "SS", "NG", "J", "C", "K", "T", "P", "H"
 };
 
-const gchar *
+G_CONST_RETURN gchar *
 gucharmap_get_unicode_name (gunichar wc)
 {
   static gchar buf[32];
 
   _gucharmap_intl_ensure_initialized ();
 
-  if ((wc >= 0x3400 && wc <= 0x4db5)
-      || (wc >= 0x4e00 && wc <= 0x9fea)
-      || (wc >= 0x20000 && wc <= 0x2a6d6)
+  if ((wc >= 0x3400 && wc <= 0x4DB5)
+      || (wc >= 0x4e00 && wc <= 0x9fcc)
+      || (wc >= 0x20000 && wc <= 0x2A6D6)
       || (wc >= 0x2a700 && wc <= 0x2b734)
-      || (wc >= 0x2b740 && wc <= 0x2b81d)
-      || (wc >= 0x2b820 && wc <= 0x2cea1)
-      || (wc >= 0x2ceb0 && wc <= 0x2ebe0))
+      || (wc >= 0x2b740 && wc <= 0x2b81d))
     {
       g_snprintf (buf, sizeof (buf), "CJK UNIFIED IDEOGRAPH-%04X", wc);
       return buf;
     }
-  else if ((wc >= 0xf900 && wc <= 0xfaff) ||
-           (wc >= 0x2f800 && wc <= 0x2fa1d)) {
-      g_snprintf (buf, sizeof (buf), "CJK COMPATIBILITY IDEOGRAPH-%04X", wc);
-      return buf;
-  }
-  else if (wc >= 0x17000 && wc <= 0x187ec) {
-      g_snprintf (buf, sizeof (buf), "TANGUT IDEOGRAPH-%05X", wc);
-      return buf;
-  }
-  else if (wc >= 0x18800 && wc <= 0x18af2) {
-      g_snprintf (buf, sizeof (buf), "TANGUT COMPONENT-%03u", wc - 0x18800 + 1);
-      return buf;
-  }
+  /* FIXME: handle U+F900..U+FAFF CJK COMPATIBILITY IDEOGRAPH U+%04X and
+   * U+2F800..U+2FA1D CJK COMPATIBILITY IDEOGRAPH U+%04X here,
+   * instead of via gucharmap_get_unicode_data_name below, to save some space?
+    */
   else if (wc >= 0xac00 && wc <= 0xd7af)
     {
       /* compute hangul syllable name as per UAX #15 */
@@ -129,7 +118,7 @@ gucharmap_get_unicode_name (gunichar wc)
     }
 }
 
-const gchar *
+G_CONST_RETURN gchar *
 gucharmap_get_unicode_category_name (gunichar wc)
 {
   _gucharmap_intl_ensure_initialized ();
@@ -171,7 +160,7 @@ gucharmap_get_unicode_category_name (gunichar wc)
 }
 
 /* does a binary search on unicode_names */
-const gchar *
+G_CONST_RETURN gchar *
 gucharmap_get_unicode_data_name (gunichar uc)
 {
   gint min = 0;
@@ -227,7 +216,7 @@ gucharmap_get_unicode_version (gunichar uc)
   return GUCHARMAP_UNICODE_VERSION_UNASSIGNED;
 }
 
-const gchar *
+G_CONST_RETURN gchar *
 gucharmap_unicode_version_to_string (GucharmapUnicodeVersion version)
 {
   g_return_val_if_fail (version >= GUCHARMAP_UNICODE_VERSION_UNASSIGNED &&
@@ -239,6 +228,8 @@ gucharmap_unicode_version_to_string (GucharmapUnicodeVersion version)
   return unicode_version_strings + unicode_version_string_offsets[version - 1];
 }
 
+#if ENABLE_UNIHAN
+
 gint
 gucharmap_get_unihan_count (void)
 {
@@ -247,7 +238,7 @@ gucharmap_get_unihan_count (void)
 
 /* does a binary search; also caches most recent, since it will often be
  * called in succession on the same character */
-static const Unihan *
+static G_CONST_RETURN Unihan *
 _get_unihan (gunichar uc)
 {
   static gunichar most_recent_searched;
@@ -283,9 +274,61 @@ _get_unihan (gunichar uc)
   return NULL;
 }
 
+#else /* #if ENABLE_UNIHAN */
+
+gint
+gucharmap_get_unihan_count ()
+{
+  return 0;
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kDefinition (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kCantonese (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kMandarin (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kTang (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kKorean (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kJapaneseKun (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+G_CONST_RETURN gchar * 
+gucharmap_get_unicode_kJapaneseOn (gunichar uc)
+{
+  return "This feature was not compiled in.";
+}
+
+#endif /* #else (#if ENABLE_UNIHAN) */
+
 /* does a binary search; also caches most recent, since it will often be
  * called in succession on the same character */
-static const NamesList *
+static G_CONST_RETURN NamesList *
 get_nameslist (gunichar uc)
 {
   static gunichar most_recent_searched;
@@ -358,7 +401,7 @@ gucharmap_get_nameslist_exes (gunichar uc)
  * Returns: (transfer container): newly allocated null-terminated array of gchar*
  * the items are const, but the array should be freed by the caller
  */
-const gchar **
+G_CONST_RETURN gchar **
 gucharmap_get_nameslist_equals (gunichar uc)
 {
   const NamesList *nl;
@@ -389,7 +432,7 @@ gucharmap_get_nameslist_equals (gunichar uc)
  * Returns: (transfer container): newly allocated null-terminated array of gchar*
  * the items are const, but the array should be freed by the caller
  */
-const gchar **
+G_CONST_RETURN gchar **
 gucharmap_get_nameslist_stars (gunichar uc)
 {
   const NamesList *nl;
@@ -420,7 +463,7 @@ gucharmap_get_nameslist_stars (gunichar uc)
  * Returns: (transfer container): newly allocated null-terminated array of gchar*
  * the items are const, but the array should be freed by the caller
  */
-const gchar **
+G_CONST_RETURN gchar **
 gucharmap_get_nameslist_pounds (gunichar uc)
 {
   const NamesList *nl;
@@ -451,7 +494,7 @@ gucharmap_get_nameslist_pounds (gunichar uc)
  * Returns: (transfer container): newly allocated null-terminated array of gchar*
  * the items are const, but the array should be freed by the caller
  */
-const gchar **
+G_CONST_RETURN gchar **
 gucharmap_get_nameslist_colons (gunichar uc)
 {
   const NamesList *nl;
@@ -599,24 +642,8 @@ gucharmap_unichar_isgraph (gunichar uc)
 {
   GUnicodeType t = gucharmap_unichar_type (uc);
 
-  /* From http://www.unicode.org/versions/Unicode9.0.0/ch09.pdf, p16
-   * "Unlike most other format control characters, however, they should be
-   *  rendered with a visible glyph, even in circumstances where no suitable
-   *  digit or sequence of digits follows them in logical order."
-   * There the standard talks about the ar signs spanning numbers, but
-   * I think this should apply to all Prepended_Concatenation_Mark format
-   * characters.
-   * Instead of parsing the corresponding data file, just hardcode the
-   * (few!) existing characters here.
-   */
-  if (t == G_UNICODE_FORMAT)
-    return (uc >= 0x0600 && uc <= 0x0605) || 
-	   uc == 0x06DD ||
-           uc == 0x070F ||
-           uc == 0x08E2 ||
-           uc == 0x110BD;
-
   return (t != G_UNICODE_CONTROL
+          && t != G_UNICODE_FORMAT
           && t != G_UNICODE_UNASSIGNED
           && t != G_UNICODE_PRIVATE_USE
           && t != G_UNICODE_SURROGATE

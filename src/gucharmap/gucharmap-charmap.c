@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2004 Noah Levitt
  * Copyright (c) 2007, 2008 Christian Persch
- * Copyright (c) 2016 DaeHyun Sung
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -15,7 +14,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
@@ -362,23 +361,8 @@ insert_codepoint (GucharmapCharmap *charmap,
 {
   gchar *str;
   GtkTextTag *tag;
-  char buf[7];
-  GUnicodeType t;
-  gboolean is_graph, is_Mn;
-  char nbsp[3] = "\302\240\0"; /* U+00A0 NO-BREAK SPACE */
 
-  t = g_unichar_type (uc);
-  is_Mn = t == G_UNICODE_NON_SPACING_MARK /* Mn */;
-  is_graph = g_unichar_isgraph (uc);
-
-  buf[g_unichar_to_utf8 (uc, buf)] = '\0';
-
-  str = g_strdup_printf ("%s%s%sU+%4.4X %s",
-                         /* Per unicode standard, exhibit nonspacing marks on NBSP */
-                         is_graph && is_Mn ? nbsp : "",
-                         is_graph ? buf : "",
-                         is_graph ? " " : "",
-                         uc,
+  str = g_strdup_printf ("U+%4.4X %s", uc,
                          gucharmap_get_unicode_name (uc));
 
   tag = gtk_text_buffer_create_tag (buffer, NULL, 
@@ -413,58 +397,6 @@ insert_chocolate_detail_codepoints (GucharmapCharmap *charmap,
     }
 
   gtk_text_buffer_insert (buffer, iter, "\n", -1);
-}
-
-typedef enum {
-  TAG_NONE,
-  TAG_FONT,
-  TAG_NO_BREAK,
-  TAG_INITIAL,
-  TAG_MEDIAL,
-  TAG_FINAL,
-  TAG_ISOLATED,
-  TAG_CIRCLE,
-  TAG_SUPER,
-  TAG_SUB,
-  TAG_VERTICAL,
-  TAG_WIDE,
-  TAG_NARROW,
-  TAG_SMALL,
-  TAG_SQUARE,
-  TAG_FRACTION,
-  TAG_COMPAT
-} CompatibilityFormattingTag;
-
-static void
-insert_compatibility_formatting_tag (GucharmapCharmap *charmap,
-                                     GtkTextBuffer *buffer,
-                                     GtkTextIter *iter,
-                                     CompatibilityFormattingTag tag)
-{
-  static const char *tag_names[] = {
-    [TAG_NONE] = "",
-    [TAG_FONT] = N_("Font variant of"),
-    [TAG_NO_BREAK] = N_("No-break version of"),
-    [TAG_INITIAL] = N_("Initial presentation form of"),
-    [TAG_MEDIAL] = N_("Medial presentation form of"),
-    [TAG_FINAL] = N_("Final presentation form of"),
-    [TAG_ISOLATED] = N_("Isolated presentation form of"),
-    [TAG_CIRCLE] = N_("Encircled form of"),
-    [TAG_SUPER] = N_("Superscript form of"),
-    [TAG_SUB] = N_("Subscript form of"),
-    [TAG_VERTICAL] = N_("Vertical layout presentation form of"),
-    [TAG_WIDE] = N_("Wide compatibility character of"),
-    [TAG_NARROW] = N_("Narrow compatibility character of"),
-    [TAG_SMALL] = N_("Small variant form of"),
-    [TAG_SQUARE] = N_("CJK squared font variant of"),
-    [TAG_FRACTION] = N_("Vulgar fraction form of"),
-    [TAG_COMPAT] = N_("Unspecified compatibility character of")
-  };
-  char *str;
-
-  str = g_strdup_printf ("%s ", _(tag_names[tag]));
-  gtk_text_buffer_insert (buffer, iter, str, -1);
-  g_free (str);
 }
 
 #define is_hex_digit(c) (((c) >= '0' && (c) <= '9') \
@@ -504,72 +436,6 @@ find_codepoint (const gchar *str)
   return NULL;
 }
 
-static CompatibilityFormattingTag
-parse_tag (const char *str,
-           gsize len)
-{
-  if (strncmp (str, "font", len) == 0)
-    return TAG_FONT;
-  if (strncmp (str, "noBreak", len) == 0)
-    return TAG_NO_BREAK;
-  if (strncmp (str, "initial", len) == 0)
-    return TAG_INITIAL;
-  if (strncmp (str, "medial", len) == 0)
-    return TAG_MEDIAL;
-  if (strncmp (str, "final", len) == 0)
-    return TAG_FINAL;
-  if (strncmp (str, "isolated", len) == 0)
-    return TAG_ISOLATED;
-  if (strncmp (str, "circle", len) == 0)
-    return TAG_CIRCLE;
-  if (strncmp (str, "super", len) == 0)
-    return TAG_SUPER;
-  if (strncmp (str, "sub", len) == 0)
-    return TAG_SUB;
-  if (strncmp (str, "vertical", len) == 0)
-    return TAG_VERTICAL;
-  if (strncmp (str, "wide", len) == 0)
-    return TAG_WIDE;
-  if (strncmp (str, "narrow", len) == 0)
-    return TAG_NARROW;
-  if (strncmp (str, "small", len) == 0)
-    return TAG_SMALL;
-  if (strncmp (str, "square", len) == 0)
-    return TAG_SQUARE;
-  if (strncmp (str, "fraction", len) == 0)
-    return TAG_FRACTION;
-  if (strncmp (str, "compat", len) == 0)
-    return TAG_COMPAT;
-
-  g_printerr ("unrecognised tag '%s'\n", str);
-  return TAG_NONE;
-}
-
-/* returns the string after the tag */
-static const char *
-find_tag (const char *str,
-          CompatibilityFormattingTag *tag)
-{
-  const char *csb;
-
-  *tag = TAG_NONE;
-
-  if (str[0] != '<')
-    return str;
-
-  csb = strchr (str, '>');
-  if (csb == NULL)
-    return str;
-
-  *tag = parse_tag (str + 1, csb - str - 1);
-
-  str = csb + 1;
-  while (g_ascii_isspace (*str))
-    str++;
-
-  return str;
-}
-
 static void
 insert_string_link_codepoints (GucharmapCharmap *charmap,
                                GtkTextBuffer *buffer,
@@ -577,12 +443,8 @@ insert_string_link_codepoints (GucharmapCharmap *charmap,
                                const gchar *str)
 {
   const gchar *p1, *p2;
-  CompatibilityFormattingTag tag;
 
-  p1 = find_tag (str, &tag);
-  if (tag != TAG_NONE)
-    insert_compatibility_formatting_tag (charmap, buffer, iter, tag);
-
+  p1 = str;
   for (;;)
     {
       p2 = find_codepoint (p1);
@@ -595,9 +457,7 @@ insert_string_link_codepoints (GucharmapCharmap *charmap,
         }
       else
         {
-          /* Ignore non-codepoints for compatibility formatting tags */
-          if (tag == TAG_NONE)
-            gtk_text_buffer_insert (buffer, iter, p1, -1);
+          gtk_text_buffer_insert (buffer, iter, p1, -1);
           break;
         }
     }
@@ -644,43 +504,24 @@ insert_heading (GucharmapCharmap *charmap,
 }
 
 static void
-conditionally_insert_decomposition (GucharmapCharmap *charmap, 
-                                    GtkTextBuffer *buffer,
-                                    GtkTextIter *iter,
-                                    gunichar uc,
-                                    gboolean compat)
+conditionally_insert_canonical_decomposition (GucharmapCharmap *charmap, 
+                                              GtkTextBuffer *buffer,
+                                              GtkTextIter *iter,
+                                              gunichar uc)
 {
-  gunichar decomposition[G_UNICHAR_MAX_DECOMPOSITION_LENGTH];
-  gsize result_len, i;
+  gunichar *decomposition;
+  gsize result_len;
+  guint i;
 
-  result_len = g_unichar_fully_decompose (uc,
-                                          compat,
-                                          decomposition,
-                                          G_N_ELEMENTS (decomposition));
+  decomposition = g_unicode_canonical_decomposition (uc, &result_len);
 
   if (result_len == 1)
-    return;
-
-  /* Only insert compat decomp if different from canonical decomp */
-  if (compat) {
-    gunichar canonical[G_UNICHAR_MAX_DECOMPOSITION_LENGTH];
-    gsize canonical_len;
-
-    canonical_len = g_unichar_fully_decompose (uc,
-                                               FALSE /* canonical */,
-                                               canonical,
-                                               G_N_ELEMENTS (canonical));
-
-    if (canonical_len == result_len &&
-        memcmp (decomposition, canonical, result_len * sizeof (gunichar)) == 0)
+    {
+      g_free (decomposition);
       return;
-  }
+    }
 
-  gtk_text_buffer_insert (buffer, iter,
-                          compat
-                          ? _("Compatibility decomposition:")
-                          : _("Canonical decomposition:"),
-                          -1);
+  gtk_text_buffer_insert (buffer, iter, _("Canonical decomposition:"), -1);
   gtk_text_buffer_insert (buffer, iter, " ", -1);
 
   insert_codepoint (charmap, buffer, iter, decomposition[0]);
@@ -691,6 +532,8 @@ conditionally_insert_decomposition (GucharmapCharmap *charmap,
     }
 
   gtk_text_buffer_insert (buffer, iter, "\n", -1);
+
+  g_free (decomposition);
 }
 
 static void
@@ -749,9 +592,7 @@ set_details (GucharmapCharmap *charmap,
                          gucharmap_get_unicode_category_name (uc));
 
   /* canonical decomposition */
-  conditionally_insert_decomposition (charmap, buffer, &iter, uc, FALSE);
-  /* compatibility decomposition */
-  conditionally_insert_decomposition (charmap, buffer, &iter, uc, TRUE);
+  conditionally_insert_canonical_decomposition (charmap, buffer, &iter, uc);
 
   /* representations */
   if (g_unichar_break_type(uc) != G_UNICODE_BREAK_SURROGATE)
@@ -854,6 +695,8 @@ set_details (GucharmapCharmap *charmap,
         }
     }
 
+#if ENABLE_UNIHAN
+
   /* this isn't so bad efficiency-wise */
   if (gucharmap_get_unicode_kDefinition (uc)
       || gucharmap_get_unicode_kCantonese (uc)
@@ -861,8 +704,7 @@ set_details (GucharmapCharmap *charmap,
       || gucharmap_get_unicode_kJapaneseOn (uc)
       || gucharmap_get_unicode_kJapaneseKun (uc)
       || gucharmap_get_unicode_kTang (uc)
-      || gucharmap_get_unicode_kHangul(uc)
-      || gucharmap_get_unicode_kVietnamese(uc))
+      || gucharmap_get_unicode_kKorean (uc))
     {
       insert_heading (charmap, buffer, &iter, _("CJK Ideograph Information"));
 
@@ -896,16 +738,12 @@ set_details (GucharmapCharmap *charmap,
         insert_vanilla_detail (charmap, buffer, &iter,
                                _("Tang Pronunciation:"), csp);
     
-      csp = gucharmap_get_unicode_kHangul (uc);
+      csp = gucharmap_get_unicode_kKorean (uc);
       if (csp)
         insert_vanilla_detail (charmap, buffer, &iter,
                                _("Korean Pronunciation:"), csp);
-      
-      csp = gucharmap_get_unicode_kVietnamese (uc);
-      if (csp)
-        insert_vanilla_detail (charmap, buffer, &iter, 
-                               _("Vietnamese Pronunciation:"), csp);
     }
+#endif /* #if ENABLE_UNIHAN */
 }
 
 static void
@@ -940,9 +778,11 @@ chartable_sync_active_char (GtkWidget *widget,
   g_string_append_printf (gs, "U+%4.4X %s", wc, 
                           gucharmap_get_unicode_name (wc));
 
+#if ENABLE_UNIHAN
   temp = gucharmap_get_unicode_kDefinition (wc);
   if (temp)
     g_string_append_printf (gs, "   %s", temp);
+#endif
 
   temps = gucharmap_get_nameslist_equals (wc);
   if (temps)
@@ -1259,13 +1099,9 @@ gucharmap_charmap_init (GucharmapCharmap *charmap)
   /* Chartable page */
   scrolled_window = gtk_scrolled_window_new (NULL, NULL);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
-                                  GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
+                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled_window),
                                        GTK_SHADOW_NONE);
-#if GTK_CHECK_VERSION (3, 15, 9)
-  gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled_window),
-                                             FALSE);
-#endif
 
   chartable = gucharmap_chartable_new ();
   priv->chartable = GUCHARMAP_CHARTABLE (chartable);

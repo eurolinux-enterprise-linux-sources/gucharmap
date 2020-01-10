@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<book xmlns="http://www.devhelp.net/book" title="gucharmap Reference Manual" link="index.html" author="" name="gucharmap" version="2" language="c" online="http://[SERVER]/gucharmap/index.html">
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="gucharmap Reference Manual" link="index.html" author="" name="gucharmap" version="2" language="c">
   <chapters>
     <sub name="[Insert title here]" link="ch01.html">
       <sub name="GucharmapCodepointList" link="GucharmapCodepointList.html"/>
@@ -111,8 +112,6 @@
     <keyword type="function" name="gucharmap_get_unicode_kKorean ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-unicode-kKorean"/>
     <keyword type="function" name="gucharmap_get_unicode_kJapaneseKun ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-unicode-kJapaneseKun"/>
     <keyword type="function" name="gucharmap_get_unicode_kJapaneseOn ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-unicode-kJapaneseOn"/>
-    <keyword type="function" name="gucharmap_get_unicode_kHangul ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-unicode-kHangul"/>
-    <keyword type="function" name="gucharmap_get_unicode_kVietnamese ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-unicode-kVietnamese"/>
     <keyword type="function" name="gucharmap_get_nameslist_stars ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-nameslist-stars"/>
     <keyword type="function" name="gucharmap_get_nameslist_equals ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-nameslist-equals"/>
     <keyword type="function" name="gucharmap_get_nameslist_exes ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-get-nameslist-exes"/>
@@ -128,26 +127,5 @@
     <keyword type="function" name="gucharmap_unicode_version_to_string ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-unicode-version-to-string"/>
     <keyword type="function" name="gucharmap_unicode_get_locale_character ()" link="gucharmap-gucharmap-unicode-info.html#gucharmap-unicode-get-locale-character"/>
     <keyword type="enum" name="enum GucharmapUnicodeVersion" link="gucharmap-gucharmap-unicode-info.html#GucharmapUnicodeVersion"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_UNASSIGNED" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-UNASSIGNED:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_1_1" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-1-1:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_2_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-2-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_2_1" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-2-1:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_3_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-3-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_3_1" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-3-1:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_3_2" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-3-2:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_4_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-4-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_4_1" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-4-1:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_5_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-5-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_5_1" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-5-1:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_5_2" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-5-2:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_6_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-6-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_6_1" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-6-1:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_6_2" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-6-2:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_6_3" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-6-3:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_7_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-7-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_8_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-8-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_9_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-9-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_10_0" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-10-0:CAPS"/>
-    <keyword type="constant" name="GUCHARMAP_UNICODE_VERSION_LATEST" link="gucharmap-gucharmap-unicode-info.html#GUCHARMAP-UNICODE-VERSION-LATEST:CAPS"/>
   </functions>
 </book>

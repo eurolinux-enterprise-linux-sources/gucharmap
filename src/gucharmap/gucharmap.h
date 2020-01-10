@@ -14,7 +14,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #ifndef GUCHARMAP_H
@@ -32,9 +32,9 @@
 #define GUCHARMAP_DEPRECATED_FOR(f) G_DEPRECATED_FOR(f)
 #endif
 
-#define GUCHARMAP_VERSION_MAJOR (10)
-#define GUCHARMAP_VERSION_MINOR (0)
-#define GUCHARMAP_VERSION_MICRO (4)
+#define GUCHARMAP_VERSION_MAJOR (3)
+#define GUCHARMAP_VERSION_MINOR (14)
+#define GUCHARMAP_VERSION_MICRO (2)
 
 #define GUCHARMAP_CHECK_VERSION(major,minor,micro) \
   (GUCHARMAP_VERSION_MAJOR > (major) || \

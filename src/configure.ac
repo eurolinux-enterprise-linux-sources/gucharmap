@@ -3,7 +3,7 @@
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the
-# Free Software Foundation; either version 3 of the License, or (at your
+# Free Software Foundation; either version 2 of the License, or (at your
 # option) any later version.
 #
 # This program is distributed in the hope that it will be useful, but
@@ -13,11 +13,11 @@
 #
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+# 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
 
-m4_define([gucharmap_version_major],[10])
-m4_define([gucharmap_version_minor],[0])
-m4_define([gucharmap_version_micro],[4])
+m4_define([gucharmap_version_major],[3])
+m4_define([gucharmap_version_minor],[14])
+m4_define([gucharmap_version_micro],[2])
 m4_define([gucharmap_version_extra],[])
 m4_define([gucharmap_version],[gucharmap_version_major.gucharmap_version_minor.gucharmap_version_micro()gucharmap_version_extra])
 
@@ -47,17 +47,15 @@ AM_SILENT_RULES([yes])
 AM_MAINTAINER_MODE([enable])
 
 # checks for progs
-
-GNOME_DEBUG_CHECK
-
 AC_PROG_CC
-AC_USE_SYSTEM_EXTENSIONS
-
 AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 IT_PROG_INTLTOOL([0.40.0])
 
 AM_PROG_CC_C_O
+
+# checks for stuff
+GNOME_DEBUG_CHECK
 
 # User documentation
 YELP_HELP_INIT([no-lc-media-links no-lc-dist])
@@ -117,7 +115,6 @@ PKG_CHECK_MODULES([GTK],[
   glib-2.0 >= $GLIB_REQUIRED
   gio-2.0 >= $GIO_REQUIRED
   gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
-  freetype2
 ])
 
 GLIB_GENMARSHAL="$($PKG_CONFIG --variable=glib_genmarshal glib-2.0)"
@@ -141,84 +138,49 @@ AC_CHECK_FUNCS([bind_textdomain_codeset])
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
+AH_TEMPLATE([ENABLE_UNIHAN], [Define if you want CJK ideograph information])
+AC_ARG_ENABLE(unihan, 
+              AC_HELP_STRING([--disable-unihan], 
+                             [do not build in CJK ideograph information]))
+if test "x$enable_unihan" != "xno" ; then
+    AC_DEFINE([ENABLE_UNIHAN],[1],[Define if you want CJK ideograph information])
+fi
+
 # Some utilities
 AC_PROG_LN_S
-AC_PROG_SED
 
 AC_ARG_VAR([GLIB_COMPILE_RESOURCES],[the glib-compile-resources programme])
-if test -z "$GLIB_COMPILE_RESOURCES"; then
-  AC_PATH_PROG([GLIB_COMPILE_RESOURCES],[glib-compile-resources],[false])
-  if test "$GLIB_COMPILE_RESOURCES" = "false"; then
-      AC_MSG_ERROR([glib-compile-resources not found])
-  fi
+AC_PATH_PROG([GLIB_COMPILE_RESOURCES],[glib-compile-resources],[false])
+if test "$GLIB_COMPILE_RESOURCES" = "false"; then
+    AC_MSG_ERROR([glib-compile-resources not found])
 fi
+
+# AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])
+# if test "$GTK_BUILDER_CONVERT" = "false"; then
+#   AC_MSG_ERROR([gtk-builder-convert not found])
+# fi
 
 AC_ARG_VAR([XMLLINT],[the xmllint programme])
-if test -z "$XMLLINT"; then
-  AC_PATH_PROG([XMLLINT],[xmllint],[false])
-  if test "$XMLLINT" = "false"; then
-    AC_MSG_ERROR([xmllint not found])
-  fi
+AC_PATH_PROG([XMLLINT],[xmllint],[false])
+if test "$XMLLINT" = "false"; then
+  AC_MSG_ERROR([xmllint not found])
 fi
+
+# AC_PATH_PROG([HEXDUMP],[hexdump],[false])
+# if test "$HEXDUMP" = "false"; then
+#   AC_MSG_ERROR([hexdump not found])
+# fi
 
 AC_ARG_VAR([DESKTOP_FILE_VALIDATE],[the desktop-file-validate programme])
+AC_PATH_PROG([DESKTOP_FILE_VALIDATE],[desktop-file-validate],[])
 if test -z "$DESKTOP_FILE_VALIDATE"; then
-  AC_PATH_PROG([DESKTOP_FILE_VALIDATE],[desktop-file-validate],[])
-  if test -z "$DESKTOP_FILE_VALIDATE"; then
-    AC_MSG_ERROR([desktop-file-validate not found])
-  fi
+  AC_MSG_ERROR([desktop-file-validate not found])
 fi
 
-# Unicode data
-
-AC_MSG_CHECKING([for Unicode data])
-AC_ARG_WITH([unicode-data],
-        [AS_HELP_STRING([--with-unicode-data=PATH],[Specify absolute directory where the Unicode data files reside. If 'download', downloads the files to the build directory.])],
-        [case "$withval" in
-           download) unicodedatadir='${builddir}'
-                     with_provided_unicode_data="download"
-                     ;;
-	   yes|no) AC_MSG_ERROR([You need to specify the path to the unicode data files with --with-unicode-data=PATH, or use
---with-unicode-data=download to download the data files during the build process.])
-                   ;;
-           *) unicodedatadir="$(readlink -f $withval)"
-              with_provided_unicode_data="yes (from $unicodedatadir)"
-              ;;
-         esac],
-        [AC_MSG_ERROR([You need to specify the path to the unicode data files with --with-unicode-data=PATH, or use
---with-unicode-data=download to download the data files during the build process.])])
-AC_MSG_RESULT([$with_provided_unicode_data])
-
-AM_CONDITIONAL([WITH_UNICODE_DATA],[test "$with_provided_unicode_data" != "download"])
-AC_SUBST([unicodedatadir])
-
-# If we don't have a directory where we can find Unicode data in, we need to download it.
-# For that, we need some utilities
-
-# Note! Not using UNZIP as variable name here since unzip itself
-# uses the UNZIP env var and interprets it as its options.
-AC_ARG_VAR([PROG_UNZIP],[the unzip programme])
-if test -z "$PROG_UNZIP"; then
-  AC_PATH_PROG([PROG_UNZIP],[unzip],[false])
-  if test "$PROG_UNZIP" = "false"; then
-      AC_MSG_ERROR([unzip not found])
-  fi
-fi
-
-AC_ARG_VAR([WGET],[the wget programme])
-if test -z "$WGET"; then
-  AC_PATH_PROG([WGET],[wget],[false])
-  if test "$with_provided_unicode_data" = "download" -a "$WGET" = "false"; then
-      AC_MSG_ERROR([wget not found])
-  fi
-fi
-
-AC_ARG_VAR([SHA512SUM],[the sha512sum programme])
-if test -z "$SHA512SUM"; then
-  AC_PATH_PROGS([SHA512SUM],[gsha512sum sha512sum],[false])
-  if test "$with_provided_unicode_data" = "download" -a "$WGET" = "false"; then
-    AC_MSG_ERROR([sha512sum not found])
-  fi
+AC_ARG_VAR([APPDATA_VALIDATE],[the appdata-validate programme])
+AC_PATH_PROG([APPDATA_VALIDATE],[appdata-validate],[])
+if test -z "$APPDATA_VALIDATE"; then
+  AC_MSG_ERROR([appdata-validate not found])
 fi
 
 # ****
@@ -269,8 +231,7 @@ CC_CHECK_CFLAGS_APPEND([ \
   -Wstrict-aliasing=2 -Winit-self -Wunsafe-loop-optimizations \
   -Wdeclaration-after-statement -Wold-style-definition \
   -Wno-missing-field-initializers -Wno-unused-parameter \
-  -Wformat-signedness \
-  -fno-common -fno-strict-aliasing -Wno-switch-enum])
+  -fno-common -Wno-switch-enum])
 
 # ********
 # Bindings

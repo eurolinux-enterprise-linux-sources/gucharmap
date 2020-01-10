@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GucharmapScriptCodepointList: gucharmap Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<title>gucharmap Reference Manual: GucharmapScriptCodepointList</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="gucharmap Reference Manual">
 <link rel="up" href="ch01.html" title="[Insert title here]">
 <link rel="prev" href="GucharmapScriptChaptersModel.html" title="GucharmapScriptChaptersModel">
 <link rel="next" href="gucharmap-gucharmap-chapters-view.html" title="GucharmapChaptersView">
-<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.20.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -34,7 +34,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="gucharmap-gucharmap-script-codepoint-list.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -77,7 +77,7 @@
 </div>
 <a name="GucharmapScriptCodepointList"></a><div class="refsect1">
 <a name="gucharmap-gucharmap-script-codepoint-list.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -114,9 +114,10 @@
 gucharmap_script_codepoint_list_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Creates a new script codepoint list. The default script is Latin.</p>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-new.returns"></a><h4>Returns</h4>
+<a name="id-1.2.7.8.2.5"></a><h4>Returns</h4>
 <p> the newly-created <a class="link" href="GucharmapCodepointList.html" title="GucharmapCodepointList"><span class="type">GucharmapCodepointList</span></a>. Use
 <code class="function">g_object_unref()</code> to free the result.</p>
+<p></p>
 </div>
 </div>
 <hr>
@@ -128,8 +129,8 @@ gucharmap_script_codepoint_list_set_script
                                 <em class="parameter"><code>const <span class="type">gchar</span> *script</code></em>);</pre>
 <p>Sets the script for the codepoint list.</p>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-set-script.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.7.8.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -150,9 +151,10 @@ gucharmap_script_codepoint_list_set_script
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-set-script.returns"></a><h4>Returns</h4>
+<a name="id-1.2.7.8.3.6"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if there is no such script, in
 which case the script is not changed.</p>
+<p></p>
 </div>
 </div>
 <hr>
@@ -166,8 +168,8 @@ gucharmap_script_codepoint_list_set_scripts
 according to their order in <em class="parameter"><code>scripts</code></em>
 .</p>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-set-scripts.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.7.8.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -188,9 +190,10 @@ according to their order in <em class="parameter"><code>scripts</code></em>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-set-scripts.returns"></a><h4>Returns</h4>
+<a name="id-1.2.7.8.4.6"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if any of the scripts don’t
 exist, in which case the script is not changed.</p>
+<p></p>
 </div>
 </div>
 <hr>
@@ -203,8 +206,8 @@ gucharmap_script_codepoint_list_append_script
 <p>Appends the characters in <em class="parameter"><code>script</code></em>
  to the codepoint list.</p>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-append-script.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<a name="id-1.2.7.8.5.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -225,9 +228,10 @@ gucharmap_script_codepoint_list_append_script
 </table></div>
 </div>
 <div class="refsect3">
-<a name="gucharmap-script-codepoint-list-append-script.returns"></a><h4>Returns</h4>
+<a name="id-1.2.7.8.5.6"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if there is no such script, in
 which case the codepoint list is not changed.</p>
+<p></p>
 </div>
 </div>
 </div>
@@ -249,6 +253,7 @@ which case the codepoint list is not changed.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25</div>
+<hr>
+          Generated by GTK-Doc V1.20.1</div>
 </body>
 </html>

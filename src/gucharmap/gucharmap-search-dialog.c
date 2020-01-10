@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
@@ -149,6 +149,8 @@ matches (GucharmapSearchDialog *search_dialog,
 
   if (annotations)
     {
+
+#if ENABLE_UNIHAN
       haystack = gucharmap_get_unicode_kDefinition (wc);
       if (haystack)
 	{
@@ -161,6 +163,7 @@ matches (GucharmapSearchDialog *search_dialog,
 
       if (matched)
 	return TRUE;
+#endif
 
       haystack_arr = gucharmap_get_nameslist_equals (wc);
       if (haystack_arr)
@@ -584,8 +587,7 @@ search_completed (GucharmapSearchDialog *search_dialog)
       gtk_widget_set_sensitive (priv->next_button, FALSE);
     }
 
-  if (gtk_widget_get_realized (GTK_WIDGET (search_dialog)))
-      gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (search_dialog)), NULL);
+  gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (search_dialog)), NULL);
 }
 
 static gboolean
@@ -614,11 +616,9 @@ _gucharmap_search_dialog_fire_search (GucharmapSearchDialog *search_dialog,
   if (priv->search_state && priv->search_state->searching) /* Already searching */
     return;
 
-  if (gtk_widget_get_realized (GTK_WIDGET (search_dialog))) {
-    cursor = gdk_cursor_new_for_display (gtk_widget_get_display (GTK_WIDGET (search_dialog)), GDK_WATCH);
-    gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (search_dialog)), cursor);
-    g_object_unref (cursor);
-  }
+  cursor = gdk_cursor_new_for_display (gtk_widget_get_display (GTK_WIDGET (search_dialog)), GDK_WATCH);
+  gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (search_dialog)), cursor);
+  g_object_unref (cursor);
 
   list = gucharmap_charmap_get_book_codepoint_list (priv->guw->charmap);
   if (!list)
@@ -663,7 +663,7 @@ gucharmap_search_dialog_start_search (GucharmapSearchDialog *search_dialog,
 {
   GucharmapSearchDialogPrivate *priv = GUCHARMAP_SEARCH_DIALOG_GET_PRIVATE (search_dialog);
 
-  if (!_entry_is_empty (GTK_ENTRY (priv->entry)))
+  if (priv->search_state != NULL && !_entry_is_empty (GTK_ENTRY (priv->entry)))
     _gucharmap_search_dialog_fire_search (search_dialog, direction);
   else
     gtk_window_present (GTK_WINDOW (search_dialog));
@@ -853,18 +853,6 @@ gucharmap_search_dialog_present (GucharmapSearchDialog *search_dialog)
   gtk_window_present (GTK_WINDOW (search_dialog));
 }
 
-void
-gucharmap_search_dialog_set_search (GucharmapSearchDialog *search_dialog,
-                                    const char            *search_string)
-{
-  GucharmapSearchDialogPrivate *priv;
-  g_return_if_fail (GUCHARMAP_IS_SEARCH_DIALOG (search_dialog));
-  g_return_if_fail (search_string != NULL);
-
-  priv = GUCHARMAP_SEARCH_DIALOG_GET_PRIVATE (search_dialog);
-  gtk_entry_set_text (GTK_ENTRY (priv->entry), search_string);
-}
-
 gdouble
 gucharmap_search_dialog_get_completed (GucharmapSearchDialog *search_dialog)
 {
@@ -874,7 +862,11 @@ gucharmap_search_dialog_get_completed (GucharmapSearchDialog *search_dialog)
     return -1.0;
   else
     {
+#if ENABLE_UNIHAN
       gdouble total = gucharmap_get_unicode_data_name_count () + gucharmap_get_unihan_count ();
+#else
+      gdouble total = gucharmap_get_unicode_data_name_count ();
+#endif
       return (gdouble) priv->search_state->strings_checked / total;
     }
 }

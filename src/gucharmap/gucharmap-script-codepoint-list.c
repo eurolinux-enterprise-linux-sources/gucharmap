@@ -13,14 +13,12 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
 #include <glib.h>
 #include <string.h>
-
-#include <glib/gi18n-lib.h>
 
 #include "gucharmap.h"
 #include "gucharmap-private.h"
@@ -439,7 +437,7 @@ gucharmap_unicode_list_scripts (void)
  * character belongs. Characters that don't belong to an actual script
  * return %"Common".
  **/
-const gchar *
+G_CONST_RETURN gchar *
 gucharmap_unicode_get_script_for_char (gunichar wc)
 {
   gint min = 0;

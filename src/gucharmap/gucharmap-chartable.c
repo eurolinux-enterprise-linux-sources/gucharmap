@@ -17,7 +17,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
@@ -782,9 +782,6 @@ make_zoom_window (GucharmapChartable *chartable)
     return;
 
   priv->zoom_window = gtk_window_new (GTK_WINDOW_POPUP);
-  /* For wayland, we need to "attach" the popup to the toplevel */
-  gtk_window_set_transient_for (GTK_WINDOW (priv->zoom_window),
-                                GTK_WINDOW (gtk_widget_get_toplevel (widget)));
   gtk_window_set_resizable (GTK_WINDOW (priv->zoom_window), FALSE);
   gtk_window_set_screen (GTK_WINDOW (priv->zoom_window),
                          gtk_widget_get_screen (widget));
@@ -1918,8 +1915,7 @@ gucharmap_chartable_init (GucharmapChartable *chartable)
   gtk_widget_set_events (widget,
           GDK_EXPOSURE_MASK | GDK_KEY_PRESS_MASK | GDK_BUTTON_PRESS_MASK |
           GDK_BUTTON_RELEASE_MASK | GDK_BUTTON3_MOTION_MASK |
-          GDK_BUTTON1_MOTION_MASK | GDK_FOCUS_CHANGE_MASK |
-          GDK_SCROLL_MASK | GDK_SMOOTH_SCROLL_MASK);
+          GDK_BUTTON1_MOTION_MASK | GDK_FOCUS_CHANGE_MASK | GDK_SCROLL_MASK);
 
   priv->target_list = gtk_target_list_new (NULL, 0);
   gtk_target_list_add_text_targets (priv->target_list, 0);

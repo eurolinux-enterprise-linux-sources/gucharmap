@@ -1,9 +1,9 @@
 ## Copyright © 2003  Noah Levitt
-## Copyright © 2008, 2016  Christian Persch
+## Copyright © 2008  Christian Persch
 ##
 ## This program is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by the
-## Free Software Foundation; either version 3 of the License, or (at your
+## Free Software Foundation; either version 2 of the License, or (at your
 ## option) any later version.
 ##
 ## This program is distributed in the hope that it will be useful, but
@@ -13,7 +13,7 @@
 ##
 ## You should have received a copy of the GNU General Public License along
 ## with this program; if not, write to the Free Software Foundation, Inc.,
-## 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+## 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
 ##
 
 NULL =
@@ -27,7 +27,6 @@ BUILT_SOURCES = \
 	gucharmap-resources.h \
 	gucharmap-type-builtins.c \
 	gucharmap-type-builtins.h \
-	$(unicode_sources) \
 	$(NULL)
 
 libgucharmap@GUCHARMAP_LIBRARY_SUFFIX_U@_la_SOURCES = \
@@ -57,6 +56,13 @@ libgucharmap@GUCHARMAP_LIBRARY_SUFFIX_U@_la_SOURCES = \
 	gucharmap-script-codepoint-list.h \
 	gucharmap-unicode-info.c \
 	gucharmap-unicode-info.h \
+	unicode-blocks.h \
+	unicode-categories.h \
+	unicode-names.h \
+	unicode-nameslist.h \
+	unicode-scripts.h \
+	unicode-unihan.h \
+	unicode-versions.h \
 	$(NULL)
 
 nodist_libgucharmap@GUCHARMAP_LIBRARY_SUFFIX_U@_la_SOURCES = $(BUILT_SOURCES)
@@ -67,12 +73,12 @@ libgucharmap@GUCHARMAP_LIBRARY_SUFFIX_U@_la_CPPFLAGS = \
 	-DDATADIR=\"$(datadir)\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DHELPDIR=\"$(HELP_DIR)\" \
-	-DGLIB_DISABLE_DEPRECATION_WARNINGS \
-	-DPANGO_DISABLE_DEPRECATION_WARNINGS \
-	-DATK_DISABLE_DEPRECATION_WARNINGS \
-	-DGDK_DISABLE_DEPRECATION_WARNINGS \
-	-DGDK_PIXBUF_DISABLE_DEPRECATION_WARNINGS \
-	-DGTK_DISABLE_DEPRECATION_WARNINGS \
+	-DG_DISABLE_SINGLE_INCLUDES \
+	-DPANGO_DISABLE_SINGLE_INCLUDES \
+	-DATK_DISABLE_SINGLE_INCLUDES \
+	-DGDK_DISABLE_SINGLE_INCLUDES \
+	-DGDK_PIXBUF_DISABLE_SINGLE_INCLUDES \
+	-DGTK_DISABLE_SINGLE_INCLUDES \
 	$(AM_CPPFLAGS)
 
 libgucharmap@GUCHARMAP_LIBRARY_SUFFIX_U@_la_CFLAGS = \
@@ -138,12 +144,12 @@ gucharmap_CPPFLAGS = \
 	-DDATADIR=\"$(datadir)\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DHELPDIR=\"$(HELP_DIR)\" \
-	-DGLIB_DISABLE_DEPRECATION_WARNINGS \
-	-DPANGO_DISABLE_DEPRECATION_WARNINGS \
-	-DATK_DISABLE_DEPRECATION_WARNINGS \
-	-DGDK_DISABLE_DEPRECATION_WARNINGS \
-	-DGDK_PIXBUF_DISABLE_DEPRECATION_WARNINGS \
-	-DGTK_DISABLE_DEPRECATION_WARNINGS \
+	-DG_DISABLE_SINGLE_INCLUDES \
+	-DPANGO_DISABLE_SINGLE_INCLUDES \
+	-DATK_DISABLE_SINGLE_INCLUDES \
+	-DGDK_DISABLE_SINGLE_INCLUDES \
+	-DGDK_PIXBUF_DISABLE_SINGLE_INCLUDES \
+	-DGTK_DISABLE_SINGLE_INCLUDES \
 	$(AM_CPPFLAGS)
 
 gucharmap_CFLAGS = \
@@ -200,75 +206,26 @@ gucharmap-type-builtins.c: gucharmap-type-builtins.c.template $(libgucharmapincl
 	&& (cmp -s xgen-gtbc gucharmap-type-builtins.c || cp xgen-gtbc gucharmap-type-builtins.c ) \
 	&& rm -f xgen-gtbc
 
-# Unicode data
-
-WGETFLAGS = --timestamping --timeout=300 --tries=8 --no-directories --directory-prefix="$(builddir)"
-
-unicode_version = 10.0.0
-
-unicode_files = \
-	Blocks.txt \
-	DerivedAge.txt \
-	NamesList.txt \
-	Scripts.txt \
-	UnicodeData.txt \
-	Unihan.zip \
-	$(NULL)
-
-unicode_sources = \
-	unicode-blocks.h \
-	unicode-categories.h \
-	unicode-names.h \
-	unicode-nameslist.h \
-	unicode-scripts.h \
-	unicode-unihan.h \
-	unicode-versions.h \
-	$(NULL)
-
-stamp-download-unicode-data:
-if WITH_UNICODE_DATA
-	@echo timestamp > $(@F)
-else
-	$(MAKE) download-unicode-data && echo timestamp > $(@F)
-endif
-
-download-unicode-data:
-	for f in $(unicode_files); do \
-		[ -e $(builddir)/$${f} ] || $(WGET) $(WGETFLAGS) "https://www.unicode.org/Public/$(unicode_version)/ucd/$${f}"; \
-	done && \
-	$(SHA512SUM) --check $(srcdir)/unicode.sha512sums
-
-checksum:
-	$(AM_V_GEN)$(SHA512SUM) --tag $(addprefix $(unicodedatadir)/,$(unicode_files)) | $(SED) 's,$(unicodedatadir)/,,g' > $(srcdir)/$(@F)
-
-stamp-unicode-data: stamp-download-unicode-data
-	PROG_UNZIP=$(PROG_UNZIP) $(srcdir)/gen-guch-unicode-tables.pl $(unicode_version) $(unicodedatadir) && \
-	echo timestamp > $(@F)
-
-$(unicode_sources): stamp-unicode-data
-
-# Dist & cleanup
+# printoptions.h: print.glade
+# 	$(AM_V_GEN) $(GTK_BUILDER_CONVERT) --root custom_tab_container $< - | \
+# 		$(XMLLINT) --noblanks - | \
+# 		$(HEXDUMP) -v -e '"" 1/1 "0x%02x,""\n"' > xgen-$(@F) \
+# 	&& (cmp -s xgen-$(@F) $@ || cp -f xgen-$(@F) $@) \
+# 	&& rm -f xgen-$(@F)
 
 EXTRA_DIST = \
 	gucharmap-marshal.list \
 	gucharmap-type-builtins.c.template \
 	gucharmap-type-builtins.h.template \
 	gucharmaprc.rc \
+	download-unicode-files.sh \
 	gen-guch-unicode-tables.pl \
         gucharmap.gresource.xml.in \
-	unicode.sha512sums \
-	unicode-i18n.h \
 	$(NULL)
 
 CLEANFILES = \
 	stamp-gucharmap-type-builtins.h \
-	stamp-download-unicode-data \
-	stamp-unicode-data \
 	$(BUILT_SOURCES) \
-	$(NULL)
-
-DISTCLEANFILES = \
-	$(unicode_files) \
 	$(NULL)
 
 # introspection
@@ -353,7 +310,5 @@ gsettings_SCHEMAS = org.gnome.Charmap.gschema.xml
 EXTRA_DIST += $(gsettings_SCHEMAS)
 
 @GSETTINGS_RULES@
-
-.PHONY: unicode.sha512sums
 
 -include $(top_srcdir)/git.mk

@@ -32,7 +32,6 @@ EXTRA_DIST = \
 	ChangeLog.README \
 	autogen.sh \
 	gtkrc.win32 \
-	COPYING.GFDL \
 	COPYING.UNICODE \
 	$(NULL)
 
@@ -42,8 +41,7 @@ DISTCHECK_CONFIGURE_FLAGS = \
 	--enable-gtk-doc \
 	--disable-introspection \
 	--enable-charmap \
-	--with-gtk=3.0 \
-	--with-unicode-data=$(unicodedatadir)
+	--with-gtk=3.0
 
 CLEANFILES = \
 	$(desktop_DATA) \

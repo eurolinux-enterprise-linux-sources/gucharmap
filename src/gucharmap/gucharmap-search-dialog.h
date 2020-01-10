@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 /* GucharmapSearchDialog handles all aspects of searching */
@@ -61,8 +61,6 @@ GucharmapDirection;
 GType       gucharmap_search_dialog_get_type      (void);
 GtkWidget * gucharmap_search_dialog_new           (GucharmapWindow *parent);
 void        gucharmap_search_dialog_present       (GucharmapSearchDialog *search_dialog);
-void        gucharmap_search_dialog_set_search    (GucharmapSearchDialog *search_dialog,
-                                                   const char            *search_string);
 void        gucharmap_search_dialog_start_search  (GucharmapSearchDialog *search_dialog,
                                                    GucharmapDirection     direction);
 gdouble     gucharmap_search_dialog_get_completed (GucharmapSearchDialog *search_dialog); 

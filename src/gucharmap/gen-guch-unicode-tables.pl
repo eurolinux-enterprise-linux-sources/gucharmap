@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl -w
 #
 # $Id$ 
 #
@@ -17,24 +17,32 @@
 # NOTE! Some code copied from glib/glib/gen-unicode-tables.pl; keep in sync!
 
 use strict;
-use warnings;
+use vars ('$UNZIP', '$ICONV');
 
-use Env qw($PROG_UNZIP);
-$PROG_UNZIP = "unzip" unless (defined $PROG_UNZIP);
+# if these things aren't in your path you can put full paths to them here
+$UNZIP = 'unzip';
+$ICONV = 'iconv';
+
+sub process_unicode_data_txt ($);
+sub process_unihan_zip ($);
+sub process_nameslist_txt ($);
+sub process_blocks_txt ($);
+sub process_scripts_txt ($);
+sub process_versions_txt ($);
 
 $| = 1;  # flush stdout buffer
 
-if (@ARGV != 2 && @ARGV != 3)
+if (@ARGV != 2) 
 {
     $0 =~ s@.*/@@;
     die <<EOF
 
-Usage: $0 UNICODE-VERSION DIRECTORY [--i18n]
+Usage: $0 UNICODE-VERSION DIRECTORY
 
 DIRECTORY should contain the following Unicode data files:
 UnicodeData.txt Unihan.zip NamesList.txt Blocks.txt Scripts.txt
 
-which can be found at https://www.unicode.org/Public/UNIDATA/
+which can be found at http://www.unicode.org/Public/UNIDATA/
 
 EOF
 }
@@ -43,13 +51,6 @@ my ($unicodedata_txt, $unihan_zip, $nameslist_txt, $blocks_txt, $scripts_txt, $v
 
 my $v = $ARGV[0];
 my $d = $ARGV[1];
-
-my $gen_translatable_strings = 0;
-if (@ARGV == 3)
-{
-    $gen_translatable_strings = 1 if ($ARGV[2] eq "--i18n") or die "Unknown option \"$ARGV[2]\"\n";
-}
-
 opendir (my $dir, $d) or die "Cannot open Unicode data dir $d: $!\n";
 for my $f (readdir ($dir))
 {
@@ -68,26 +69,19 @@ defined $blocks_txt or die "Did not find $d/Blocks.txt";
 defined $scripts_txt or die "Did not find $d/Scripts.txt";
 defined $versions_txt or die "Did not find $d/DerivedAge.txt";
 
-if ($gen_translatable_strings)
-{
-    process_translatable_strings ($blocks_txt, $scripts_txt);
-}
-else
-{
-    process_unicode_data_txt ($unicodedata_txt);
-    process_nameslist_txt ($nameslist_txt);
-    process_blocks_txt ($blocks_txt);
-    process_scripts_txt ($scripts_txt);
-    process_versions_txt ($versions_txt);
-    process_unihan_zip ($unihan_zip);
-}
+process_unicode_data_txt ($unicodedata_txt);
+process_nameslist_txt ($nameslist_txt);
+process_blocks_txt ($blocks_txt);
+process_scripts_txt ($scripts_txt);
+process_versions_txt ($versions_txt);
+process_unihan_zip ($unihan_zip);
 
 exit;
 
 
 #------------------------#
 
-sub process_unicode_data_txt
+sub process_unicode_data_txt ($)
 {
     my ($unicodedata_txt) = @_;
 
@@ -107,6 +101,7 @@ sub process_unicode_data_txt
     print $out "#define UNICODE_NAMES_H\n\n";
 
     print $out "#include <glib.h>\n\n";
+    print $out "#include <glib/gi18n-lib.h>\n\n";
 
     my @unicode_pairs;
     my %names;
@@ -118,15 +113,6 @@ sub process_unicode_data_txt
 
         my $hex = $1;
         my $name = $2;
-
-        # Skip items where we can easily reconstruct the name programmatically
-        next if ($name =~ /^CJK UNIFIED IDEOGRAPH-[0-9A-F]{4,6}$/);
-        next if ($name =~ /^CJK COMPATIBILITY IDEOGRAPH-[0-9A-F]{4,6}$/);
-        next if ($name =~ /^TANGUT IDEOGRAPH-[0-9A-F]{4,6}$/);
-        next if ($name =~ /^TANGUT COMPONENT-[0-9]+$/);
-
-        # Skip unwanted items
-        next if ($name =~ /^<.+, (First|Last)>$/);
 
         $names{$name} = 1;
         push @unicode_pairs, [$hex, $name];
@@ -305,14 +291,14 @@ EOT
 #------------------------#
 
 # XXX should do kFrequency too
-sub process_unihan_zip
+sub process_unihan_zip ($)
 {
     my ($unihan_zip) = @_;
 
-    print "processing $unihan_zip.";
-
-    open (my $unihan, "$PROG_UNZIP -c '$unihan_zip' |") or die;
+    open (my $unihan, "$UNZIP -c $unihan_zip |") or die;
     open (my $out, "> unicode-unihan.h") or die;
+
+    print "processing $unihan_zip";
 
     print $out "/* unicode-unihan.h */\n";
     print $out "/* THIS IS A GENERATED FILE. CHANGES WILL BE OVERWRITTEN. */\n";
@@ -336,8 +322,6 @@ sub process_unihan_zip
     print $out "  gint32 kKorean;\n";
     print $out "  gint32 kJapaneseKun;\n";
     print $out "  gint32 kJapaneseOn;\n";
-    print $out "  gint32 kHangul;\n";
-    print $out "  gint32 kVietnamese;\n";
     print $out "} \n";
     print $out "unihan[] =\n";
     print $out "{\n";
@@ -346,7 +330,7 @@ sub process_unihan_zip
     my $offset = 0;
 
     my $wc = 0;
-    my ($kDefinition, $kCantonese, $kMandarin, $kTang, $kKorean, $kJapaneseKun, $kJapaneseOn, $kHangul, $kVietnamese);
+    my ($kDefinition, $kCantonese, $kMandarin, $kTang, $kKorean, $kJapaneseKun, $kJapaneseOn);
 
     my $i = 0;
     while (my $line = <$unihan>)
@@ -365,9 +349,9 @@ sub process_unihan_zip
         {
             if (defined $kDefinition or defined $kCantonese or defined $kMandarin 
                 or defined $kTang or defined $kKorean or defined $kJapaneseKun
-                or defined $kJapaneseOn or defined $kHangul or defined $kVietnamese)
+                or defined $kJapaneseOn)
             {
-                printf $out ("  { 0x%04X, \%d, \%d, \%d, \%d, \%d, \%d, \%d, \%d, \%d },\n",
+                printf $out ("  { 0x%04X, \%d, \%d, \%d, \%d, \%d, \%d, \%d },\n",
                              $wc,
                              (defined($kDefinition) ? $kDefinition : -1),
                              (defined($kCantonese) ? $kCantonese: -1),
@@ -375,9 +359,7 @@ sub process_unihan_zip
                              (defined($kTang) ? $kTang : -1),
                              (defined($kKorean) ? $kKorean : -1),
                              (defined($kJapaneseKun) ? $kJapaneseKun : -1),
-                             (defined($kJapaneseOn) ? $kJapaneseOn : -1),
-                             (defined($kHangul) ? $kHangul : -1),
-                             (defined($kVietnamese) ? $kVietnamese : -1));
+                             (defined($kJapaneseOn) ? $kJapaneseOn : -1));
             }
 
             $wc = $new_wc;
@@ -389,12 +371,10 @@ sub process_unihan_zip
             undef $kKorean;
             undef $kJapaneseKun;
             undef $kJapaneseOn;
-            undef $kHangul;
-            undef $kVietnamese;
         }
 
         for my $f (qw(kDefinition kCantonese kMandarin
-                     kTang kKorean kJapaneseKun kJapaneseOn kHangul kVietnamese)) {
+                     kTang kKorean kJapaneseKun kJapaneseOn)) {
 
             if ($field eq $f) {
 	        push @strings, $value;
@@ -426,12 +406,6 @@ sub process_unihan_zip
         elsif ($field eq "kJapaneseOn") {
             $kJapaneseOn = $value;
         }
-        elsif ($field eq "kHangul") {
-            $kHangul = $value;
-        }
-        elsif ($field eq "kVietnamese") {
-            $kVietnamese = $value;
-        }
 
         if ($i++ % 32768 == 0) {
             print ".";
@@ -450,7 +424,7 @@ sub process_unihan_zip
     print $out "static const Unihan *_get_unihan (gunichar uc)\n;";
 
     for my $name (qw(kDefinition kCantonese kMandarin
-		    kTang kKorean kJapaneseKun kJapaneseOn kHangul kVietnamese)) {
+		    kTang kKorean kJapaneseKun kJapaneseOn)) {
     print $out <<EOT;
 
 static inline const char * unihan_get_$name (const Unihan *uh)
@@ -461,7 +435,7 @@ static inline const char * unihan_get_$name (const Unihan *uh)
     return unihan_strings + offset;
 }
 
-const gchar * 
+G_CONST_RETURN gchar * 
 gucharmap_get_unicode_$name (gunichar uc)
 {
   const Unihan *uh = _get_unihan (uc);
@@ -543,7 +517,7 @@ sub print_names_list
     print $out "};\n\n";
 }
 
-sub process_nameslist_txt
+sub process_nameslist_txt ($)
 {
     my ($nameslist_txt) = @_;
 
@@ -718,9 +692,9 @@ sub process_nameslist_txt
 
 #------------------------#
 
-sub read_blocks_txt
+sub process_blocks_txt ($)
 {
-    my ($blocks_txt, $blocks) = @_;
+    my ($blocks_txt) = @_;
 
     # Override script names
     my %block_overrides =
@@ -728,34 +702,10 @@ sub read_blocks_txt
       "NKo" => "N\'Ko"
     );
 
-    open (my $blocks_file, $blocks_txt) or die;
-
-    my $offset = 0;
-
-    while (my $line = <$blocks_file>)
-    {
-        $line =~ /^([0-9A-F]+)\.\.([0-9A-F]+); (.+)$/ or next;
-
-        my ($start,$end,$block) = ($1, $2, $3);
-
-        if (exists $block_overrides{$block}) {
-                $block = $block_overrides{$block};
-        }
-
-        push @$blocks, [$start, $end, $block, $offset];
-        $offset += length($block) + 1;
-    }
-
-    close ($blocks_file);
-}
-
-sub process_blocks_txt
-{
-    my ($blocks_txt) = @_;
+    open (my $blocks, $blocks_txt) or die;
+    open (my $out, "> unicode-blocks.h") or die;
 
     print "processing $blocks_txt...";
-
-    open (my $out, "> unicode-blocks.h") or die;
 
     print $out "/* unicode-blocks.h */\n";
     print $out "/* THIS IS A GENERATED FILE. CHANGES WILL BE OVERWRITTEN. */\n";
@@ -766,9 +716,33 @@ sub process_blocks_txt
     print $out "#define UNICODE_BLOCKS_H\n\n";
 
     print $out "#include <glib.h>\n";
+    print $out "#include <glib/gi18n-lib.h>\n\n";
 
     my @blocks;
-    read_blocks_txt ($blocks_txt, \@blocks);
+    my $offset = 0;
+
+    while (my $line = <$blocks>)
+    {
+        $line =~ /^([0-9A-F]+)\.\.([0-9A-F]+); (.+)$/ or next;
+
+        my ($start,$end,$block) = ($1, $2, $3);
+
+        if (exists $block_overrides{$block}) {
+                $block = $block_overrides{$block};
+        }
+
+        push @blocks, [$start, $end, $block, $offset];
+        $offset += length($block) + 1;
+    }
+
+    print $out "/* for extraction by intltool */\n";
+    print $out "#if 0\n";
+    foreach my $block (@blocks)
+    {
+        my ($start, $end, $name, $offset) = @{$block};
+        print $out qq/  N_("$name"),\n/;
+    }
+    print $out "#endif /* 0 */\n\n";
 
     print $out "static const char unicode_blocks_strings[] =\n";
     foreach my $block (@blocks)
@@ -797,6 +771,7 @@ sub process_blocks_txt
 
     print $out "#endif  /* #ifndef UNICODE_BLOCKS_H */\n";
 
+    close ($blocks);
     close ($out);
 
     print " done.\n";
@@ -804,9 +779,9 @@ sub process_blocks_txt
 
 #------------------------#
 
-sub read_scripts_txt
+sub process_scripts_txt ($)
 {
-    my ($scripts_txt, $script_hash, $scripts) = @_;
+    my ($scripts_txt) = @_;
 
     # Override script names
     my %script_overrides =
@@ -814,7 +789,13 @@ sub read_scripts_txt
       "Nko" => "N\'Ko"
     );
 
+    my %script_hash;
+    my %scripts;
+
     open (my $scripts_file, $scripts_txt) or die;
+    open (my $out, "> unicode-scripts.h") or die;
+
+    print "processing $scripts_txt...";
 
     while (my $line = <$scripts_file>)
     {
@@ -845,28 +826,14 @@ sub read_scripts_txt
                 $script = $script_overrides{$script};
         }
 
-        $script_hash->{$start} = { 'end' => $end, 'script' => $script };
-        $scripts->{$script} = 1;
+        $script_hash{$start} = { 'end' => $end, 'script' => $script };
+        $scripts{$script} = 1;
     }
 
     close ($scripts_file);
 
     # Adds Common to make sure works with UCD <= 4.0.0
-    $scripts->{"Common"} = 1; 
-}
-
-sub process_scripts_txt
-{
-    my ($scripts_txt) = @_;
-
-    print "processing $scripts_txt...";
-
-    my %script_hash;
-    my %scripts;
-
-    read_scripts_txt ($scripts_txt, \%script_hash, \%scripts);
-
-    open (my $out, "> unicode-scripts.h") or die;
+    $scripts{"Common"} = 1; 
 
     print $out "/* unicode-scripts.h */\n";
     print $out "/* THIS IS A GENERATED FILE. CHANGES WILL BE OVERWRITTEN. */\n";
@@ -877,18 +844,28 @@ sub process_scripts_txt
     print $out "#define UNICODE_SCRIPTS_H\n\n";
 
     print $out "#include <glib.h>\n";
+    print $out "#include <glib/gi18n-lib.h>\n\n";
 
     print $out "typedef struct _UnicodeScript UnicodeScript;\n\n";
 
+    print $out "/* for extraction by intltool */\n";
+    print $out "#if 0\n";
+    my $i = 0;
+    for my $script (sort keys %scripts)
+    {
+        $scripts{$script} = $i;
+        $i++;
+
+        print $out qq/  N_("$script"),\n/;
+    }
+    print $out "#endif /* 0 */\n\n";
+
     print $out "static const gchar unicode_script_list_strings[] =\n";
     my $offset = 0;
-    my $i = 0;
     my %script_offsets;
     for my $script (sort keys %scripts)
     {
         printf $out (qq/  "\%s\\0"\n/, $script);
-        $scripts{$script} = $i;
-        $i++;
 	$script_offsets{$script} = $offset;
 	$offset += length($script) + 1;
     }
@@ -926,48 +903,7 @@ sub process_scripts_txt
 
 #------------------------#
 
-sub process_translatable_strings
-{
-    my ($blocks_txt, $scripts_txt) = @_;
-
-    print "processing $blocks_txt and $scripts_txt...";
-
-    my @blocks;
-    read_blocks_txt ($blocks_txt, \@blocks);
-
-    my %script_hash;
-    my %scripts;
-
-    read_scripts_txt ($scripts_txt, \%script_hash, \%scripts);
-
-    open (my $out, "> unicode-i18n.h") or die;
-
-    print $out "unicode-i18n.h for extraction by gettext\n";
-    print $out "THIS IS A GENERATED FILE. CHANGES WILL BE OVERWRITTEN.\n";
-    print $out "Generated by $0\n";
-    print $out "Generated from UCD version $v\n\n";
-
-    foreach my $block (@blocks)
-    {
-        my ($start, $end, $name, $offset) = @{$block};
-        print $out qq/N_("$name")\n/;
-    }
-
-    print $out "\n";
-
-    my $i = 0;
-    for my $script (sort keys %scripts)
-    {
-        print $out qq/N_("$script")\n/;
-    }
-
-    close ($out);
-    print " done.\n";
-}
-
-#------------------------#
-
-sub process_versions_txt
+sub process_versions_txt ($)
 {
     my ($versions_txt) = @_;
 
@@ -1021,6 +957,7 @@ sub process_versions_txt
     print $out "#define UNICODE_VERSIONS_H\n\n";
 
     print $out "#include <glib.h>\n";
+    print $out "#include <glib/gi18n-lib.h>\n\n";
 
     print $out "typedef struct {\n";
     print $out "  gunichar start;\n";
@@ -1040,7 +977,7 @@ sub process_versions_txt
     print $out "static const gchar unicode_version_strings[] =\n";
     my $offset = 0;
     my %version_offsets;
-    for my $version (sort { $a <=> $b } keys %versions)
+    for my $version (sort keys %versions)
     {
         printf $out (qq/  "\%s\\0"\n/, $version);
 	$version_offsets{$version} = $offset;
@@ -1051,7 +988,7 @@ sub process_versions_txt
 
     print $out "static const guint16 unicode_version_string_offsets[] =\n";
     print $out "{\n";
-    for my $version (sort { $a <=> $b } keys %versions)
+    for my $version (sort keys %versions)
     {
         printf $out (qq/  \%d,\n/, $version_offsets{$version});
     }

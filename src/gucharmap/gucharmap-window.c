@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
@@ -192,17 +192,6 @@ search_finish (GucharmapSearchDialog *search_dialog,
 }
 
 static void
-ensure_search_dialog (GucharmapWindow *guw)
-{
-  if (guw->search_dialog == NULL)
-    {
-      guw->search_dialog = gucharmap_search_dialog_new (guw);
-      g_signal_connect (guw->search_dialog, "search-start", G_CALLBACK (search_start), guw);
-      g_signal_connect (guw->search_dialog, "search-finish", G_CALLBACK (search_finish), guw);
-    }
-}
-
-static void
 search_find (GSimpleAction *action,
              GVariant      *parameter,
              gpointer       data)
@@ -211,11 +200,15 @@ search_find (GSimpleAction *action,
 
   g_assert (GUCHARMAP_IS_WINDOW (guw));
 
-  ensure_search_dialog (guw);
+  if (guw->search_dialog == NULL)
+    {
+      guw->search_dialog = gucharmap_search_dialog_new (guw);
+      g_signal_connect (guw->search_dialog, "search-start", G_CALLBACK (search_start), guw);
+      g_signal_connect (guw->search_dialog, "search-finish", G_CALLBACK (search_finish), guw);
+    }
 
   gucharmap_search_dialog_present (GUCHARMAP_SEARCH_DIALOG (guw->search_dialog));
 }
-
 
 static void
 search_find_next (GSimpleAction *action,
@@ -415,7 +408,6 @@ help_about (GSimpleAction *action,
       "Daniel Elstner <daniel.elstner@gmx.net>", 
       "Padraig O'Briain <Padraig.Obriain@sun.com>",
       "Christian Persch <" "chpe" "\100" "gnome" "." "org" ">",
-      "DaeHyun Sung <sungdh86@gmail.com>",
       NULL 
     };
 
@@ -441,10 +433,10 @@ help_about (GSimpleAction *action,
        "the GNU General Public License and Unicode Copyright for more details."),
     N_("You should have received a copy of the GNU General Public License "
        "along with Gucharmap; if not, write to the Free Software Foundation, Inc., "
-       "51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA"),
+       "59 Temple Place, Suite 330, Boston, MA  02110-1301  USA"),
     N_("Also you should have received a copy of the Unicode Copyright along "
        "with Gucharmap; you can always find it at Unicode's website: "
-       "https://www.unicode.org/copyright.html")
+       "http://www.unicode.org/copyright.html")
   };
   gchar *license_trans;
   license_trans = g_strconcat (_(license[0]), "\n\n", _(license[1]), "\n\n",
@@ -454,18 +446,17 @@ help_about (GSimpleAction *action,
   gtk_show_about_dialog (GTK_WINDOW (guw),
 			 "program-name", _("GNOME Character Map"),
 			 "version", VERSION,
-			 "comments", _("Based on the Unicode Character Database 10.0.0"),
+			 "comments", _("Based on the Unicode Character Database 7.0.0"),
 			 "copyright", "Copyright © 2004 Noah Levitt\n"
-				      "Copyright © 1991–2017 Unicode, Inc.\n"
-				      "Copyright © 2007–2017 Christian Persch\n"
-                                      "Copyright © 2016 DaeHyun Sung",
+				      "Copyright © 1991–2014 Unicode, Inc.\n"
+				      "Copyright © 2007–2013 Christian Persch",
 			 "documenters", documenters,
 			 "license", license_trans,
 			 "wrap-license", TRUE,
 			 "logo-icon-name", GUCHARMAP_ICON_NAME,
   			 "authors", authors,
 			 "translator-credits", _("translator-credits"),
-			 "website", "https://wiki.gnome.org/Apps/Gucharmap",
+			 "website", "http://live.gnome.org/Gucharmap",
 			 NULL);
 
   g_free (license_trans);
@@ -772,6 +763,12 @@ gucharmap_window_init (GucharmapWindow *guw)
                                    menu_entries, G_N_ELEMENTS (menu_entries),
                                    guw);
 
+  /* snap-to-power-of-two */
+  action = g_settings_create_action (guw->settings, "snap-cols-pow2");
+  g_action_map_add_action (G_ACTION_MAP (guw), action);
+  g_signal_connect (guw->settings, "changed::snap-cols-pow2",
+                    G_CALLBACK (snap_cols_pow2_changed), guw);
+
   /* Now the widgets */
   grid = gtk_grid_new ();
   gtk_container_add (GTK_CONTAINER (guw), grid);
@@ -832,13 +829,6 @@ gucharmap_window_init (GucharmapWindow *guw)
 
   gtk_window_set_has_resize_grip (GTK_WINDOW (guw), TRUE);
 
-  /* snap-to-power-of-two */
-  action = g_settings_create_action (guw->settings, "snap-cols-pow2");
-  g_action_map_add_action (G_ACTION_MAP (guw), action);
-  snap_cols_pow2_changed (guw->settings, "snap-cols-pow2", guw);
-  g_signal_connect (guw->settings, "changed::snap-cols-pow2",
-                    G_CALLBACK (snap_cols_pow2_changed), guw);
-
   /* read initial settings */
   /* font */
   g_settings_get (guw->settings, "font", "ms", &font);
@@ -885,11 +875,28 @@ gucharmap_window_finalize (GObject *object)
   G_OBJECT_CLASS (gucharmap_window_parent_class)->finalize (object);
 }
 
+static GObject *
+gucharmap_window_constructor (GType                  type,
+                              guint                  n_construct_properties,
+                              GObjectConstructParam *construct_params)
+{
+  GObject *object;
+
+  object = G_OBJECT_CLASS (gucharmap_window_parent_class)->constructor (type, n_construct_properties, construct_params);
+  g_object_bind_property (gtk_settings_get_default (),
+                          "gtk-shell-shows-app-menu",
+                          object, "show-menubar",
+                          G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
+
+  return object;
+}
+
 static void
 gucharmap_window_class_init (GucharmapWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+  object_class->constructor = gucharmap_window_constructor;
   object_class->finalize = gucharmap_window_finalize;
 }
 
@@ -918,17 +925,4 @@ gucharmap_window_set_font (GucharmapWindow *guw,
   font_desc = pango_font_description_from_string (font);
   gucharmap_charmap_set_font_desc (guw->charmap, font_desc);
   pango_font_description_free (font_desc);
-}
-
-void
-gucharmap_window_search (GucharmapWindow *guw,
-                         const char *str)
-{
-  g_return_if_fail (GUCHARMAP_IS_WINDOW (guw));
-  g_return_if_fail (str != NULL);
-
-  ensure_search_dialog (guw);
-  gucharmap_search_dialog_set_search (GUCHARMAP_SEARCH_DIALOG (guw->search_dialog), str);
-  gucharmap_search_dialog_start_search (GUCHARMAP_SEARCH_DIALOG (guw->search_dialog),
-                                        GUCHARMAP_DIRECTION_FORWARD);
 }

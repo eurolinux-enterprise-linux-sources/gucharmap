@@ -14,7 +14,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #if !defined (__GUCHARMAP_GUCHARMAP_H_INSIDE__) && !defined (GUCHARMAP_COMPILATION)
@@ -78,7 +78,7 @@ GucharmapCodepointList * gucharmap_chapters_model_get_book_codepoint_list (Gucha
 gboolean                 gucharmap_chapters_model_character_to_iter       (GucharmapChaptersModel *chapters,
                                                                            gunichar                wc,
                                                                            GtkTreeIter            *iter);
-gboolean                 gucharmap_chapters_model_id_to_iter              (GucharmapChaptersModel *chapters_model,
+gboolean                 gucharmap_chapters_model_id_to_iter              (GucharmapChaptersModel *model,
                                                                            const char             *id,
                                                                            GtkTreeIter            *_iter);
 

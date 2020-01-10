@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335 USA
+ * 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
  */
 
 #include <config.h>
@@ -29,69 +29,7 @@
 #include "gucharmap-window.h"
 
 #define UI_RESOURCE "/org/gnome/charmap/ui/menus.ui"
-
-/* BEGIN HACK
- *
- * Gucharmap is a *character map*, not an emoji picker.
- * Consequently, we want to show character glyphs in black
- * and white, not colour emojis.
- *
- * However, there currently is no way in the pango API to
- * suppress use of colour fonts.
- * Internally, cairo *always* (!) calls FT_Load_Glyph with
- * the FT_LOAD_COLOR flag. Interpose the function and strip
- * that flag.
- *
- * This still doesn't get the desired display since the
- * emoji colour fonts (Noto Color Emoji) that's hardcoded
- * (see bug 787365) has greyscale fallback; I see no way
- * to skip the font altogether.
- */
-
-#include <dlfcn.h>
-#include <ft2build.h>
-#include FT_FREETYPE_H
-
-extern FT_Error
-FT_Load_Glyph(FT_Face face,
-	      FT_UInt glyph_index,
-	      FT_Int32 load_flags);
-
-extern FT_Error
-FT_Load_Char(FT_Face face,
-	     FT_ULong char_code,
-	     FT_Int32 load_flags);
-
-FT_Error
-FT_Load_Glyph(FT_Face face,
-	      FT_UInt glyph_index,
-	      FT_Int32 load_flags)
-{
-  static FT_Error (*original)(FT_Face face,
-			      FT_UInt glyph_index,
-			      FT_Int32 load_flags) = NULL;
-  if (!original)
-    original = dlsym(RTLD_NEXT, "FT_Load_Glyph");
-
-  return original(face, glyph_index, load_flags & ~FT_LOAD_COLOR);
-}
-
-FT_Error
-FT_Load_Char( FT_Face face,
-	      FT_ULong char_code,
-	      FT_Int32 load_flags)
-{
-  static FT_Error (*original)(FT_Face face,
-			      FT_ULong char_code,
-			      FT_Int32 load_flags) = NULL;
-  if (!original)
-    original = dlsym(RTLD_NEXT, "FT_Load_Char");
-
-  return original(face, char_code, load_flags & ~FT_LOAD_COLOR);
-}
-
-/* END HACK */
-
+ 
 static gboolean
 option_version_cb (const gchar *option_name,
                    const gchar *value,
@@ -99,33 +37,6 @@ option_version_cb (const gchar *option_name,
                    GError     **error)
 {
   g_print ("%s %s\n", _("GNOME Character Map"), VERSION);
-
-  exit (EXIT_SUCCESS);
-  return FALSE;
-}
-
-static gboolean
-option_print_cb (const gchar *option_name,
-                 const gchar *value,
-                 gpointer     data,
-                 GError     **error)
-{
-  const char *p;
-
-  for (p = value; *p; p = g_utf8_next_char (p)) {
-    gunichar c;
-    char utf[7];
-
-    c = g_utf8_get_char (p);
-    if (c == (gunichar)-1)
-      continue;
-
-    utf[g_unichar_to_utf8 (c, utf)] = '\0';
-
-    g_print("%s\tU+%04X\t%s\n",
-            utf, c,
-            gucharmap_get_unicode_name (c));
-  }
 
   exit (EXIT_SUCCESS);
   return FALSE;
@@ -291,7 +202,6 @@ main (int argc, char **argv)
   GdkRectangle rect;
   GError *error = NULL;
   char *font = NULL;
-  char **remaining = NULL;
   GtkApplication *application;
   guint status;
   GOptionEntry goptions[] =
@@ -300,10 +210,6 @@ main (int argc, char **argv)
       N_("Font to start with; ex: 'Serif 27'"), N_("FONT") },
     { "version", 0, G_OPTION_FLAG_HIDDEN | G_OPTION_FLAG_NO_ARG, 
       G_OPTION_ARG_CALLBACK, option_version_cb, NULL, NULL },
-    { "print", 'p', 0, G_OPTION_ARG_CALLBACK, option_print_cb,
-      "Print characters in string", "STRING" },
-    { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining,
-      NULL, N_("[STRING…]") },
     { NULL }
   };
 
@@ -311,9 +217,10 @@ main (int argc, char **argv)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
-  /* Not interested in silly debug spew polluting the journal, bug #749195 */
-  if (g_getenv ("G_ENABLE_DIAGNOSTIC") == NULL)
-    g_setenv ("G_ENABLE_DIAGNOSTIC", "0", TRUE);
+#ifdef HAVE_GCONF
+  /* GConf uses ORBit2 which need GThread. See bug #565516 */
+  g_thread_init (NULL);
+#endif
 
   /* Set programme name explicitly (see bug #653115) */
   g_set_prgname("gucharmap");
@@ -337,13 +244,6 @@ main (int argc, char **argv)
 
   g_application_register (G_APPLICATION (application), NULL, NULL);
 
-  /* Gucharmap doesn't work right with the dark theme, see #741939. 
-   * Apparently this got fixed in gtk+ some time before 3.22, so
-   * only work around this on older versions.
-   */
-  if (gtk_check_version (3, 22, 0) != NULL /* < 3.22.0 */)
-    g_object_set (gtk_settings_get_default (), "gtk-application-prefer-dark-theme", FALSE, NULL);
-
   window = gucharmap_window_new (application);
 
   screen = gtk_window_get_screen (GTK_WINDOW (window));
@@ -362,13 +262,6 @@ main (int argc, char **argv)
     }
 
   gtk_window_present (GTK_WINDOW (window));
-
-  if (remaining) {
-    char *str = g_strjoinv (" ", remaining);
-    gucharmap_window_search (GUCHARMAP_WINDOW (window), str);
-    g_free (str);
-    g_strfreev (remaining);
-  }
 
   status = g_application_run (G_APPLICATION (application), argc, argv);
   g_object_unref (application);
