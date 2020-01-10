@@ -202,7 +202,6 @@ main (int argc, char **argv)
   GdkRectangle rect;
   GError *error = NULL;
   char *font = NULL;
-  char **remaining = NULL;
   GtkApplication *application;
   guint status;
   GOptionEntry goptions[] =
@@ -211,8 +210,6 @@ main (int argc, char **argv)
       N_("Font to start with; ex: 'Serif 27'"), N_("FONT") },
     { "version", 0, G_OPTION_FLAG_HIDDEN | G_OPTION_FLAG_NO_ARG, 
       G_OPTION_ARG_CALLBACK, option_version_cb, NULL, NULL },
-    { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining,
-      NULL, N_("[STRING…]") },
     { NULL }
   };
 
@@ -220,9 +217,10 @@ main (int argc, char **argv)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
-  /* Not interested in silly debug spew polluting the journal, bug #749195 */
-  if (g_getenv ("G_ENABLE_DIAGNOSTIC") == NULL)
-    g_setenv ("G_ENABLE_DIAGNOSTIC", "0", TRUE);
+#ifdef HAVE_GCONF
+  /* GConf uses ORBit2 which need GThread. See bug #565516 */
+  g_thread_init (NULL);
+#endif
 
   /* Set programme name explicitly (see bug #653115) */
   g_set_prgname("gucharmap");
@@ -245,9 +243,6 @@ main (int argc, char **argv)
                     G_CALLBACK (gucharmap_activate), NULL);
 
   g_application_register (G_APPLICATION (application), NULL, NULL);
-
-  /* Gucharmap doesn't work right with the dark theme, see #741939 */
-  g_object_set (gtk_settings_get_default (), "gtk-application-prefer-dark-theme", FALSE, NULL);
 
   window = gucharmap_window_new (application);
 

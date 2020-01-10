@@ -16,7 +16,7 @@
 # 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
 
 m4_define([gucharmap_version_major],[3])
-m4_define([gucharmap_version_minor],[18])
+m4_define([gucharmap_version_minor],[8])
 m4_define([gucharmap_version_micro],[2])
 m4_define([gucharmap_version_extra],[])
 m4_define([gucharmap_version],[gucharmap_version_major.gucharmap_version_minor.gucharmap_version_micro()gucharmap_version_extra])
@@ -58,7 +58,7 @@ AM_PROG_CC_C_O
 GNOME_DEBUG_CHECK
 
 # User documentation
-YELP_HELP_INIT([no-lc-media-links no-lc-dist])
+YELP_HELP_INIT
 
 GLIB_REQUIRED=2.32.0
 GIO_REQUIRED=2.32.0
@@ -225,7 +225,6 @@ CC_CHECK_CFLAGS_APPEND([ \
   -Wstrict-aliasing=2 -Winit-self -Wunsafe-loop-optimizations \
   -Wdeclaration-after-statement -Wold-style-definition \
   -Wno-missing-field-initializers -Wno-unused-parameter \
-  -Wformat-signedness \
   -fno-common -Wno-switch-enum])
 
 # ********
@@ -281,7 +280,6 @@ Makefile
 gucharmap.desktop.in
 gucharmap.nsi
 gucharmap.spec
-data/Makefile
 docs/Makefile
 docs/reference/Makefile
 gucharmap/Makefile

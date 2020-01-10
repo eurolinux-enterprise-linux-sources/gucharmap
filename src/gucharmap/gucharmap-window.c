@@ -446,10 +446,10 @@ help_about (GSimpleAction *action,
   gtk_show_about_dialog (GTK_WINDOW (guw),
 			 "program-name", _("GNOME Character Map"),
 			 "version", VERSION,
-			 "comments", _("Based on the Unicode Character Database 8.0.0"),
+			 "comments", _("Based on the Unicode Character Database 6.2.0"),
 			 "copyright", "Copyright © 2004 Noah Levitt\n"
-				      "Copyright © 1991–2015 Unicode, Inc.\n"
-				      "Copyright © 2007–2013 Christian Persch",
+				      "Copyright © 1991–2012 Unicode, Inc.\n"
+				      "Copyright © 2007–2012 Christian Persch",
 			 "documenters", documenters,
 			 "license", license_trans,
 			 "wrap-license", TRUE,
@@ -561,13 +561,24 @@ gucharmap_window_set_chapters_model (GucharmapWindow *guw,
 }
 
 static void
-gucharmap_window_group_by_changed (GSettings   *settings,
-                                   const gchar *key,
-                                   gpointer     user_data)
+view_by (GSimpleAction *action,
+         GVariant      *parameter,
+         gpointer       data)
 {
-  GucharmapWindow *guw = user_data;
+  GucharmapWindow  *guw = data;
+  GucharmapChaptersMode mode;
+  const char *value = g_variant_get_string (parameter, NULL);
 
-  gucharmap_window_set_chapters_model (guw, g_settings_get_enum (settings, "group-by"));
+  if (strcmp (value, "script") == 0)
+    mode = GUCHARMAP_CHAPTERS_SCRIPT;
+  else if (strcmp (value, "block") == 0)
+    mode = GUCHARMAP_CHAPTERS_BLOCK;
+  else
+    g_assert_not_reached ();
+
+  gucharmap_window_set_chapters_model (guw, mode);
+  g_settings_set_enum (guw->settings, "group-by", mode);
+  g_action_change_state (G_ACTION (action), parameter);
 }
 
 #ifdef DEBUG_chpe
@@ -649,6 +660,17 @@ status_realize (GtkWidget       *status,
   gtk_widget_set_size_request (guw->status, -1, allocation->height + 9);
 }
 
+static gboolean
+save_last_char_idle_cb (GucharmapWindow *guw)
+{
+  guw->save_last_char_idle_id = 0;
+
+  g_settings_set_uint (guw->settings, "last-char", 
+                       gucharmap_charmap_get_active_character (guw->charmap));
+
+  return FALSE;
+}
+
 static void
 fontsel_sync_font_desc (GucharmapMiniFontSelection *fontsel,
                         GParamSpec *pspec,
@@ -689,25 +711,15 @@ charmap_sync_font_desc (GucharmapCharmap *charmap,
   guw->in_notification = FALSE;
 }
 
-static int last_char_dirty = 0;
-
 static void
-charmap_dirty_active_character (GtkWidget *widget,
-                                GParamSpec *pspec,
-                                GucharmapWindow *guw)
-{
-  last_char_dirty = 1;
-}
-
-static gboolean
-charmap_save_active_character (GtkWidget *widget,
+charmap_sync_active_character (GtkWidget *widget,
+                               GParamSpec *pspec,
                                GucharmapWindow *guw)
 {
-  if (last_char_dirty)
-    g_settings_set_uint (guw->settings, "last-char", 
-                         gucharmap_charmap_get_active_character (guw->charmap));
+  if (guw->save_last_char_idle_id != 0)
+    return;
 
-  return FALSE;
+  guw->save_last_char_idle_id = g_idle_add ((GSourceFunc) save_last_char_idle_cb, guw);
 }
 
 static void
@@ -746,6 +758,8 @@ gucharmap_window_init (GucharmapWindow *guw)
   #ifdef DEBUG_chpe
     { "move-next-screen", move_to_next_screen_cb, NULL, NULL, NULL },
   #endif
+
+    { "group-by", view_by, "s", "\"script\"", NULL },
 
     { "show-only-glyphs-in-font", toggle_action_activated, NULL, "false",
       change_no_font_fallback },
@@ -839,8 +853,6 @@ gucharmap_window_init (GucharmapWindow *guw)
     }
 
   /* group by */
-  g_action_map_add_action (G_ACTION_MAP (guw), g_settings_create_action (guw->settings, "group-by"));
-  g_signal_connect_object (guw->settings, "changed::group-by", G_CALLBACK (gucharmap_window_group_by_changed), guw, 0);
   gucharmap_window_set_chapters_model (guw, g_settings_get_enum (guw->settings, "group-by"));
 
   /* active character */
@@ -853,10 +865,8 @@ gucharmap_window_init (GucharmapWindow *guw)
   /* connect these only after applying the initial settings in order to
    * avoid unnecessary writes to GSettings.
    */
-  g_signal_connect (guw, "destroy",
-                    G_CALLBACK (charmap_save_active_character), guw);
   g_signal_connect (guw->charmap, "notify::active-character",
-                    G_CALLBACK (charmap_dirty_active_character), guw);
+                    G_CALLBACK (charmap_sync_active_character), guw);
   g_signal_connect (guw->fontsel, "notify::font-desc",
                     G_CALLBACK (fontsel_sync_font_desc), guw);
 }
@@ -865,6 +875,9 @@ static void
 gucharmap_window_finalize (GObject *object)
 {
   GucharmapWindow *guw = GUCHARMAP_WINDOW (object);
+
+  if (guw->save_last_char_idle_id != 0)
+    g_source_remove (guw->save_last_char_idle_id);
 
   if (guw->page_setup)
     g_object_unref (guw->page_setup);
@@ -875,11 +888,28 @@ gucharmap_window_finalize (GObject *object)
   G_OBJECT_CLASS (gucharmap_window_parent_class)->finalize (object);
 }
 
+static GObject *
+gucharmap_window_constructor (GType                  type,
+                              guint                  n_construct_properties,
+                              GObjectConstructParam *construct_params)
+{
+  GObject *object;
+
+  object = G_OBJECT_CLASS (gucharmap_window_parent_class)->constructor (type, n_construct_properties, construct_params);
+  g_object_bind_property (gtk_settings_get_default (),
+                          "gtk-shell-shows-app-menu",
+                          object, "show-menubar",
+                          G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
+
+  return object;
+}
+
 static void
 gucharmap_window_class_init (GucharmapWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+  object_class->constructor = gucharmap_window_constructor;
   object_class->finalize = gucharmap_window_finalize;
 }
 
