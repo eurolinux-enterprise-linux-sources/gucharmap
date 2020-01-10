@@ -4,7 +4,7 @@
 
 Name:           gucharmap
 Version:        3.14.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Unicode character picker and font browser
 
 Group:          Applications/System
@@ -13,6 +13,7 @@ License:        GPLv3+ and GFDL and MIT
 URL:            http://live.gnome.org/Apps/Gucharmap
 #VCS: git:git://git.gnome.org/gucharmap
 Source:         http://download.gnome.org/sources/gucharmap/3.14/gucharmap-%{version}.tar.xz
+Patch0:         gucharmap-3.14.2-EL7.3_translations.patch
 
 BuildRequires: glib2-devel >= %{glib2_version}
 BuildRequires: gtk3-devel >= %{gtk3_version}
@@ -40,6 +41,7 @@ needed to use the libgucharmap library.
 
 %prep
 %setup -q -n  %{name}-%{version}
+%patch0 -p1 -b .translations
 
 %build
 %configure --with-gtk=3.0 \
@@ -97,6 +99,10 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 
 %changelog
+* Fri Jul 01 2016 Kalev Lember <klember@redhat.com> - 3.14.2-2
+- Update translations
+- Resolves: #1304259
+
 * Mon Mar 23 2015 Richard Hughes <rhughes@redhat.com> - 3.14.2-1
 - Update to 3.14.2
 - Resolves: #1174590
