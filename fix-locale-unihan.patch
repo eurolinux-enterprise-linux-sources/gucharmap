@@ -1,0 +1,12 @@
+diff -urNp gucharmap-10.0.4.old/gucharmap/gen-guch-unicode-tables.pl gucharmap-10.0.4/gucharmap/gen-guch-unicode-tables.pl
+--- gucharmap-10.0.4.old/gucharmap/gen-guch-unicode-tables.pl	2018-06-08 16:10:24.627875254 +0100
++++ gucharmap-10.0.4/gucharmap/gen-guch-unicode-tables.pl	2018-06-08 16:11:01.439753440 +0100
+@@ -54,7 +54,7 @@ opendir (my $dir, $d) or die "Cannot ope
+ for my $f (readdir ($dir))
+ {
+     $unicodedata_txt = "$d/$f" if ($f =~ /UnicodeData.*\.txt/);
+-    $unihan_zip = "$d/$f" if ($f =~ /Unihan.*\.zip/);
++    $unihan_zip = "../Unihan.zip";
+     $nameslist_txt = "$d/$f" if ($f =~ /NamesList.*\.txt/);
+     $blocks_txt = "$d/$f" if ($f =~ /Blocks.*\.txt/);
+     $scripts_txt = "$d/$f" if ($f =~ /Scripts.*\.txt/);
