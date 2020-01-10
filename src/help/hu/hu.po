@@ -1,23 +1,27 @@
+# Hungarian translation for gucharmap.
+# Copyright (C) 2015 Free Software Foundation, Inc.
+# This file is distributed under the same license as the user help.
 #
+# Balázs Meskó <meskobalazs at gmail dot com>, 2015.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: gucharmap\n"
-"POT-Creation-Date: 2015-02-26 10:41+0000\n"
-"PO-Revision-Date: 2014-08-08 19:21+0100\n"
-"Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
-"Language: sv\n"
+"Project-Id-Version: gucharmap master\n"
+"POT-Creation-Date: 2015-08-31 10:09+0000\n"
+"PO-Revision-Date: 2015-08-31 17:43+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr ""
-"Daniel Nylander <po@danielnylander.se>, 2006, 2009\n"
-"Sebastian Rasmussen <sebras@gmail.com>, 2014"
+msgstr "Meskó Balázs <meskobalazs at gmail dot com>, 2015."
 
 #. (itstool) path: imagedata
 #. This is a reference to an external file such as an image or video. When
@@ -29,14 +33,12 @@ msgctxt "_"
 msgid ""
 "external ref='figures/gucharmap_window.png' "
 "md5='f917d4d17283d74898864862b6e6f94c'"
-msgstr ""
-"external ref='figures/gucharmap_window.png' "
-"md5='f917d4d17283d74898864862b6e6f94c'"
+msgstr "LEFORDÍTVA"
 
 #. (itstool) path: articleinfo/title
 #: C/index.docbook:24
 msgid "Character Map Manual"
-msgstr "Handbok för Teckentabell"
+msgstr "A Karaktertábla felhasználói kézikönyve"
 
 #. (itstool) path: abstract/para
 #: C/index.docbook:26
@@ -44,8 +46,8 @@ msgid ""
 "Character Map is a Unicode character map that allows you to select "
 "characters from a table and insert then in to a text string."
 msgstr ""
-"Teckentabell är en Unicode-teckentabell som låter dig välja tecken från en "
-"tabell och infoga dem i en textsträng."
+"A Karaktertábla alkalmazás egy Unicode karaktertábla, amellyel karaktereket "
+"választhat ki egy táblázatból, és karakterláncokba szúrhatja be őket."
 
 #. (itstool) path: articleinfo/copyright
 #: C/index.docbook:30
@@ -62,7 +64,7 @@ msgstr "<year>2003</year> <year>2004</year> <holder>Chee Bin HOH</holder>"
 #: C/index.docbook:48 C/index.docbook:96 C/index.docbook:107
 #: C/index.docbook:117
 msgid "GNOME Documentation Project"
-msgstr "Dokumentationsprojekt för GNOME"
+msgstr "GNOME dokumentációs projekt"
 
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:2
@@ -74,12 +76,12 @@ msgid ""
 "of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or in "
 "the file COPYING-DOCS distributed with this manual."
 msgstr ""
-"Tillstånd att kopiera, distribuera och/eller modifiera detta dokument ges "
-"under villkoren i GNU Free Documentation License (GFDL), version 1.1 eller "
-"senare, utgivet av Free Software Foundation utan standardavsnitt och "
-"omslagstexter. En kopia av GFDL finns att hämta på denna <ulink type=\"help"
-"\" url=\"help:fdl\">länk</ulink> eller i filen COPYING-DOCS som medföljer "
-"denna handbok."
+"Jelen dokumentum szabadon másolható, terjeszthető és/vagy módosítható a GNU "
+"Free Documentation License (GFDL) 1.1-es verziója vagy a Free Software "
+"Foundation által kiadott ennél frissebb verziója alatt, a „Nem változtatható "
+"szakaszok”, „Címlapszövegek” és a „Hátlapszövegek” kivételével. A GFDL "
+"leírása ezen a <ulink type=\"help\" url=\"help:fdl\">hivatkozáson</ulink> "
+"érhető el, vagy a jelen dokumentációban található COPYING-DOCS fájlban."
 
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:12 C/legal.xml:12
@@ -89,10 +91,10 @@ msgid ""
 "you can do so by adding a copy of the license to the manual, as described in "
 "section 6 of the license."
 msgstr ""
-"Denna handbok utgör en av flera GNOME-handböcker som distribueras under "
-"villkoren i GFDL. Om du vill distribuera denna handbok separat från övriga "
-"handböcker kan du göra detta genom att lägga till en kopia av licensavtalet "
-"i handboken enligt instruktionerna i avsnitt 6 i licensavtalet."
+"Ez a leírás egy GNOME leírásgyűjtemény része, és a GFDL licenc alatt kerül "
+"terjesztésre. Ha a gyűjteményen kívül szeretné terjeszteni, akkor csatolja a "
+"licenc egy másolatát a leíráshoz, úgy ahogyan erről a licenc 6. fejezete "
+"rendelkezik."
 
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:19 C/legal.xml:19
@@ -103,10 +105,10 @@ msgid ""
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
-"Flera namn på produkter och tjänster är registrerade varumärken. I de fall "
-"dessa namn förekommer i GNOME-dokumentation - och medlemmarna i GNOME-"
-"dokumentationsprojektet är medvetna om dessa varumärken - är de skrivna med "
-"versaler eller med inledande versal."
+"A cégek által használt termék- és szolgáltatás nevek nagy része védjegy. "
+"Ahol ezek a nevek a GNOME dokumentációban szerepelnek, és a GNOME "
+"Dokumentációs Projekt tagjai tudnak erről, ott az ilyen neveket "
+"nagybetűkkel, vagy nagy kezdőbetűvel jelöljük."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:35 C/legal.xml:35
@@ -123,20 +125,17 @@ msgid ""
 "ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
 "OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
 msgstr ""
-"DOKUMENTET TILLHANDAHÅLLS I ”BEFINTLIGT SKICK” UTAN NÅGRA SOM HELST "
-"GARANTIER, VARE SIG UTTRYCKLIGA ELLER UNDERFÖRSTÅDDA, INKLUSIVE, MEN INTE "
-"BEGRÄNSAT TILL, GARANTIER ATT DOKUMENTET ELLER EN MODIFIERAD VERSION AV "
-"DOKUMENTET INTE INNEHÅLLER NÅGRA FELAKTIGHETER, ÄR LÄMPLIGT FÖR ETT VISST "
-"ÄNDAMÅL ELLER INTE STRIDER MOT LAG. HELA RISKEN VAD GÄLLER KVALITET, "
-"EXAKTHET OCH UTFÖRANDE AV DOKUMENTET OCH MODIFIERADE VERSIONER AV DOKUMENTET "
-"LIGGER HELT OCH HÅLLET PÅ ANVÄNDAREN. OM ETT DOKUMENT ELLER EN MODIFIERAD "
-"VERSION AV ETT DOKUMENT SKULLE VISA SIG INNEHÅLLA FELAKTIGHETER I NÅGOT "
-"HÄNSEENDE ÄR DET DU (INTE DEN URSPRUNGLIGA SKRIBENTEN, FÖRFATTAREN ELLER "
-"NÅGON ANNAN MEDARBETARE) SOM FÅR STÅ FÖR ALLA EVENTUELLA KOSTNADER FÖR "
-"SERVICE, REPARATIONER ELLER KORRIGERINGAR. DENNA GARANTIFRISKRIVNING UTGÖR "
-"EN VÄSENTLIG DEL AV DETTA LICENSAVTAL. DETTA INNEBÄR ATT ALL ANVÄNDNING AV "
-"ETT DOKUMENT ELLER EN MODIFIERAD VERSION AV ETT DOKUMENT BEVILJAS ENDAST "
-"UNDER DENNA ANSVARSFRISKRIVNING;"
+"A DOKUMENTUM „JELEN ÁLLAPOTÁBAN” KERÜL KIADÁSRA MINDENFÉLE GARANCIAVÁLLALÁS "
+"NÉLKÜL, LEGYEN AZ KIFEJEZETT VAGY BELEÉRTETT, BELEÉRTVE, DE NEM "
+"KIZÁRÓLAGOSAN A FORGALOMBA HOZHATÓSÁGRA VAGY ALKALMAZHATÓSÁGRA, A JELEN "
+"DOKUMENTUMNAK VAGY ANNAK MÓDOSÍTOTT VERZIÓJÁNAK HIBAMENTESSÉGÉRE VONATKOZÓ "
+"GARANCIÁKAT. A DOKUMENTUM VAGY ANNAK MÓDOSÍTOTT VÁLTOZATÁNAK MINŐSÉGÉBŐL ÉS "
+"FELHASZNÁLHATÓSÁGÁBÓL FAKADÓ ÖSSZES KOCKÁZAT A FELHASZNÁLÓT TERHELI. HA A "
+"DOKUMENTUM BIZONYÍTOTTAN HIBÁS, A FELHASZNÁLÓNAK MAGÁNAK (NEM A DOKUMENTUM "
+"ÍRÓJÁNAK, KIADÓJÁNAK VAGY BÁRMELY KÖZREMŰKÖDŐNEK) KELL VÁLLALNIA A "
+"JAVÍTÁSHOZ SZÜKSÉGES MINDEN KÖLTSÉGET. A JELEN GARANCIAELUTASÍTÁS A JELEN "
+"LICENC LÉNYEGI RÉSZE. A LEFEDETT DOKUMENTUM VAGY ANNAK MÓDOSÍTOTT "
+"VERZIÓJÁNAK HASZNÁLATA CSAK A JELEN ELUTASÍTÁSSAL EGYÜTT ENGEDÉLYEZETT, ÉS"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:55 C/legal.xml:55
@@ -152,18 +151,18 @@ msgid ""
 "VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
 "POSSIBILITY OF SUCH DAMAGES."
 msgstr ""
-"UNDER INGA OMSTÄNDIGHETER ELLER INOM RAMEN FÖR NÅGON LAGSTIFTNING, OAVSETT "
-"OM DET GÄLLER KRÄNKNING (INKLUSIVE VÅRDSLÖSHET), KONTRAKT ELLER DYLIKT, SKA "
-"FÖRFATTAREN, DEN URSPRUNGLIGA SKRIBENTEN ELLER ANNAN MEDARBETARE ELLER "
-"ÅTERFÖRSÄLJARE AV DOKUMENTET ELLER AV EN MODIFIERAD VERSION AV DOKUMENTET "
-"ELLER NÅGON LEVERANTÖR TILL NÅGON AV NÄMNDA PARTER STÄLLAS ANSVARIG GENTEMOT "
-"NÅGON FÖR NÅGRA DIREKTA, INDIREKTA, SÄRSKILDA ELLER OFÖRUTSEDDA SKADOR ELLER "
-"FÖLJDSKADOR AV NÅGOT SLAG, INKLUSIVE, MEN INTE BEGRÄNSAT TILL, SKADOR "
-"BETRÄFFANDE FÖRLORAD GOODWILL, HINDER I ARBETET, DATORHAVERI ELLER NÅGRA "
-"ANDRA TÄNKBARA SKADOR ELLER FÖRLUSTER SOM KAN UPPKOMMA PÅ GRUND AV ELLER "
-"RELATERAT TILL ANVÄNDNINGEN AV DOKUMENTET ELLER MODIFIERADE VERSIONER AV "
-"DOKUMENTET, ÄVEN OM PART SKA HA BLIVIT INFORMERAD OM MÖJLIGHETEN TILL SÅDANA "
-"SKADOR."
+"SEMMILYEN KÖRÜLMÉNYEK KÖZÖTT ÉS SEMMILYEN JOGI MEGFONTOLÁSBÓL, LEGYEN AZ "
+"MAGÁNJOGI VÉTKES CSELEKMÉNY (BELEÉRTVE A HANYAGSÁGOT), SZERZŐDÉS VAGY "
+"BÁRMELY MÁS DOLOG, NEM FELELŐS ÖN, A LEFEDETT KÓD ELSŐ FEJLESZTŐJE ÉS TÖBBI "
+"KÖZREMŰKÖDŐJE VAGY EZEK BÁRMELY SZÁLLÍTÓJA SEMMILYEN MÁS SZEMÉLY FELÉ "
+"SEMMILYEN FAJTA KÖZVETLEN, SPECIÁLIS, VÉLETLEN VAGY KÖVETKEZMÉNYES KÁRÉRT, "
+"BELEÉRTVE DE NEM KIZÁRÓLAG A HÍRNÉV ELVESZTÉSÉBŐL, MUNKA LEÁLLÁSÁBÓL, "
+"SZÁMÍTÓGÉP MEGHIBÁSODÁSÁBÓL VAGY HELYTELEN MŰKÖDÉSÉBŐL SZÁRMAZÓ, VAGY "
+"BÁRMELY EGYÉB KERESKEDELMI KÁROKAT ÉS VESZTESÉGEKET, MÉG AKKOR IS, HA AZ "
+"ILYEN FÉL INFORMÁLVA LETT AZ ILYEN KÁROK ELŐFORDULÁSÁNAK LEHETŐSÉGÉRŐL. A "
+"FELELŐSSÉG EZEN KORLÁTOZÁSA NEM ALKALMAZHATÓ ABBAN AZ ESETBEN, HA HALÁL VAGY "
+"SZEMÉLYI SÉRÜLÉS TÖRTÉNT A FÉL HANYAGSÁGÁBÓL KIFOLYÓLAG, OLYAN MÉRTÉKBEN, "
+"AMENNYIRE AZ ALKALMAZHATÓ TÖRVÉNYEK MEGTILTJÁK AZ ILYEN KORLÁTOZÁSOKAT."
 
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:28 C/legal.xml:28
@@ -172,9 +171,8 @@ msgid ""
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
 "<_:orderedlist-1/>"
 msgstr ""
-"DOKUMENTET OCH MODIFIERADE VERSIONER AV DOKUMENTET TILLHANDAHÅLLS UNDER "
-"VILLKOREN I GNU FREE DOCUMENTATION LICENSE ENDAST UNDER FÖLJANDE "
-"FÖRUTSÄTTNINGAR: <_:orderedlist-1/>"
+"A DOKUMENTUM ÉS A DOKUMENTUM MÓDOSÍTOTT VERZIÓJA A GNU FREE DOCUMENTATION "
+"LICENSE (GFDL) ALATT JELENIK MEG AZ ALÁBBI ÉRTELMEZÉSSEL: <_:orderedlist-1/>"
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:57
@@ -182,7 +180,7 @@ msgid ""
 "<firstname>Sun</firstname> <surname>GNOME Documentation Team</surname> "
 "<affiliation><orgname>Sun Microsystems</orgname></affiliation>"
 msgstr ""
-"<firstname>Sun</firstname> <surname>GNOME Dokumentationsgrupp</surname> "
+"<firstname>Sun</firstname> <surname>GNOME dokumentációs csapat</surname> "
 "<affiliation><orgname>Sun Microsystems</orgname></affiliation>"
 
 #. (itstool) path: authorgroup/author
@@ -193,18 +191,18 @@ msgid ""
 "org</email> </address> </affiliation>"
 msgstr ""
 "<firstname>Chee Bin</firstname> <surname>HOH</surname> <affiliation> "
-"<orgname>GNOME Dokumentationsprojekt</orgname> <address> <email>cbhoh@gnome."
+"<orgname>GNOME dokumentációs projekt</orgname> <address> <email>cbhoh@gnome."
 "org</email> </address> </affiliation>"
 
 #. (itstool) path: revdescription/para
 #: C/index.docbook:105
 msgid "Updated for GNOME 2.6, program version 1.3.0."
-msgstr "Uppdaterad för GNOME 2.6, programversion 1.3.0."
+msgstr "Frissítve a GNOME 2.6-hoz, a program verziója 1.3.0."
 
 #. (itstool) path: revdescription/para
 #: C/index.docbook:106
 msgid "Sun GNOME Documentation Team"
-msgstr "Suns GNOME-dokumentationsteam"
+msgstr "Sun GNOME dokumentációs csapat"
 
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:101
@@ -212,8 +210,8 @@ msgid ""
 "<revnumber>Character Map Manual V2.1</revnumber> <date>2004-02-26</date> <_:"
 "revdescription-1/>"
 msgstr ""
-"<revnumber>Manual för Teckentabell V2.1</revnumber> <date>2004-02-26</date> "
-"<_:revdescription-1/>"
+"<revnumber>Karaktertábla felhasználói kézikönyv V2.1</revnumber> "
+"<date>2004.02.26.</date> <_:revdescription-1/>"
 
 #. (itstool) path: revdescription/para
 #: C/index.docbook:114
@@ -226,18 +224,18 @@ msgid ""
 "<revnumber>Unicode Character Map Manual V2.0</revnumber> <date>October 2003</"
 "date> <_:revdescription-1/>"
 msgstr ""
-"<revnumber>Manual för Unicode Teckentabell Manual V2.0</revnumber> "
-"<date>Oktober 2003</date> <_:revdescription-1/>"
+"<revnumber>Unicode karaktertábla felhasználói kézikönyv V2.0</revnumber> "
+"<date>2003 október</date> <_:revdescription-1/>"
 
 #. (itstool) path: articleinfo/releaseinfo
 #: C/index.docbook:122
 msgid "This manual describes version 1.3.0 of Character Map."
-msgstr "Denna handbok beskriver version 1.3.0 av Teckentabell."
+msgstr "Ez a leírás a Karaktertábla 1.3.0-s verzióját mutatja be."
 
 #. (itstool) path: legalnotice/title
 #: C/index.docbook:127
 msgid "Feedback"
-msgstr "Återkoppling"
+msgstr "Visszajelzés"
 
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:128
@@ -246,10 +244,10 @@ msgid ""
 "Map</application> application or this manual, follow the directions in the "
 "<ulink url=\"help:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
 msgstr ""
-"För att rapportera ett fel eller komma med ett förslag angående programmet "
-"<application>Teckentabell</application> eller denna handbok, följ "
-"instruktionerna på <ulink url=\"help:gnome-feedback\" type=\"help\">GNOME:s "
-"återkopplingssida</ulink>."
+"Hibák bejelentéséhez és a <application>Karaktertábla</application> "
+"alkalmazással kapcsolatos javaslatok tételéhez kövesse az utasításokat a "
+"<ulink url=\"help:gnome-feedback\" type=\"help\">GNOME visszajelzési lapján</"
+"ulink>."
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:135
@@ -259,12 +257,12 @@ msgstr "<primary>gucharmap</primary>"
 #. (itstool) path: article/indexterm
 #: C/index.docbook:138 C/index.docbook:141
 msgid "<primary>Character Map</primary>"
-msgstr "<primary>Teckentabell</primary>"
+msgstr "<primary>Karaktertábla</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:148
 msgid "Introduction"
-msgstr "Introduktion"
+msgstr "Bevezetés"
 
 #. (itstool) path: sect1/para
 #: C/index.docbook:149
@@ -276,12 +274,12 @@ msgid ""
 "<application>Character Map</application> to access characters that are not "
 "available on your keyboard."
 msgstr ""
-"Programmet <application>Teckentabell</application> låter dig infoga "
-"specialtecken i ett dokument eller ett textfält. <application>Teckentabell</"
-"application> tillhandahåller diakritiska tecken, matematiska symboler, "
-"specialsymboler, och skiljetecken. Använd <application>Teckentabell</"
-"application> för att komma åt tecken som inte finns tillgängliga på ditt "
-"tangentbord."
+"A <application>Karaktertábla</application> alkalmazással különleges "
+"karaktereket szúrhat be dokumentumokba és szöveges mezőkbe. A "
+"<application>Karaktertábla</application> ékezetes karaktereket, matematikai "
+"és különleges szimbólumokat, valamint írásjeleket is biztosít. Az "
+"alkalmazást arra használhatja, hogy olyan karaktereket is elérjen, amelyek "
+"nem szerepelnek a billentyűzetén."
 
 #. (itstool) path: sect1/para
 #: C/index.docbook:152
@@ -292,32 +290,32 @@ msgid ""
 "all of the characters that are used in all of the written languages in the "
 "world."
 msgstr ""
-"<application>Teckentabell</application> visar alla tecken som finns "
-"tillgängliga i alla språkskript på ditt system, med teckenuppsättningen "
-"Unicode. Unicode är en teckenuppsättningsstandard som har som mål att "
-"inkludera alla tecken som används i alla skrivna språk i världen."
+"A <application>Karaktertábla</application> megjelenít minden elérhető "
+"karaktert, minden elérhető írásrendszerben, az Unicode karakterkészlet "
+"használatával. A Unicode egy karakterkészlet-szabvány, amelynek a célja, "
+"hogy a világ írott nyelveinek összes karakterét tartalmazza."
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:160
 msgid "Getting Started"
-msgstr "Komma igång"
+msgstr "Első lépések"
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:163
 msgid "To Start Character Map"
-msgstr "Starta Teckentabell"
+msgstr "A Karaktertábla elindítása"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:164
 msgid ""
 "You can start <application>Character Map</application> in the following ways:"
 msgstr ""
-"Du kan starta <application>Teckentabell</application> på följande sätt:"
+"A <application>Karaktertábla</application> a következőképpen indítható el:"
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:168
 msgid "<guimenu>Applications</guimenu> menu"
-msgstr "Menyn <guimenu>Program</guimenu>"
+msgstr "<guimenu>Alkalmazások</guimenu> menü"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:170
@@ -325,23 +323,24 @@ msgid ""
 "Choose <menuchoice><guimenu>Accessories</guimenu><guimenuitem>Character Map</"
 "guimenuitem></menuchoice>."
 msgstr ""
-"Välj <menuchoice><guimenu>Tillbehör</guimenu><guimenuitem>Teckentabell</"
-"guimenuitem></menuchoice>."
+"Válassza a <menuchoice><guimenu>Kellékek</"
+"guimenu><guimenuitem>Karaktertábla</guimenuitem></menuchoice> menüpontot."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:176
 msgid "Command line"
-msgstr "Kommandorad"
+msgstr "Parancssor"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:178
 msgid "Execute the following command: <command>gnome-character-map</command>"
-msgstr "Kör följande kommando: <command>gnome-character-map</command>"
+msgstr ""
+"Hajtsa végre a következő parancsot: <command>gnome-character-map</command>"
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:187
 msgid "When You Start Character Map"
-msgstr "När du startar Teckentabell"
+msgstr "A Karaktertábla indítása"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:188
@@ -349,13 +348,13 @@ msgid ""
 "When you start <application>Character Map</application>, the following "
 "window is displayed."
 msgstr ""
-"När du startar <application>Teckentabell</application> visas följande "
-"fönster."
+"Amikor elindítja a <application>Karaktertábla</application> alkalmazást, a "
+"következő képernyő jelenik meg."
 
 #. (itstool) path: figure/title
 #: C/index.docbook:193
 msgid "Character Map Window"
-msgstr "Fönstret i Teckentabell"
+msgstr "Karaktertábla ablak"
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:195
@@ -365,8 +364,8 @@ msgid ""
 "phrase> </textobject>"
 msgstr ""
 "<imageobject> <imagedata fileref=\"figures/gucharmap_window.png\" format="
-"\"PNG\"/> </imageobject> <textobject> <phrase>Visar Teckentabellfönstret.</"
-"phrase> </textobject>"
+"\"PNG\"/> </imageobject> <textobject> <phrase>A Karaktertábla ablakát "
+"mutatja.</phrase> </textobject>"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:210
@@ -374,13 +373,13 @@ msgid ""
 "The <application>Character Map</application> window contains the following "
 "elements:"
 msgstr ""
-"Fönstret i <application>Teckentabell</application> innehåller följande "
-"element:"
+"A <application>Karaktertábla</application> ablak a következő elemeket "
+"tartalmazza:"
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:214
 msgid "Menubar"
-msgstr "Menyrad"
+msgstr "Menüsáv"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:216
@@ -388,13 +387,14 @@ msgid ""
 "The menus on the menubar contain most of the commands that you need to work "
 "with <application>Character Map</application>."
 msgstr ""
-"Menyerna i menyraden innehåller de flesta kommandon som du behöver för att "
-"arbeta med <application>Teckentabell</application>."
+"A menüsávon található menük tartalmazzák a parancsok többségét, amelyekre a "
+"<application>Karaktertábla</application> alkalmazás kezeléséhez szüksége "
+"lesz."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:222
 msgid "Toolbar"
-msgstr "Verktygsfält"
+msgstr "Eszköztár"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:224
@@ -402,51 +402,51 @@ msgid ""
 "The toolbar contains a drop-down list of fonts, font style buttons, and a "
 "zoom spin box."
 msgstr ""
-"Verktygsfältet innehåller en rullgardinslista med typsnitt, "
-"typsnittsstilknappar, och en zoomväljare."
+"Az eszköztár tartalmazza a betűkészletek legördülő listáját, a betűstílus "
+"gombokat és a nagyítási léptetőgombot."
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:230
 msgid "Display area"
-msgstr "Visningsrutan"
+msgstr "Megjelenítési terület"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:232
 msgid "The display area contains the following components:"
-msgstr "Visningsrutan innehåller följande komponenter:"
+msgstr "A megjelenítési terület a következő elemeket tartalmazza:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:237
 msgid ""
 "<guilabel>Script</guilabel> or <guilabel>Unicode Block</guilabel> list box"
 msgstr ""
-"Listrutan <guilabel>Skript</guilabel> eller <guilabel>Unicode-block</"
-"guilabel>"
+"<guilabel>Írásrendszer szerint</guilabel> vagy <guilabel>Unicode-blokk "
+"szerint</guilabel> legördülő lista"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:241
 msgid "<guilabel>Character Table</guilabel> tabbed section"
-msgstr "Flikade sektionen <guilabel>Teckentabell</guilabel>"
+msgstr "<guilabel>Karaktertábla</guilabel> lapfül"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:245
 msgid "<guilabel>Character Details</guilabel> tabbed section"
-msgstr "Flikade sektionen <guilabel>Teckendetaljer</guilabel>"
+msgstr "<guilabel>Karakter adatai</guilabel> lapfül"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:249
 msgid "<guilabel>Text to copy</guilabel> text box"
-msgstr "Textrutan <guilabel>Text att kopiera</guilabel>"
+msgstr "<guilabel>Másolandó szöveg</guilabel> szövegmező"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:253
 msgid "<guibutton>Copy</guibutton> button"
-msgstr "Knappen <guibutton>Kopiera</guibutton>"
+msgstr "<guibutton>Másolás</guibutton> gomb"
 
 #. (itstool) path: varlistentry/term
 #: C/index.docbook:260
 msgid "Statusbar"
-msgstr "Statusrad"
+msgstr "Állapotsor"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:262
@@ -454,18 +454,18 @@ msgid ""
 "The statusbar displays the currently selected character's Unicode code point "
 "and Unicode character name."
 msgstr ""
-"Statusraden visar det aktuellt valda tecknets Unicode-kodpunkt och Unicode-"
-"teckennamn."
+"Az állapotsor megjeleníti a jelenleg kiválasztott karakter Unicode-"
+"kódpontját és a karakter nevét."
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:272
 msgid "Usage"
-msgstr "Användning"
+msgstr "Használat"
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:275
 msgid "To Change the Character-Set List"
-msgstr "Ändra teckenuppsättningslistan"
+msgstr "Karakterkészlet-lista megváltoztatása"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:276
@@ -473,9 +473,9 @@ msgid ""
 "To list the character sets by script name, choose <menuchoice><guimenu>View</"
 "guimenu><guimenuitem>By Script</guimenuitem></menuchoice>."
 msgstr ""
-"För att lista teckenuppsättningarna efter skriptnamn, välj "
-"<menuchoice><guimenu>Visa</guimenu><guimenuitem>Efter skript</guimenuitem></"
-"menuchoice>."
+"A karakterkészletek írásrendszer szerinti felsorolásához válassza a "
+"<menuchoice><guimenu>Nézet</guimenu><guimenuitem>Írásrendszer szerint</"
+"guimenuitem></menuchoice> beállítást."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:279
@@ -484,14 +484,14 @@ msgid ""
 "<menuchoice><guimenu>View</guimenu><guimenuitem>By Unicode Block</"
 "guimenuitem></menuchoice>."
 msgstr ""
-"För att lista teckenuppsättningarna efter Unicode-block, välj "
-"<menuchoice><guimenu>Visa</guimenu><guimenuitem>Efter Unicode-block</"
-"guimenuitem></menuchoice>."
+"A karakterkészletek Unicode-blokk szerinti felsorolásához válassza a "
+"<menuchoice><guimenu>Nézet</guimenu><guimenuitem>Unicode-blokk szerint</"
+"guimenuitem></menuchoice> beállítást."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:285
 msgid "To Create a Text String"
-msgstr "Skapa en textsträng"
+msgstr "Karakterlánc létrehozása"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:286
@@ -499,8 +499,8 @@ msgid ""
 "To create a text string in the <guilabel>Text to copy</guilabel> field, "
 "perform the following steps:"
 msgstr ""
-"Genomför följande steg för att skapa en textsträng i fältet <guilabel>Text "
-"att kopiera</guilabel>:"
+"A <guilabel>Másolandó szöveg</guilabel> mezőben lévő karakterlánc "
+"létrehozásához tegye a következőket:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:291
@@ -508,13 +508,13 @@ msgid ""
 "Select a character set from the <guilabel>Script</guilabel> or "
 "<guilabel>Unicode Block</guilabel> list box."
 msgstr ""
-"Välj en teckenuppsättning från listrutan <guilabel>Skript</guilabel> eller "
-"<guilabel>Unicode-block</guilabel>."
+"Válasszon ki egy karakterkészletet az <guilabel>Írásrendszer</guilabel> vagy "
+"a <guilabel>Unicode-blokk</guilabel> listapanelből."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:296
 msgid "Insert characters in one of the following ways:"
-msgstr "Infoga tecken på ett av följande sätt:"
+msgstr "Szúrjon be karaktereket a következő módokon:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:301
@@ -523,9 +523,9 @@ msgid ""
 "guilabel> tabbed section, to insert the character in the <guilabel>Text to "
 "copy</guilabel> field."
 msgstr ""
-"Dubbelklicka på teckenknappen i den flikade sektionen "
-"<guilabel>Teckentabell</guilabel>, för att infoga tecknet i fältet "
-"<guilabel>Text att kopiera</guilabel>."
+"Kattintson kétszer a karakter gombra a <guilabel>Karaktertábla</guilabel> "
+"lapfülön a karakter beszúrásához a <guilabel>Másolandó szöveg</guilabel> "
+"mezőbe."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:306
@@ -534,9 +534,9 @@ msgid ""
 "section, then press <keycap>Return</keycap> to insert the character in the "
 "<guilabel>Text to copy</guilabel> field."
 msgstr ""
-"Klicka på en teckenknapp i den flikade sektionen <guilabel>Teckentabell</"
-"guilabel>, tryck sedan på <keycap>Return</keycap> för att infoga tecknet i "
-"fältet <guilabel>Text att kopiera</guilabel>."
+"Válasszon ki egy karakter gombot a <guilabel>Karaktertábla</guilabel> "
+"lapfülön, majd nyomja meg az <keycap>Enter</keycap> billentyűt a karakter "
+"beszúrásához a <guilabel>Másolandó szöveg</guilabel> mezőbe."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:311
@@ -545,9 +545,9 @@ msgid ""
 "section, then click and drag the character to the <guilabel>Text to copy</"
 "guilabel> field."
 msgstr ""
-"Klicka på en teckenknapp i den flikade sektionen <guilabel>Teckentabell</"
-"guilabel>, klicka och dra sedan tecknet till fältet <guilabel>Text att "
-"kopiera</guilabel>."
+"Válasszon ki egy karakter gombot a <guilabel>Karaktertábla</guilabel> "
+"lapfülön, majd kattintson, és húzza a karaktert a <guilabel>Másolandó "
+"szöveg</guilabel> mezőre."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:316
@@ -557,15 +557,15 @@ msgid ""
 "the point where you want to insert the character. Press a character key on "
 "your keyboard to insert that character into the field."
 msgstr ""
-"Klicka på fältet <guilabel>Text att kopiera</guilabel> för att ge fokus till "
-"fältet. Om en textsträng redan finns i fältet, klicka på textsträngen vid "
-"den positionen där du vill infoga tecknet. Tryck på en teckentangent på ditt "
-"tangentbord för att infoga tecknet i fältet."
+"Kattintson a <guilabel>Másolandó szöveg</guilabel> mezőre az aktiválásához. "
+"Ha már van szöveg a mezőben, akkor kattintson a karakterláncra azon a "
+"ponton, ahová beilleszteni szeretne. Üsse le a beilleszteni kívánt karaktert "
+"a billentyűzeten a mezőbe beszúráshoz."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:327
 msgid "To Copy and Paste Your Text String into an Application"
-msgstr "Kopiera och klistra in din textsträng i ett program"
+msgstr "Karakterlánc másolása és beillesztése egy alkalmazásba"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:328
@@ -573,8 +573,8 @@ msgid ""
 "To copy and paste the text string from the <guilabel>Text to copy</guilabel> "
 "field into an application, perform the following steps:"
 msgstr ""
-"Genomför följande steg för att kopiera och klistra in textsträngen från "
-"fältet <guilabel>Text att kopiera</guilabel> i ett program:"
+"A <guilabel>Másolandó szöveg</guilabel> mezőben található karakterlánc "
+"másoláshoz és más alkalmazásba beillesztéséhez tegye a következőket:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:333
@@ -583,10 +583,10 @@ msgid ""
 "selected, all of the string is copied to the clipboard. If a portion of the "
 "string is selected, only that portion is copied."
 msgstr ""
-"Klicka på <guibutton>Kopiera</guibutton>. Om inget eller allt av "
-"textsträngen har markerats, kommer allt av strängen att kopieras till "
-"urklipp. Om en del av strängen är markerad, kommer endast den delen att "
-"kopieras."
+"Kattintson a <guibutton>Másolás</guibutton> gombra. Ha semmi sincs "
+"kijelölve, vagy ha minden karakter ki van jelölve, akkor a teljes szöveg a "
+"vágólapra kerül. Ha csak a szöveg egy része van kijelölve, akkor csak az a "
+"rész másolódik."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:338
@@ -595,9 +595,10 @@ msgid ""
 "guimenu><guimenuitem>Paste</guimenuitem></menuchoice>, or press shortcut key "
 "<keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>."
 msgstr ""
-"Växla till ditt program och välj <menuchoice><guimenu>Redigera</"
-"guimenu><guimenuitem>Klistra in</guimenuitem></menuchoice>, eller tryck "
-"snabbtangenten <keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>."
+"Váltson át az alkalmazásra, és válassza a <menuchoice><guimenu>Szerkesztés</"
+"guimenu><guimenuitem>Beillesztés</guimenuitem></menuchoice> menüpontot, vagy "
+"nyomja le a <keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo> "
+"billentyűkombinációt."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:345
@@ -606,9 +607,9 @@ msgid ""
 "into other applications, the text string appears in the current character "
 "set of the application."
 msgstr ""
-"När du klistrar in innehållet av fältet <guilabel>Text att kopiera</"
-"guilabel> i andra program, kommer textsträngen visas i den aktuella "
-"teckenuppsättningen för programmet."
+"Amikor beilleszti a <guilabel>Másolandó szöveg</guilabel> mező tartalmát egy "
+"másik alkalmazásba, akkor a karakterlánc az alkalmazás aktuális "
+"karakterkészletében jelenik meg."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:348
@@ -616,18 +617,19 @@ msgid ""
 "If your text string contains non-visible characters, you can only insert the "
 "text string into applications that support the full character set."
 msgstr ""
-"Om din textsträng innehåller icke-synliga tecken, kan du endast infoga "
-"textsträngen i program som har stöd för hela teckenuppsättningen."
+"Ha a karakterlánc nem látható karaktereket is tartalmaz, akkor csak abban az "
+"esetben illeszthető be alkalmazásokba, ha az támogatja a teljes "
+"karakterkészletet."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:354
 msgid "To Search for a Character"
-msgstr "Sök efter ett tecken"
+msgstr "Karakter keresése"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:355
 msgid "To search for a character, perform the following steps:"
-msgstr "Genomför följande steg för att söka efter ett tecken:"
+msgstr "Karakter kereséséhez hajtsa végre az alábbi lépéseket:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:360
@@ -636,15 +638,15 @@ msgid ""
 "menuchoice>, or press shortcut key <keycombo><keycap>Ctrl</keycap><keycap>F</"
 "keycap></keycombo>. The <guilabel>Find</guilabel> dialog opens."
 msgstr ""
-"Välj <menuchoice><guimenu>Sök</guimenu><guimenuitem>Sök</guimenuitem></"
-"menuchoice>, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>F</keycap></keycombo>. Dialogrutan <guilabel>Sök</guilabel> "
-"öppnas."
+"Válassza a <menuchoice><guimenu>Keresés</guimenu><guimenuitem>Keresés</"
+"guimenuitem></menuchoice> menüpontot, vagy nyomja le a <keycombo><keycap>Ctrl</"
+"keycap><keycap>F</keycap></keycombo> billentyűkombinációt. Ekkor megnyílik a "
+"<guilabel>Keresés</guilabel> párbeszédablak."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:367
 msgid "Enter text to search for in the <guilabel>Search</guilabel> field."
-msgstr "Skriv in texten att söka efter i fältet <guilabel>Sök</guilabel>."
+msgstr "Írja be a keresendő szöveget a <guilabel>Keresés</guilabel> mezőbe."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:371
@@ -652,8 +654,8 @@ msgid ""
 "Select <guilabel>Match whole word</guilabel> to only find complete words "
 "that match your text."
 msgstr ""
-"Välj <guilabel>Matcha hela ord</guilabel> för att endast hitta hela ord som "
-"matchar din text."
+"Jelölje be a <guilabel>Teljes szó</guilabel> négyzetet, ha csak teljes "
+"szavakra keresne."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:372
@@ -662,10 +664,10 @@ msgid ""
 "in character details</guilabel> to search in other parts of a character's "
 "description, such as notes, equivalents, and approximate equivalents."
 msgstr ""
-"Som standard söks det endast i teckennamnen. Välj <guilabel>Sök i "
-"teckendetaljer</guilabel> för att söka i andra delar av tecknets "
-"beskrivning, till exempel anteckningar, ekvivalenter, och ungefärliga "
-"ekvivalenter."
+"Alapesetben csak a karakternevek között történik a keresés. Jelölje be a "
+"<guilabel>Keresés a karakter adatai közt</guilabel> négyzetet a karakter "
+"leírásában történő kereséshez: mint például jegyzetek, egyenértékű és közel "
+"egyenértékű karakterek."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:376
@@ -674,9 +676,9 @@ msgid ""
 "after the currently selected character. <application>Character Map</"
 "application> selects the character it finds."
 msgstr ""
-"Klicka på <guibutton>Nästa</guibutton> för att söka efter den första "
-"förekomsten av din text efter det aktuellt markerade tecknet. "
-"<application>Teckentabell</application> markerar tecknet som det hittar."
+"Kattintson a <guibutton>Következő</guibutton> gombra a szöveg első "
+"előfordulásának megkereséséhez az éppen kiválasztott karakter után. A "
+"<application>Karaktertábla</application> kiválasztja a megtalált karaktert."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:381
@@ -686,10 +688,12 @@ msgid ""
 "Next</guimenuitem></menuchoice>, or press shortcut key "
 "<keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo>."
 msgstr ""
-"Klicka på <guibutton>Nästa</guibutton> för att hitta nästa matchande tecken. "
-"Alternativt, välj <menuchoice><guimenu>Sök</guimenu><guimenuitem>Sök nästa</"
-"guimenuitem></menuchoice>, eller tryck genvägstangenten "
-"<keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo>."
+"Kattintson a <guibutton>Következő</guibutton> gombra a következő illeszkedő "
+"karakter megtalálásához. Egyéb lehetőségként válassza a "
+"<menuchoice><guimenu>Keresés</guimenu><guimenuitem>Következő találat</"
+"guimenuitem></menuchoice> menüpontot, vagy nyomja meg a "
+"<keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo> "
+"billentyűkombinációt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:387
@@ -700,23 +704,24 @@ msgid ""
 "shortcut key <keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>G</"
 "keycap></keycombo>."
 msgstr ""
-"Klicka på <guibutton>Föregående</guibutton> för att hitta föregående "
-"matchande tecken. Alternativt, välj <menuchoice><guimenu>Sök</"
-"guimenu><guimenuitem>Sök föregående</guimenuitem></menuchoice>, eller tryck "
-"genvägstangenten <keycombo><keycap>Skift</keycap><keycap>Ctrl</"
-"keycap><keycap>G</keycap></keycombo>."
+"Kattintson az <guibutton>Előző</guibutton> gombra az előző illeszkedő "
+"karakter megtalálásához. Egyéb lehetőségként válassza a "
+"<menuchoice><guimenu>Keresés</guimenu><guimenuitem>Előző találat</"
+"guimenuitem></menuchoice> menüpontot, vagy nyomja meg a "
+"<keycombo><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>G</keycap></"
+"keycombo> billentyűkombinációt."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:397
 msgid "To Browse Through all Characters"
-msgstr "Bläddra igenom alla tecken"
+msgstr "Böngészés az összes karakter között"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:398
 msgid ""
 "To browse through the character map, use the <guimenu>Go</guimenu> menu."
 msgstr ""
-"För att bläddra igenom teckentabellen, använd menyn <guimenu>Gå</guimenu>."
+"A karaktertábla böngészéséhez használja az <guimenu>Ugrás</guimenu> menüt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:402
@@ -724,8 +729,8 @@ msgid ""
 "Next character, or press shortcut key <keycombo><keycap>Ctrl</"
 "keycap><keycap>N</keycap></keycombo>."
 msgstr ""
-"Nästa tecken, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>N</keycap></keycombo>."
+"Következő karakter menüpont, vagy <keycombo><keycap>Ctrl</keycap><keycap>N</"
+"keycap></keycombo> billentyűkombináció."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:408
@@ -733,8 +738,8 @@ msgid ""
 "Previous character, or press shortcut key <keycombo><keycap>Ctrl</"
 "keycap><keycap>P</keycap></keycombo>."
 msgstr ""
-"Föregående tecken, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>P</keycap></keycombo>."
+"Előző karakter menüpont, vagy <keycombo><keycap>Ctrl</"
+"keycap><keycap>P</keycap></keycombo> billentyűkombináció."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:414
@@ -742,8 +747,8 @@ msgid ""
 "Next script, or press shortcut key <keycombo><keycap>Ctrl</"
 "keycap><keycap>Page Down</keycap></keycombo>."
 msgstr ""
-"Nästa skript, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>Page Down</keycap></keycombo>."
+"Előző írásrendszer menüpont, vagy <keycombo><keycap>Ctrl</"
+"keycap><keycap>Page Down</keycap></keycombo> billentyűkombináció."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:420
@@ -751,8 +756,8 @@ msgid ""
 "Previous script, or press shortcut key <keycombo><keycap>Ctrl</"
 "keycap><keycap>Page Up</keycap></keycombo>."
 msgstr ""
-"Föregående skript, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>Page Up</keycap></keycombo>."
+"Következő írásrendszer menüpont, vagy <keycombo><keycap>Ctrl</"
+"keycap><keycap>Page Up</keycap></keycombo> billentyűkombináció."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:427
@@ -764,22 +769,23 @@ msgid ""
 "<menuchoice><guimenu>View</guimenu><guimenuitem>By Unicode Block</"
 "guimenuitem></menuchoice>."
 msgstr ""
-"Du kan bläddra i teckentabellen efter individuella tecken, och skript eller "
-"efter Unicode-block. Det beror på huruvida teckentabellen visar skript eller "
-"Unicode-block. För att ändra det här, välj <menuchoice><guimenu>Visa</"
-"guimenu><guimenuitem>Efter skript</guimenuitem></menuchoice> eller "
-"<menuchoice><guimenu>Visa</guimenu><guimenuitem>Efter Unicode-block</"
-"guimenuitem></menuchoice>."
+"A karaktertáblát egyedi karakterenként, írásrendszerenként vagy Unicode "
+"blokkonként is böngészheti. Ez attól függ, hogy a karaktertábla megjeleníti-"
+"e az írásrendszereket vagy Unicode-blokkokat. A beállításhoz használja a "
+"<menuchoice><guimenu>Nézet</guimenu><guimenuitem>Írásrendszer szerint</"
+"guimenuitem></menuchoice> és <menuchoice><guimenu>Nézet</"
+"guimenu><guimenuitem>Unicode-blokk szerint</guimenuitem></menuchoice> "
+"menüpontokat."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:429
 msgid "The following keys also work for browsing the character map:"
-msgstr "Följande tangenter fungerar även för att bläddra i teckentabellen:"
+msgstr "A következő billentyűk is használhatóak a karaktertábla böngészéséhez."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:433
 msgid "Press the arrow keys on the keyboard to browse through the characters."
-msgstr "Tryck på piltangenterna i tangentbordet för att bläddra genom tecknen."
+msgstr "Használja a nyílbillentyűket a navigációhoz a karaktertáblában."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:438
@@ -787,8 +793,8 @@ msgid ""
 "Press the <keycap>Page Up</keycap> and <keycap>Page Down</keycap> keys to "
 "browse through the characters page by page."
 msgstr ""
-"Tryck på tangenterna <keycap>Page Up</keycap> och <keycap>Page Down</keycap> "
-"för att bläddra genom tecknen, sida efter sida."
+"Nyomja le a <keycap>Page Up</keycap> vagy <keycap>Page Down</keycap> "
+"billentyűt a karakterek oldalankénti böngészéséhez."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:443
@@ -797,22 +803,21 @@ msgid ""
 "Unicode sequence. To select the last character, press the <keycap>End</"
 "keycap> key."
 msgstr ""
-"Tryck på tangenten <keycap>Home</keycap> för att välja det första tecknet i "
-"Unicode-sekvensen. För att välja det sista tecknet, tryck på tangenten "
-"<keycap>End</keycap>."
+"Nyomja le a <keycap>Home</keycap> billentyűt az első karakterhez ugráshoz a "
+"táblázatban. Az utolsó karakter kiválasztásához használja az <keycap>End</"
+"keycap> billentyűt."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:451
 msgid "To Display Detailed Information About a Character"
-msgstr "Visa detaljerad information om ett tecken"
+msgstr "Részletes információk megjelenítése egy karakterről"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:452
 msgid ""
 "To display detailed information about a character, perform the following "
 "steps:"
-msgstr ""
-"Genomför följande steg för att visa detaljerad information om ett tecken:"
+msgstr "A részletes információk megjelenítéséhez tegye a következőket:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:457
@@ -821,9 +826,9 @@ msgid ""
 "<guilabel>Unicode Block</guilabel> list box. Example: <guilabel>Basic Latin</"
 "guilabel>"
 msgstr ""
-"Välj en teckenuppsättning från listrutan <guilabel>Skript</guilabel> eller "
-"<guilabel>Unicode-block</guilabel>. Exempel: <guilabel>Grundläggande "
-"latinska</guilabel>"
+"Válassza ki a karakterkészletet az <guilabel>Írásrendszer</guilabel> vagy "
+"<guilabel>Unicode-blokk</guilabel> listadobozból. Például: <guilabel>Latin "
+"alap</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:462
@@ -831,13 +836,13 @@ msgid ""
 "Select a character from the <guilabel>Character Table</guilabel> tabbed "
 "section. Example: <guilabel>B</guilabel>"
 msgstr ""
-"Välj ett tecken från den flikade sektionen <guilabel>Teckentabell</"
-"guilabel>. Exempel: <guilabel>B</guilabel>"
+"Válasszon ki egy karaktert a <guilabel>Karaktertábla</guilabel> fülön. "
+"Például: <guilabel>B</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:467
 msgid "Click on the <guilabel>Character Details</guilabel> tabbed section."
-msgstr "Klicka på den flikade sektionen <guilabel>Teckendetaljer</guilabel>."
+msgstr "Kattintson a <guilabel>Karakter adatai</guilabel> lapfülre."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:472
@@ -845,119 +850,122 @@ msgid ""
 "The <guilabel>Character Details</guilabel> tabbed section displays the "
 "following information about the selected character:"
 msgstr ""
-"Den flikade sektionen <guilabel>Teckendetaljer</guilabel> visar följande "
-"information om det valda tecknet:"
+"A <guilabel>Karakter adatai</guilabel> lapfül a következő információkat "
+"jeleníti meg a kiválasztott karakterről:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:477
 msgid "Unicode code point"
-msgstr "Unicode-kodpunkt"
+msgstr "Unicode-kódpont"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:480
 msgid "Example: <guilabel>U+0042</guilabel>"
-msgstr "Exempel: <guilabel>U+0042</guilabel>"
+msgstr "Például: <guilabel>U+0042</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:485
 msgid "Unicode character name"
-msgstr "Unicode-teckennamn"
+msgstr "Unicode-karakternév"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:488
 msgid "Example: <guilabel>LATIN CAPITAL LETTER B</guilabel>"
-msgstr "Exempel: <guilabel>LATIN CAPITAL LETTER B</guilabel>"
+msgstr "Példa: <guilabel>LATIN CAPITAL LETTER B</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:493
 msgid "<guilabel>General Character Properties</guilabel>"
-msgstr "<guilabel>Allmänna teckenegenskaper</guilabel>"
+msgstr "<guilabel>Általános karaktertulajdonságok</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:498
 msgid "Unicode category"
-msgstr "Unicode-kategori"
+msgstr "Unicode-kategória"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:501
 msgid "Example: <guilabel>Letter, Uppercase</guilabel>"
-msgstr "Exempel: <guilabel>Bokstav, Versal</guilabel>"
+msgstr "Például: <guilabel>Betű, nagybetű</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:508
 msgid "<guilabel>Various Useful Representations</guilabel>"
-msgstr "<guilabel>Diverse användbara representationer</guilabel>"
+msgstr "<guilabel>Néhány hasznos reprezentáció</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:513
 msgid "UTF-8 encoding"
-msgstr "UTF-8-kodning"
+msgstr "UTF-8 kódolás"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:516
 msgid "Example: <guilabel>0x42</guilabel>"
-msgstr "Exempel: <guilabel>0x42</guilabel>"
+msgstr "Például: <guilabel>0x42</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:521
 msgid "UTF-16 encoding"
-msgstr "UTF-16-kodning"
+msgstr "UTF-16 kódolás"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:524
 msgid "Example: <guilabel>0x0042</guilabel>"
-msgstr "Exempel: <guilabel>0x0042</guilabel>"
+msgstr "Például: <guilabel>0x0042</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:529
 msgid "C octal escaped UTF-8 encoding"
-msgstr "Oktalt kodad UTF-8 för C"
+msgstr "C oktális escape-elt UTF-8 kódolás"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:532
 msgid "Example: <guilabel>\\102</guilabel>"
-msgstr "Exempel: <guilabel>\\102</guilabel>"
+msgstr "Például: <guilabel>\\102</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:537
 msgid "XML decimal entity"
-msgstr "Decimal entitetsreferens för XML"
+msgstr "XML decimális entitás"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:540
 msgid "Example: <guilabel>\"&amp;#66\"</guilabel>"
-msgstr "Exempel: <guilabel>\"&amp;#66\"</guilabel>"
+msgstr "Például: <guilabel>„&amp;#66”</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:547
 msgid "<guilabel>Annotations and Cross References</guilabel>"
-msgstr "<guilabel>Annotationer och korsreferenser</guilabel>"
+msgstr "<guilabel>Magyarázó jegyzetek és kereszthivatkozások</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:550
 msgid "Example: <guilabel>U+212C SCRIPT CAPITAL B</guilabel>"
-msgstr "Exempel: <guilabel>U+212C SCRIPT CAPITAL B</guilabel>"
+msgstr "Például: <guilabel>U+212C SCRIPT CAPITAL B</guilabel>"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:553
 msgid "Click on the link to display the details for the referenced character."
-msgstr "Klicka på länken för att visa detaljerna för det refererande tecknet."
+msgstr ""
+"A hivatkozott karakter adatainak megjelenítéséhez kattintson a hivatkozásra."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:561
 msgid "To Change the Format of a Character"
-msgstr "Ändra formatet för ett tecken"
+msgstr "Karakter formátumának megváltoztatása"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:562
 msgid ""
 "To change the format of a character, perform any of the following steps:"
-msgstr "Genomför något av följande steg för att ändra formatet för ett tecken:"
+msgstr "Egy karakter formátumának megváltoztatáshoz tegye következők egyikét:"
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:567
 msgid "To change the font, select a font from the font drop-down list."
-msgstr "För att ändra typsnittet, välj ett typsnitt från rullgardinslistan."
+msgstr ""
+"A betűkészlet módosításához válasszon ki egy betűkészletet a legördülő "
+"listából."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:572
@@ -966,9 +974,9 @@ msgid ""
 "guibutton> button, or press shortcut key <keycombo><keycap>Alt</"
 "keycap><keycap>B</keycap></keycombo>."
 msgstr ""
-"För att ändra typsnittstypen till fet text, klicka på knappen "
-"<guibutton>Fet</guibutton>, eller tryck genvägstangenten "
-"<keycombo><keycap>Alt</keycap><keycap>B</keycap></keycombo>."
+"A betű félkövérré tételéhez kattintson a <guibutton>Félkövér</guibutton> "
+"gombra, vagy nyomja le az <keycombo><keycap>Alt</keycap><keycap>B</keycap></"
+"keycombo> billentyűkombinációt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:578
@@ -977,9 +985,9 @@ msgid ""
 "guibutton> button, or press shortcut key <keycombo><keycap>Alt</"
 "keycap><keycap>I</keycap></keycombo>."
 msgstr ""
-"För att ändra typsnittstypen till kursiv text, klicka på knappen "
-"<guibutton>Kursiv</guibutton>, eller tryck genvägstangenten "
-"<keycombo><keycap>Alt</keycap><keycap>I</keycap></keycombo>."
+"A betű dőltté tételéhez kattintson a <guibutton>Dőlt</guibutton> gombra, "
+"vagy nyomja le az <keycombo><keycap>Alt</keycap><keycap>I</keycap></"
+"keycombo> billentyűkombinációt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:584
@@ -989,10 +997,10 @@ msgid ""
 "box, or press shortcut key <keycombo><keycap>Ctrl</keycap><keycap>+</"
 "keycap></keycombo>."
 msgstr ""
-"För att öka typsnittsstorleken, välj <menuchoice><guimenu>Visa</"
-"guimenu><guimenuitem>Zooma in</guimenuitem></menuchoice>, använd "
-"zoomväljaren, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>+</keycap></keycombo>."
+"A betűméret növeléséhez válassza a <menuchoice><guimenu>Nézet</"
+"guimenu><guimenuitem>Nagyítás</guimenuitem></menuchoice> menüpontot, a "
+"betűméret-állító léptetőgombot, vagy a <keycombo><keycap>Ctrl</"
+"keycap><keycap>+</keycap></keycombo> billentyűkombinációt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:590
@@ -1002,10 +1010,10 @@ msgid ""
 "spin box, or press shortcut key <keycombo><keycap>Ctrl</keycap><keycap>-</"
 "keycap></keycombo>."
 msgstr ""
-"För att minska typsnittsstorleken, välj <menuchoice><guimenu>Visa</"
-"guimenu><guimenuitem>Zooma ut</guimenuitem></menuchoice>, använd "
-"zoomväljaren, eller tryck genvägstangenten <keycombo><keycap>Ctrl</"
-"keycap><keycap>-</keycap></keycombo>."
+"A betűméret csökkentéséhez válassza a <menuchoice><guimenu>Nézet</"
+"guimenu><guimenuitem>Kicsinyítés</guimenuitem></menuchoice> menüpontot, a "
+"betűméret-állító léptetőgombot, vagy a <keycombo><keycap>Ctrl</"
+"keycap><keycap>-</keycap></keycombo> billentyűkombinációt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:596
@@ -1014,21 +1022,22 @@ msgid ""
 "guimenu><guimenuitem>Normal Size</guimenuitem></menuchoice>, or press "
 "shortcut key <keycombo><keycap>Ctrl</keycap><keycap>=</keycap></keycombo>."
 msgstr ""
-"För att visa den normala typsnittsstorleken, välj <menuchoice><guimenu>Visa</"
-"guimenu><guimenuitem>Normal storlek</guimenuitem></menuchoice>, eller tryck "
-"genvägstangenten <keycombo><keycap>Ctrl</keycap><keycap>=</keycap></"
-"keycombo>."
+"A normál betűméret visszaállításához válassza a <menuchoice><guimenu>Nézet</"
+"guimenu><guimenuitem>Normál méret</guimenuitem></menuchoice> menüpontot, "
+"vagy nyomja le a <keycombo><keycap>Ctrl</keycap><keycap>=</keycap></"
+"keycombo> billentyűkombinációt."
 
 #. (itstool) path: listitem/para
 #: C/index.docbook:602
 msgid "To magnify the selected character, hold <keycap>Shift</keycap>."
 msgstr ""
-"För att förstora det markerade tecknet, håll ner <keycap>Skift</keycap>."
+"A kiválasztott karakter nagyításához tartsa nyomva a <keycap>Shift</keycap> "
+"billentyűt."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:610
 msgid "To Change the Format of the Character Table"
-msgstr "Ändra formatet för teckentabellen"
+msgstr "A karaktertábla formátumának módosítása"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:611
@@ -1037,9 +1046,9 @@ msgid ""
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Snap Columns to Power of "
 "Two</guimenuitem></menuchoice>."
 msgstr ""
-"För att ändra formatet på teckentabellen, välj <menuchoice><guimenu>Visa</"
-"guimenu><guimenuitem>Fäst kolumner vid jämnt antal</guimenuitem></"
-"menuchoice>."
+"A karaktertábla megjelenésének módosításához válassza a "
+"<menuchoice><guimenu>Nézet</guimenu><guimenuitem>Oszlopok igazítása kettő "
+"hatványaira</guimenuitem></menuchoice> menüpontot."
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:614
@@ -1049,16 +1058,14 @@ msgid ""
 "two, for example, two columns, four columns, eight columns, and so on. The "
 "number of columns depends on the size of the window and the size of the font."
 msgstr ""
-"<application>Teckentabell</application> ändrar den flikade sektionen "
-"<guilabel>Teckentabell</guilabel> så att antalet kolumner är ett jämnt "
-"antal, till exempel, två kolumner, fyra kolumner, åtta kolumner, och så "
-"vidare. Antalet kolumner beror på storleken på fönstret och storleken på "
-"typsnittet."
+"A <guilabel>Karaktertábla</guilabel> lapfül megváltozik úgy, hogy az "
+"oszlopok száma kettő hatványa lesz, például: kettő, négy vagy nyolc oszlop "
+"és így tovább. A oszlopok száma az ablakszélességtől és a betűmérettől függ."
 
 #. (itstool) path: para/ulink
 #: C/legal.xml:9
 msgid "link"
-msgstr "länk"
+msgstr "hivatkozáson"
 
 #. (itstool) path: legalnotice/para
 #: C/legal.xml:2
@@ -1070,8 +1077,9 @@ msgid ""
 "of the GFDL at this <_:ulink-1/> or in the file COPYING-DOCS distributed "
 "with this manual."
 msgstr ""
-"Tillstånd att kopiera, distribuera och/eller modifiera detta dokument ges "
-"under villkoren i GNU Free Documentation License (GFDL), version 1.1 eller "
-"senare, utgivet av Free Software Foundation utan standardavsnitt och "
-"omslagstexter. En kopia av GFDL finns att hämta på denna <_:ulink-1/> eller "
-"i filen COPYING-DOCS som medföljer denna handbok."
+"Jelen dokumentum szabadon másolható, terjeszthető és/vagy módosítható a GNU "
+"Free Documentation License (GFDL) 1.1-es verziója vagy a Free Software "
+"Foundation által kiadott ennél frissebb verziója alatt, a „Nem változtatható "
+"szakaszok”, „Címlapszövegek” és a „Hátlapszövegek” kivételével. A GFDL "
+"leírása ezen a <_:ulink-1/> érhető el, vagy a jelen dokumentációban "
+"található COPYING-DOCS fájlban."

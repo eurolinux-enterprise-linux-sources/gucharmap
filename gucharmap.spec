@@ -1,28 +1,26 @@
 %define glib2_version 2.32.0
 %define gtk3_version 3.4.0
-%define desktop_file_utils_version 0.9
 
 Name:           gucharmap
-Version:        3.14.2
-Release:        2%{?dist}
+Version:        3.18.2
+Release:        1%{?dist}
 Summary:        Unicode character picker and font browser
 
-Group:          Applications/System
 License:        GPLv3+ and GFDL and MIT
 # GPL for the source code, GFDL for the docs, MIT for Unicode data
-URL:            http://live.gnome.org/Apps/Gucharmap
-#VCS: git:git://git.gnome.org/gucharmap
-Source:         http://download.gnome.org/sources/gucharmap/3.14/gucharmap-%{version}.tar.xz
-Patch0:         gucharmap-3.14.2-EL7.3_translations.patch
+URL:            https://wiki.gnome.org/Apps/Gucharmap
+Source:         https://download.gnome.org/sources/gucharmap/3.18/gucharmap-%{version}.tar.xz
 
-BuildRequires: glib2-devel >= %{glib2_version}
-BuildRequires: gtk3-devel >= %{gtk3_version}
-BuildRequires: gobject-introspection-devel
-BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
-BuildRequires: gettext
-BuildRequires: intltool
-BuildRequires: itstool
-BuildRequires: libappstream-glib
+BuildRequires:  glib2-devel >= %{glib2_version}
+BuildRequires:  gtk3-devel >= %{gtk3_version}
+BuildRequires:  gobject-introspection-devel
+BuildRequires:  gettext
+BuildRequires:  intltool
+BuildRequires:  itstool
+BuildRequires:  /usr/bin/appstream-util
+BuildRequires:  /usr/bin/desktop-file-validate
+
+Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
 %description
 This program allows you to browse through all the available Unicode
@@ -30,44 +28,56 @@ characters and categories for the installed fonts, and to examine their
 detailed properties. It is an easy way to find the character you might
 only know by its Unicode name or code point.
 
+%package libs
+Summary: libgucharmap library
+
+%description libs
+The %{name}-libs package contains the libgucharmap library.
+
 %package devel
 Summary: Libraries and headers for libgucharmap
-Group: Development/Libraries
-Requires: gucharmap = %{version}-%{release}
+Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 
 %description devel
 The gucharmap-devel package contains header files and other resources
 needed to use the libgucharmap library.
 
 %prep
-%setup -q -n  %{name}-%{version}
-%patch0 -p1 -b .translations
+%setup -q
 
 %build
 %configure --with-gtk=3.0 \
            --enable-introspection
 make %{?_smp_mflags}
 
-sed -i -e '/^Requires.private/d' gucharmap-2.90.pc
-
-
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
+
+# Update the screenshot shown in the software center
+#
+# NOTE: It would be *awesome* if this file was pushed upstream.
+#
+# See http://people.freedesktop.org/~hughsient/appdata/#screenshots for more details.
+#
+appstream-util replace-screenshots $RPM_BUILD_ROOT%{_datadir}/appdata/gucharmap.appdata.xml \
+  https://raw.githubusercontent.com/hughsie/fedora-appstream/master/screenshots-extra/gucharmap/a.png \
+  https://raw.githubusercontent.com/hughsie/fedora-appstream/master/screenshots-extra/gucharmap/b.png 
 
 rm $RPM_BUILD_ROOT/%{_libdir}/*.la
 
-desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/gucharmap.desktop
-
 %find_lang gucharmap --with-gnome
 
+%check
+desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/gucharmap.desktop
+
+%post libs -p /sbin/ldconfig
+%postun libs -p /sbin/ldconfig
 
 %post
-/sbin/ldconfig
 update-desktop-database &> /dev/null || :
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 %postun
-/sbin/ldconfig
 update-desktop-database &> /dev/null || :
 if [ $1 -eq 0 ] ; then
   touch --no-create %{_datadir}/icons/hicolor &>/dev/null
@@ -80,16 +90,20 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 %files -f gucharmap.lang
-%doc AUTHORS COPYING NEWS README
+%license COPYING
+%doc AUTHORS NEWS README
 %{_bindir}/charmap
 %{_bindir}/gucharmap
 %{_bindir}/gnome-character-map
-%{_libdir}/libgucharmap_2_90.so.*
 %{_datadir}/appdata/gucharmap.appdata.xml
 %{_datadir}/applications/gucharmap.desktop
-%{_libdir}/girepository-1.0
 %{_datadir}/glib-2.0/schemas/org.gnome.Charmap.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.Charmap.gschema.xml
+
+%files libs
+%license COPYING
+%{_libdir}/libgucharmap_2_90.so.*
+%{_libdir}/girepository-1.0/
 
 %files devel
 %{_includedir}/gucharmap-2.90
@@ -99,6 +113,10 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 
 %changelog
+* Fri Mar 10 2017 Kalev Lember <klember@redhat.com> - 3.18.2-1
+- Update to 3.18.2
+- Resolves: #1386984
+
 * Fri Jul 01 2016 Kalev Lember <klember@redhat.com> - 3.14.2-2
 - Update translations
 - Resolves: #1304259

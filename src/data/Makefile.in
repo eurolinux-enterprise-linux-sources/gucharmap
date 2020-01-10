@@ -149,7 +149,6 @@ AM_CFLAGS = @AM_CFLAGS@
 AM_CPPFLAGS = @AM_CPPFLAGS@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AM_LDFLAGS = @AM_LDFLAGS@
-APPDATA_VALIDATE = @APPDATA_VALIDATE@
 AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
@@ -187,6 +186,7 @@ GMSGFMT = @GMSGFMT@
 GREP = @GREP@
 GSETTINGS_DISABLE_SCHEMAS_COMPILE = @GSETTINGS_DISABLE_SCHEMAS_COMPILE@
 GTKDOC_CHECK = @GTKDOC_CHECK@
+GTKDOC_CHECK_PATH = @GTKDOC_CHECK_PATH@
 GTKDOC_DEPS_CFLAGS = @GTKDOC_DEPS_CFLAGS@
 GTKDOC_DEPS_LIBS = @GTKDOC_DEPS_LIBS@
 GTKDOC_MKPDF = @GTKDOC_MKPDF@
@@ -345,9 +345,6 @@ NULL =
 appdatadir = $(datadir)/appdata
 appdata_in_files = gucharmap.appdata.xml.in
 nodist_appdata_DATA = $(appdata_in_files:.xml.in=.xml)
-APPDATA_VALIDATE_FLAGS = --nonet
-
-#check-local: appdata-validate
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(NULL)
@@ -577,10 +574,6 @@ uninstall-am: uninstall-nodist_appdataDATA
 	mostlyclean-libtool pdf pdf-am ps ps-am tags-am uninstall \
 	uninstall-am uninstall-nodist_appdataDATA
 
-appdata-validate: $(nodist_appdata_DATA)
-	for f in $^; do \
-		$(APPDATA_VALIDATE) $(APPDATA_VALIDATE_FLAGS) $$f; \
-	done
 
 @INTLTOOL_XML_RULE@
 

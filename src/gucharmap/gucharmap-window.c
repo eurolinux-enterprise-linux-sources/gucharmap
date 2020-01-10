@@ -446,9 +446,9 @@ help_about (GSimpleAction *action,
   gtk_show_about_dialog (GTK_WINDOW (guw),
 			 "program-name", _("GNOME Character Map"),
 			 "version", VERSION,
-			 "comments", _("Based on the Unicode Character Database 7.0.0"),
+			 "comments", _("Based on the Unicode Character Database 8.0.0"),
 			 "copyright", "Copyright © 2004 Noah Levitt\n"
-				      "Copyright © 1991–2014 Unicode, Inc.\n"
+				      "Copyright © 1991–2015 Unicode, Inc.\n"
 				      "Copyright © 2007–2013 Christian Persch",
 			 "documenters", documenters,
 			 "license", license_trans,
@@ -875,28 +875,11 @@ gucharmap_window_finalize (GObject *object)
   G_OBJECT_CLASS (gucharmap_window_parent_class)->finalize (object);
 }
 
-static GObject *
-gucharmap_window_constructor (GType                  type,
-                              guint                  n_construct_properties,
-                              GObjectConstructParam *construct_params)
-{
-  GObject *object;
-
-  object = G_OBJECT_CLASS (gucharmap_window_parent_class)->constructor (type, n_construct_properties, construct_params);
-  g_object_bind_property (gtk_settings_get_default (),
-                          "gtk-shell-shows-app-menu",
-                          object, "show-menubar",
-                          G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
-
-  return object;
-}
-
 static void
 gucharmap_window_class_init (GucharmapWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-  object_class->constructor = gucharmap_window_constructor;
   object_class->finalize = gucharmap_window_finalize;
 }
 

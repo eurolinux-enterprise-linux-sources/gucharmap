@@ -1,13 +1,988 @@
-commit a9dc33069cba21e9fa0fdb9d3a8fe9f85b1d24e8
+commit fb8c3e8729672c8f387eb0327b739527a7f9840c
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:   Wed Oct 14 13:39:35 2015 +0200
+
+    Updated Basque language
+
+ po/eu.po | 520 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 286 insertions(+), 234 deletions(-)
+
+commit b8eb5439cb466286898c1972dac2be5ecb7a8266
 Author: Christian Persch <chpe@gnome.org>
-Date:   Mon Oct 13 20:19:40 2014 +0200
+Date:   Mon Oct 12 18:38:12 2015 +0200
 
     Post release version bump
 
  configure.ac | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-commit c9af5dad774c41a6b6cc63f6c5dec2d2c6af5996
+commit 054ffe31f157de59edca99836966adb3784b7d65
+Author: Jiri Grönroos <jiri.gronroos@iki.fi>
+Date:   Tue Oct 6 17:51:29 2015 +0000
+
+    Updated Finnish translation
+
+ po/fi.po | 518 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 288 insertions(+), 230 deletions(-)
+
+commit 2eb128762f017f663fb2b4896aad6096565b3d0e
+Author: Trần Ngọc Quân <vnwildman@gmail.com>
+Date:   Tue Sep 29 15:40:50 2015 +0700
+
+    Updated Vietnamese translation
+    
+    Signed-off-by: Trần Ngọc Quân <vnwildman@gmail.com>
+
+ po/vi.po | 927 ++++++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 596 insertions(+), 331 deletions(-)
+
+commit 7f83cc37286678e6fdfecfbc778eb9e9ba68410c
+Author: Milo Casagrande <milo@ubuntu.com>
+Date:   Sun Sep 27 20:37:40 2015 +0000
+
+    Updated Italian translation
+
+ po/it.po | 520 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 284 insertions(+), 236 deletions(-)
+
+commit 586d59c95fa453d7daa762675b438900687ae418
+Author: Милош Поповић <gpopac@gmail.com>
+Date:   Tue Sep 22 16:36:03 2015 +0000
+
+    Updated Serbian Latin translation
+
+ po/sr@latin.po | 539 ++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 288 insertions(+), 251 deletions(-)
+
+commit ea69adba6f80233f92fa33b45a5c8f595021de76
+Author: Марко Костић <marko.m.kostic@gmail.com>
+Date:   Tue Sep 22 16:35:21 2015 +0000
+
+    Updated Serbian translation
+
+ po/sr.po | 639 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 336 insertions(+), 303 deletions(-)
+
+commit bc370c1c568564c032784d6b9d3be345a1ad07f9
+Author: Marek Černocký <marek@manet.cz>
+Date:   Tue Sep 22 10:40:03 2015 +0200
+
+    Updated Czech translation
+
+ po/cs.po | 98 +++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 51 insertions(+), 47 deletions(-)
+
+commit 930105539b7d48f5f16b552fc0b840f0390b0ba1
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Sep 21 16:27:02 2015 +0200
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit aef45c6232fc4975f68fba4da1dc52f96a47b559
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Sep 21 16:24:12 2015 +0200
+
+    Version 3.18.0
+
+ NEWS | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit feee49319a015e57fa98548083a169e784df9d18
+Author: Ask Hjorth Larsen <asklarsen@gmail.com>
+Date:   Mon Sep 21 13:37:04 2015 +0200
+
+    Updated Danish translation by scootergrisen
+
+ po/da.po | 545 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 303 insertions(+), 242 deletions(-)
+
+commit 6bab7700528735ae23da394b3428d84411514f2b
+Author: Jiro Matsuzawa <jmatsuzawa@gnome.org>
+Date:   Mon Sep 21 20:21:59 2015 +0900
+
+    Updated Japanese translation
+
+ po/ja.po | 867 +++++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 537 insertions(+), 330 deletions(-)
+
+commit 2246f866fc1750c4fca2799920dc8c738a3a6412
+Author: Rūdolfs Mazurs <rudolfsm@src.gnome.org>
+Date:   Sun Sep 20 16:56:32 2015 +0300
+
+    Updated Latvian translation
+
+ po/lv.po | 557 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 294 insertions(+), 263 deletions(-)
+
+commit de4e2c04259248be948359efe8bb44cc967aff0a
+Author: Enrico Nicoletto <liverig@gmail.com>
+Date:   Thu Sep 17 18:57:03 2015 +0000
+
+    Updated Brazilian Portuguese translation
+
+ po/pt_BR.po | 151 ++++++++++++++++++++++++++----------------------------------
+ 1 file changed, 66 insertions(+), 85 deletions(-)
+
+commit 98a721d69c8580efce4fd1d9fc29eeb6fb98d0dd
+Author: Bernd Homuth <dev@hmt.im>
+Date:   Mon Sep 14 18:10:17 2015 +0000
+
+    Updated German translation
+
+ po/de.po | 149 ++++++++++++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 99 insertions(+), 50 deletions(-)
+
+commit 50dbd04a88cb7ef7634a9ef5b771cafd79587c02
+Author: Arash Mousavi <mousavi.arash@gmail.com>
+Date:   Sun Sep 13 12:17:31 2015 +0430
+
+    Update Persian translations
+
+ po/fa.po | 626 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 336 insertions(+), 290 deletions(-)
+
+commit 80d5635327adcc0d272db9620e7b6bbc152a4250
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Sat Sep 12 21:15:03 2015 +0000
+
+    Updated Swedish translation
+
+ po/sv.po | 554 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 302 insertions(+), 252 deletions(-)
+
+commit 4a8b26b1014a67204d5df8c5615338254aca3ec3
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Thu Sep 10 19:52:06 2015 +0200
+
+    Fix FSF address in Polish translation
+
+ po/pl.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0980d68df754d07e8748a14bc7dd13573f367ab7
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:   Tue Sep 8 23:26:40 2015 +0200
+
+    Updated Slovenian translation
+
+ po/sl.po | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+commit 1319cdd78abc426eb6693fc159fe323f01533064
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:   Mon Sep 7 19:54:11 2015 +0200
+
+    Updated Norwegian bokmål translation.
+
+ po/nb.po | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+commit 41cf7cb7a325eb795af8f4bc097db248fe77e64b
+Author: Muhammet Kara <muhammetk@gmail.com>
+Date:   Sun Sep 6 04:02:37 2015 +0000
+
+    Updated Turkish translation
+
+ po/tr.po | 104 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 51 insertions(+), 53 deletions(-)
+
+commit cacbf42bd83383da8704f83419ecbd85a6eb8615
+Author: Bernd Homuth <dev@hmt.im>
+Date:   Sat Sep 5 21:20:07 2015 +0000
+
+    Updated German translation
+
+ po/de.po | 646 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 323 insertions(+), 323 deletions(-)
+
+commit 5bbf3b31f2e789cb6665f9ba1426e697e23bfea2
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:   Sun Sep 6 02:58:16 2015 +0900
+
+    Remove unused file
+    
+    Commited by mistake
+
+ po/gucharmap.master.ko.po | 1790 ---------------------------------------------
+ 1 file changed, 1790 deletions(-)
+
+commit 1afa330475795cd0ac775ed7508eacac6c76e434
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:   Sun Sep 6 02:57:08 2015 +0900
+
+    Updated Korean translation
+
+ po/{ko.po => gucharmap.master.ko.po} | 529 +++++++++++++++++++---------------
+ po/ko.po                             | 530 +++++++++++++++++++----------------
+ 2 files changed, 589 insertions(+), 470 deletions(-)
+
+commit 08ebc32a23b9d1f725d88b1ebc192289f1dbe2b9
+Author: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+Date:   Fri Sep 4 17:05:23 2015 +0000
+
+    Updated Kazakh translation
+
+ po/kk.po | 515 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 282 insertions(+), 233 deletions(-)
+
+commit e6edd7002e01fc50c6e6893ed83d1a3b2c1e53fe
+Author: Claude Paroz <claude@2xlibre.net>
+Date:   Fri Sep 4 14:14:13 2015 +0200
+
+    Updated French translation
+
+ po/fr.po | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+commit 3e1dba0778c7554e1ea8cba0fbf5d116929467f4
+Author: Aurimas Černius <aurisc4@gmail.com>
+Date:   Thu Sep 3 15:27:08 2015 +0300
+
+    Updated Lithuanian translation
+
+ po/lt.po | 527 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 288 insertions(+), 239 deletions(-)
+
+commit 8f603aa267ae6b4d72fffb59b6d2208d93d7b55b
+Author: Sveinn í Felli <sv1@fellsnet.is>
+Date:   Wed Sep 2 16:53:32 2015 +0000
+
+    Updated Icelandic translation
+
+ po/is.po | 600 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 305 insertions(+), 295 deletions(-)
+
+commit 2df785973cfc785f2f6a5fcc556d87d223216856
+Author: Gábor Kelemen <kelemeng@openscope.org>
+Date:   Mon Aug 31 17:45:10 2015 +0000
+
+    Updated Hungarian translation
+
+ help/hu/hu.po | 156 +++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 77 insertions(+), 79 deletions(-)
+
+commit 96452e0297d00748ab04eae22738abf01b508d00
+Author: Balázs Úr <urbalazs@gmail.com>
+Date:   Mon Aug 31 17:06:12 2015 +0000
+
+    Updated Hungarian translation
+
+ po/hu.po | 230 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 127 insertions(+), 103 deletions(-)
+
+commit 7bd8082c793e0c4a196e345ab014e57402065545
+Author: Andika Triwidada <andika@gmail.com>
+Date:   Sun Aug 30 05:22:44 2015 +0000
+
+    Updated Indonesian translation
+
+ po/id.po | 518 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 283 insertions(+), 235 deletions(-)
+
+commit 6b17e9d521f84baac522b119c0f1a5fb268d165e
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Sat Aug 29 22:01:43 2015 +0200
+
+    Updated Polish translation
+
+ po/pl.po | 546 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 297 insertions(+), 249 deletions(-)
+
+commit 3d7e6bb9b5e00f43199e20716887f7d3632c9669
+Author: Dušan Kazik <prescott66@gmail.com>
+Date:   Sat Aug 29 19:35:57 2015 +0000
+
+    Updated Slovak translation
+
+ po/sk.po | 131 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 69 insertions(+), 62 deletions(-)
+
+commit 947a98af18a0e0d2782f3e4534506f69e064aa4a
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:   Sat Aug 29 19:32:26 2015 +0200
+
+    Initial Hungarian help translation by Balázs Meskó <meskobalazs at gmail dot com>
+
+ help/hu/figures/gucharmap_window.png |  Bin 0 -> 57398 bytes
+ help/hu/hu.po                        | 1087 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 1087 insertions(+)
+
+commit df09958d9ca62c466311754031fd32db883bdc53
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:   Sat Aug 29 19:31:35 2015 +0200
+
+    Added hu to HELP_LINGUAS
+
+ help/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3d839c6cb6190ba2d365121b48812a15000b8150
+Author: Tom Tryfonidis <tomtryf@gmail.com>
+Date:   Fri Aug 28 20:56:52 2015 +0000
+
+    Updated Greek translation
+
+ po/el.po | 102 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 50 insertions(+), 52 deletions(-)
+
+commit 019f1585731b758b3f153fe833951e2021ca9d4b
+Author: Yuri Myasoedov <ymyasoedov@yandex.ru>
+Date:   Fri Aug 28 22:33:25 2015 +0300
+
+    Updated Russian translation
+
+ po/ru.po | 26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
+
+commit 3a0c24d22ef68b2df2c00ed0f7a5b6eaff62b66e
+Author: Fran Dieguez <fran@openhost.es>
+Date:   Tue Aug 25 17:42:38 2015 +0200
+
+    Updated Galician translations
+
+ po/gl.po | 528 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 288 insertions(+), 240 deletions(-)
+
+commit 008fbfde2d7d159bea031bfe66aa71a535191063
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:   Tue Aug 25 13:17:44 2015 +0000
+
+    Updated Chinese (Taiwan) translation
+
+ po/zh_TW.po | 516 +++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 280 insertions(+), 236 deletions(-)
+
+commit a721266013e954184029fdf0ba4054cadf3e500f
+Author: Pedro Albuquerque <palbuquerque73@gmail.com>
+Date:   Tue Aug 25 05:34:52 2015 +0000
+
+    Updated Portuguese translation
+
+ po/pt.po | 97 ++++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 48 insertions(+), 49 deletions(-)
+
+commit 8b6b79fb8a9842a3ad89fe81857e043b6f7b9375
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Tue Aug 18 13:56:44 2015 +0200
+
+    Updated Spanish translation
+
+ po/es.po | 3563 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 1781 insertions(+), 1782 deletions(-)
+
+commit cbc77c96bef22abd3affa6483c792eabb37ad2db
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Aug 17 19:03:23 2015 +0200
+
+    Post release version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit a67eb722d70523d7b8da6fc0ae882e6b89b3d44f
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Aug 17 19:03:23 2015 +0200
+
+    Version 3.17.90
+
+ configure.ac     | 2 +-
+ gucharmap/main.c | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+commit 561de552cd36fe089b2c46b0e5c1935d8285cce8
+Author: Claude Paroz <claude@2xlibre.net>
+Date:   Sat Aug 15 12:01:14 2015 +0200
+
+    Updated French translation
+
+ po/fr.po | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+commit 220a29122c22ed85ba265d08021c893ee772a2c9
+Author: Felipe Braga <fbobraga@gmail.com>
+Date:   Tue Aug 11 02:31:08 2015 +0000
+
+    Updated Brazilian Portuguese translation
+
+ po/pt_BR.po | 528 +++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 287 insertions(+), 241 deletions(-)
+
+commit 0565473fba46e169709fb6988854274f34ef9ebf
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:   Fri Jul 31 11:58:33 2015 +0200
+
+    Updated Norwegian bokmål translation from Åka Sikrom.
+
+ po/nb.po | 86 ++++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 43 insertions(+), 43 deletions(-)
+
+commit d2e43f0bcb7f8a0c7a7927b236acf708e3ad6382
+Author: Dušan Kazik <prescott66@gmail.com>
+Date:   Mon Jul 27 10:40:49 2015 +0000
+
+    Updated Slovak translation
+
+ po/sk.po | 618 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 328 insertions(+), 290 deletions(-)
+
+commit 26cde4df0f460823f81a5931cf00c49a756f39d9
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:   Wed Jul 8 21:59:48 2015 +0200
+
+    Updated Slovenian translation
+
+ po/sl.po | 511 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 279 insertions(+), 232 deletions(-)
+
+commit b7edf30a453b3f2eba6e4871038f0d3a6f7fb634
+Author: Pedro Albuquerque <palbuquerque73@gmail.com>
+Date:   Mon Jun 29 22:34:39 2015 +0000
+
+    Updated Portuguese translation
+
+ po/pt.po | 630 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 342 insertions(+), 288 deletions(-)
+
+commit 4d19ba83afd83494a2c2410c4323846b7e7529cd
+Author: Stas Solovey <whats_up@tut.by>
+Date:   Thu Jun 25 22:03:36 2015 +0000
+
+    Updated Russian translation
+
+ po/ru.po | 533 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 290 insertions(+), 243 deletions(-)
+
+commit c1cda8fff312c629a0e23de6d6021eedd7c2d851
+Author: Necdet Yücel <necdetyucel@gmail.com>
+Date:   Fri Jun 19 07:35:15 2015 +0000
+
+    Updated Turkish translation
+
+ po/tr.po | 527 +++++++++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 311 insertions(+), 216 deletions(-)
+
+commit be681cfe4c35515b2cf43e22d2b1983656724d51
+Author: Christian Persch <chpe@gnome.org>
+Date:   Thu Jun 18 21:14:34 2015 +0200
+
+    unicode: Update to Unicode 8.0.0 release
+
+ gucharmap/unicode-nameslist.h | 17614 ++++++-----
+ gucharmap/unicode-unihan.h    | 68470 ++++++++++++++++++++--------------------
+ 2 files changed, 43091 insertions(+), 42993 deletions(-)
+
+commit 8e6cbae029dab98ac595258e3005e5526fcfd7ef
+Author: Alexandre Franke <alexandre.franke@gmail.com>
+Date:   Tue Jun 16 14:37:48 2015 +0000
+
+    Updated French translation
+
+ po/fr.po | 82 ++++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 41 insertions(+), 41 deletions(-)
+
+commit b5cdb2c257bb2ecb0dff83bacfd4bbae2d1b01a1
+Author: Marek Černocký <marek@manet.cz>
+Date:   Tue Jun 16 11:15:32 2015 +0200
+
+    Updated Czech translation
+
+ po/cs.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e8519bad119f6662de8df350eb5edc6617b73123
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Jun 8 22:55:25 2015 +0200
+
+    unicode: Fix gucharmap_get_unicode_name for Unicode 8.0
+
+ gucharmap/gucharmap-unicode-info.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+commit 571ef61f12cb7f5dfeb12c14c5e8b520d5200d3a
+Author: Dimitris Spingos <dmtrs32@gmail.com>
+Date:   Mon Jun 8 10:39:49 2015 +0300
+
+    Updated Greek translation
+
+ po/el.po | 455 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 250 insertions(+), 205 deletions(-)
+
+commit 2b0670d733e7ec905d4ea9c6174ddeebe9b20c58
+Author: Christian Persch <chpe@gnome.org>
+Date:   Fri Jun 5 22:04:30 2015 +0200
+
+    charmap: Remove unused code
+
+ gucharmap/main.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit de68a8f691946e5675dc4902dbdd2dd751e7d6a5
+Author: Christian Persch <chpe@gnome.org>
+Date:   Fri Jun 5 22:03:51 2015 +0200
+
+    charmap: Suppress deprecated object property warnings
+    
+    Simply set G_ENABLE_DIAGNOSTIC=0 which should be the default anyway except
+    that it is broken [https://bugzilla.gnome.org/show_bug.cgi?id=749195].
+
+ gucharmap/main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit f14e99a81236d691d96fdf62fcf5d3fca5eb1735
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Thu May 28 06:42:56 2015 +0000
+
+    Updated Spanish translation
+
+ po/es.po | 3539 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 1792 insertions(+), 1747 deletions(-)
+
+commit a4e3bb539773ae4eb33859b43bcdb0f84599f02c
+Author: Cédric Valmary <cvalmary@yahoo.fr>
+Date:   Tue May 26 19:13:27 2015 +0000
+
+    Updated Occitan translation
+
+ po/oc.po | 582 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 321 insertions(+), 261 deletions(-)
+
+commit 28a7c3defa01cea84681633f54a68b1d00e9340a
+Author: Cédric Valmary <cvalmary@yahoo.fr>
+Date:   Thu May 21 07:34:52 2015 +0000
+
+    Updated Occitan translation
+
+ po/oc.po | 1695 +++++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 1072 insertions(+), 623 deletions(-)
+
+commit d5123f24626606d0fe6969727fac95cec6441b56
+Author: Alexandre Franke <alexandre.franke@gmail.com>
+Date:   Fri May 15 08:52:36 2015 +0000
+
+    Updated French translation
+
+ po/fr.po | 432 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 238 insertions(+), 194 deletions(-)
+
+commit ea113a9a6effbeeeb954e7a478fc9303f164a750
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:   Thu May 14 15:53:25 2015 +0200
+
+    Updated Norwegian bokmål translation.
+
+ po/nb.po | 446 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 247 insertions(+), 199 deletions(-)
+
+commit bf51d1bcc332baf21fa603dcd246050ef2f88c86
+Author: Balázs Meskó <meskobalazs@gmail.com>
+Date:   Sat May 9 12:39:33 2015 +0000
+
+    Updated Hungarian translation
+
+ po/hu.po | 581 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 294 insertions(+), 287 deletions(-)
+
+commit ac397b59fbb6327271c22099c93ad81d69746046
+Author: Christian Persch <chpe@gnome.org>
+Date:   Sat May 9 09:27:31 2015 +0200
+
+    charmap: Fix build with gtk+ < 3.16
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=749141
+
+ gucharmap/gucharmap-charmap.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit a3e5fe17801c5ffb3f4a5a33dd0ce5eb446de18f
+Author: Victor Ibragimov <victor.ibragimov@gmail.com>
+Date:   Thu May 7 05:17:41 2015 +0000
+
+    Updated Tajik translation
+
+ po/tg.po | 425 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 232 insertions(+), 193 deletions(-)
+
+commit 18a222392eefb94bf40cbb27b40ae803e3194620
+Author: osfans <waxaca@163.com>
+Date:   Sun May 3 15:23:36 2015 +0800
+
+    update zh_CN translation
+
+ po/zh_CN.po | 178 ++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 89 insertions(+), 89 deletions(-)
+
+commit a7f9a94a6c7e4e84db69ecfea3d7b560b623641b
+Author: Marek Černocký <marek@manet.cz>
+Date:   Thu Apr 30 12:52:05 2015 +0200
+
+    Updated Czech translation
+
+ po/cs.po | 430 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 237 insertions(+), 193 deletions(-)
+
+commit b553e0a8c57b380b4ec9e524e2b90eaac8b39065
+Author: Christian Persch <chpe@gnome.org>
+Date:   Sun Apr 26 11:58:21 2015 +0200
+
+    unicode: Preview of 8.0.0
+
+ gucharmap/gucharmap-unicode-info.h |     3 +-
+ gucharmap/gucharmap-window.c       |     4 +-
+ gucharmap/unicode-blocks.h         |   254 +-
+ gucharmap/unicode-categories.h     |   112 +-
+ gucharmap/unicode-names.h          | 58416 +++++++++++++-------------
+ gucharmap/unicode-nameslist.h      | 20756 +++++-----
+ gucharmap/unicode-scripts.h        |  3910 +-
+ gucharmap/unicode-unihan.h         | 76644 ++++++++++++++++++-----------------
+ gucharmap/unicode-versions.h       |    63 +-
+ 9 files changed, 82950 insertions(+), 77212 deletions(-)
+
+commit 72a45f02fac063d18d704e7bf0727eee978ee683
+Author: Hannie Dumoleyn <hannie@ubuntu-nl.org>
+Date:   Tue Apr 7 10:18:10 2015 +0200
+
+    Updated Dutch translation 3.16
+
+ po/nl.po | 781 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 470 insertions(+), 311 deletions(-)
+
+commit dc5699911b10234f9aaf540bce41169b191c5063
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:   Wed Mar 25 20:22:30 2015 +0200
+
+    Updated Arabic translation
+
+ po/ar.po | 624 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 376 insertions(+), 248 deletions(-)
+
+commit 83e9c76531c91669fc25c33c5d98d4978726406d
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Mar 23 19:24:45 2015 +0100
+
+    Post branch version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 57302e65005db998190cc8e5266230b6603b3538
+Author: Christian Persch <chpe@gnome.org>
+Date:   Sun Mar 22 18:21:59 2015 +0100
+
+    build: Remove appdata validation
+    
+    As per upstream request to stop using appdata-validate.
+
+ configure.ac     | 6 ------
+ data/Makefile.am | 8 --------
+ 2 files changed, 14 deletions(-)
+
+commit 86e2bd6638e3ecd2b774b44eac2db2359578b68a
+Author: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>
+Date:   Fri Mar 20 17:45:51 2015 +0200
+
+    Finnish translation update
+
+ po/fi.po | 73 ++++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 39 insertions(+), 34 deletions(-)
+
+commit 91c65334b844bca4061929c231a4c24bf18046c6
+Author: Мирослав Николић <miroslavnikolic@rocketmail.com>
+Date:   Tue Mar 17 20:52:58 2015 +0100
+
+    Updated Serbian translation
+
+ po/sr.po       | 642 +++++++++++++++++++++++++++++++++++----------------------
+ po/sr@latin.po | 642 +++++++++++++++++++++++++++++++++++----------------------
+ 2 files changed, 786 insertions(+), 498 deletions(-)
+
+commit 8c728595809c3e8405e21a678cf3ae99ed092dbb
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Mar 16 19:06:29 2015 +0100
+
+    Post release version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5f118396008fc46c700731ffedbd3b8ce0645e3b
+Author: Victor Ibragimov <victor.ibragimov@gmail.com>
+Date:   Sat Mar 14 06:33:58 2015 +0000
+
+    Updated Tajik translation
+
+ po/tg.po | 77 +++++++++++++++++++++++++++++-----------------------------------
+ 1 file changed, 35 insertions(+), 42 deletions(-)
+
+commit 550976f9123b728d0a18fa4a15813653d5e273da
+Author: Samir Ribic <samir.ribic@etf.unsa.ba>
+Date:   Fri Mar 13 20:19:18 2015 +0000
+
+    Updated Bosnian translation
+
+ po/bs.po | 1679 ++++++++++++++++++++++++++++++++++++++++++++------------------
+ 1 file changed, 1194 insertions(+), 485 deletions(-)
+
+commit 0e80ac065033c48ef3f1f739962c77df9de2254b
+Author: Alexander Shopov <ash@kambanaria.org>
+Date:   Thu Mar 12 06:47:02 2015 +0200
+
+    Updated Bulgarian translation
+
+ po/bg.po | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+commit 32eef986abb36ad9d95753b11e59178eba6cbb43
+Author: Muhammet Kara <muhammetk@gmail.com>
+Date:   Mon Mar 9 19:16:34 2015 +0000
+
+    Updated Turkish translation
+
+ po/tr.po | 764 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 461 insertions(+), 303 deletions(-)
+
+commit cfa9226f22c7dec3b6d633f2b869727147c972a4
+Author: Josef Andersson <josef.andersson@gmail.com>
+Date:   Sun Mar 8 09:51:12 2015 +0000
+
+    Updated Swedish translation
+
+ help/sv/sv.po | 407 +++++++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 264 insertions(+), 143 deletions(-)
+
+commit 1e98a38eec710cd40e25e412c90e873c4ad7c48a
+Author: Christian Persch <chpe@gnome.org>
+Date:   Tue Mar 3 19:38:56 2015 +0100
+
+    charmap: Disable overlay scrolling
+    
+    Since it makes it impossible to select the last charcell in each
+    row at small font size.
+
+ gucharmap/gucharmap-charmap.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit a5346ddd5502ff7e6be39c7ea0686545b03cc062
+Author: Christian Persch <chpe@gnome.org>
+Date:   Tue Mar 3 19:32:19 2015 +0100
+
+    build: Update warning flags
+
+ configure.ac | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 412b712d7c63e642b1dbf4ab298243b612bb3bce
+Author: Cheng-Chia Tseng <pswo10680@gmail.com>
+Date:   Thu Feb 26 15:26:02 2015 +0000
+
+    Updated Chinese (Taiwan) translation
+
+ po/zh_TW.po | 68 ++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 33 insertions(+), 35 deletions(-)
+
+commit 7624cc7616a8dec4dbcce566ee4f44e7b3c28166
+Author: Daniel Korostil <ted.korostiled@gmail.com>
+Date:   Tue Feb 24 21:50:59 2015 +0200
+
+    Updated Ukrainian translation
+
+ po/uk.po | 635 +++++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 390 insertions(+), 245 deletions(-)
+
+commit c610ce91e321146034b308332013ad8fffc7458b
+Author: Christian Persch <chpe@gnome.org>
+Date:   Fri Feb 6 20:43:47 2015 +0100
+
+    build: Disable glib and gtk deprecation warnings
+    
+    It's obscuring the real warnings.
+
+ gucharmap/Makefile.am | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+commit 58fd9777afc5b0959b9975150701de3043263631
+Author: Christian Persch <chpe@gnome.org>
+Date:   Fri Feb 6 20:43:47 2015 +0100
+
+    charmap: Fix menubar visibility
+
+ gucharmap/gucharmap-window.c | 17 -----------------
+ 1 file changed, 17 deletions(-)
+
+commit ddc74734665be1ac353c6b74ed73cdf5ccba109a
+Author: Christian Persch <chpe@gnome.org>
+Date:   Tue Feb 3 21:58:27 2015 +0100
+
+    Revert "app menu: standardize Help/About/Quit"
+    
+    This reverts commit 419bc9f6bfa4740ee270dc4d95f3192254dd971b.
+    
+    Revert unauthorised commit.
+
+ gucharmap/gucharmap-menus.ui | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 419bc9f6bfa4740ee270dc4d95f3192254dd971b
+Author: Michael Catanzaro <mcatanzaro@gnome.org>
+Date:   Mon Dec 9 15:59:51 2013 -0600
+
+    app menu: standardize Help/About/Quit
+    
+    * Remove the separator beneath About
+    * Rename Close Window to Quit
+    
+    The action app.close is unchanged for the time being, since there's not
+    (yet) agreement on whether Quit will close every window or just the
+    current one. But it is going to be named Quit.
+    
+    https://developer.gnome.org/hig/stable/application-menus.html.en
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=720145
+
+ gucharmap/gucharmap-menus.ui | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit cbcf1fe3f44aee4387fefa4b2cdea8d19e93aa51
+Author: Christian Persch <chpe@gnome.org>
+Date:   Fri Jan 23 20:54:15 2015 +0100
+
+    charmap: Force non-dark theme
+    
+    Dark theme doesn't work, so until that's fixed, force the non-dark theme.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=741939
+
+ gucharmap/main.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 1481348e8196cf47a7d685366e9499bb7750edb2
+Author: Sveinn í Felli <sv1@fellsnet.is>
+Date:   Fri Jan 23 12:41:44 2015 +0000
+
+    Updated Icelandic translation
+
+ po/is.po | 34 ++++++++++++++++++----------------
+ 1 file changed, 18 insertions(+), 16 deletions(-)
+
+commit ced57a97fbe5612790659800757d94255c464cb8
+Author: Sveinn í Felli <sv1@fellsnet.is>
+Date:   Thu Jan 22 11:48:10 2015 +0000
+
+    Updated Icelandic translation
+
+ po/is.po | 44 ++++++++++++++++++++++++++++----------------
+ 1 file changed, 28 insertions(+), 16 deletions(-)
+
+commit 64ccefb37ae6518fa2444a4a31af08187dae9c8c
+Author: Christian Persch <chpe@gnome.org>
+Date:   Mon Jan 19 23:06:26 2015 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9da459b6c6bfcd49f19c62350227d339c5ea4d1d
+Author: Sveinn í Felli <sv1@fellsnet.is>
+Date:   Thu Jan 15 15:57:38 2015 +0000
+
+    Updated Icelandic translation
+
+ po/is.po | 1226 +++++++++++++++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 848 insertions(+), 378 deletions(-)
+
+commit 5606a2b773c9246bc5a7b1f6536a8cde29d7e4e3
+Author: Inaki Larranaga Murgoitio <dooteo@zundan.com>
+Date:   Tue Dec 30 16:44:05 2014 +0100
+
+    Updated Basque language
+
+ po/eu.po | 65 ++++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 32 insertions(+), 33 deletions(-)
+
+commit 44fa03bf2984e1f65f041b071ad379e792cf1b80
+Author: Christian Persch <chpe@gnome.org>
+Date:   Sat Dec 13 20:27:24 2014 +0100
+
+    Revert "Also sort the block chapters list"
+    
+    This reverts commit d3607d59adc92abe4c756fe755a59d69e4ece22c.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=620180
+
+ gucharmap/gucharmap-block-chapters-model.c | 66 ++++--------------------------
+ 1 file changed, 7 insertions(+), 59 deletions(-)
+
+commit 1b6e7887affad8ab8cd8d9f2ef6dc4606dec5dfc
+Author: Christian Persch <chpe@gnome.org>
+Date:   Sat Dec 13 20:22:00 2014 +0100
+
+    Revert "Sort the tree view column, not the model directly"
+    
+    This reverts commit 8daa603590cd403920cbb9b98595975ef0ba8d24.
+    
+    Conflicts:
+    	gucharmap/gucharmap-chapters-view.c
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=620180
+
+ gucharmap/gucharmap-block-chapters-model.c  | 3 +++
+ gucharmap/gucharmap-chapters-view.c         | 4 ----
+ gucharmap/gucharmap-script-chapters-model.c | 4 ++++
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+
+commit c12be81555ec7ae15826a59075b1fad9910a4ca3
+Author: Christian Persch <chpe@gnome.org>
+Date:   Sat Dec 13 20:17:36 2014 +0100
+
+    Revert "Use locale-aware string comparision to sort the chapters"
+    
+    This reverts commit afd8c4af41d48fe4e913608a2e05f6aaa46c64fd.
+
+ gucharmap/gucharmap-block-chapters-model.c  |  2 +-
+ gucharmap/gucharmap-script-chapters-model.c | 25 -------------------------
+ 2 files changed, 1 insertion(+), 26 deletions(-)
+
+commit 66aed68ec50adc37c502c093e53e05dad70fd6b0
+Author: Marek Černocký <marek@manet.cz>
+Date:   Thu Nov 27 07:26:46 2014 +0100
+
+    Updated Czech translation
+
+ help/cs/cs.po | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit fec04ea2cbd7e1b56b236ec7ae5edcd9f4306f3c
+Author: Duarte Loreto <happyguy_pt@hotmail.com>
+Date:   Mon Nov 17 01:14:46 2014 +0000
+
+    Updated Portuguese translation
+
+ po/pt.po | 957 ++++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 543 insertions(+), 414 deletions(-)
+
+commit 373c405881f5468c1ada3562ed64f1f6a85ad69e
+Author: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+Date:   Tue Nov 4 01:11:33 2014 +0000
+
+    Added Kazakh translation
+
+ po/LINGUAS |    1 +
+ po/kk.po   | 1665 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 1666 insertions(+)
+
+commit cbfb595b725fff67f06c6226ce9b6c5896a0227b
+Author: Timo Jyrinki <timo@debian.org>
+Date:   Mon Nov 3 19:01:24 2014 +0200
+
+    Change Finnish translation team web page to l10n.gnome.org
+
+ po/fi.po | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 4741ac893f83b0a7bb237c40a2dc2da2897b3da8
 Author: Rūdolfs Mazurs <rudolfsm@src.gnome.org>
 Date:   Sun Oct 12 15:45:11 2014 +0300
 
@@ -16,152 +991,97 @@ Date:   Sun Oct 12 15:45:11 2014 +0300
  po/lv.po | 625 +++++++++++++++++++++++++++++++++++++++------------------------
  1 file changed, 385 insertions(+), 240 deletions(-)
 
-commit 231e27b60408bae6e0715354260657fe0c5edb72
+commit 0e3dd241632552f1b0beff6539c19ebb16fde7cd
 Author: Arash Mousavi <mousavi.arash@gmail.com>
-Date:   Sat Oct 11 11:46:44 2014 +0330
+Date:   Sat Oct 11 11:46:29 2014 +0330
 
     Updates Persian Translations
 
  po/fa.po | 795 +++++++++++++++++++++++++++++++++++++++------------------------
  1 file changed, 499 insertions(+), 296 deletions(-)
 
-commit 83a37a5df813adf733adf7758ca86336cf2d87b1
-Author: Saibal Ray <sray@redhat.com>
-Date:   Wed Oct 8 08:50:04 2014 +0000
-
-    Updated Bengali (India) translation
-
- po/bn_IN.po | 919 +++++++++++++++++++++++++++++++++---------------------------
- 1 file changed, 502 insertions(+), 417 deletions(-)
-
-commit f29ea732a45bbb4379d94ea2d0e051e8752e0516
+commit 4a4bbe46567876457185351f3f006ac4d4b6278a
 Author: Milo Casagrande <milo@ubuntu.com>
-Date:   Sun Oct 5 15:28:53 2014 +0000
+Date:   Sun Oct 5 15:29:46 2014 +0000
 
     Updated Italian translation
 
  po/it.po | 622 ++++++++++++++++++++++++++++++++++++++-------------------------
  1 file changed, 375 insertions(+), 247 deletions(-)
 
-commit 378bf4b9ad935aa0cb3cc0c7f7fa8bcfd45c9854
-Author: Sweta Kothari <swkothar@redhat.com>
-Date:   Wed Oct 1 15:00:27 2014 +0530
+commit 48c9108afc51a4c632baf43422916faaf7fbde0c
+Author: Rafael Ferreira <rafael.f.f1@gmail.com>
+Date:   Tue Sep 30 15:00:46 2014 +0000
 
-    Updated gujarati translations
+    Updated Brazilian Portuguese translation
 
- po/gu.po | 90 ++++++++++++++++++++++++++++++----------------------------------
- 1 file changed, 42 insertions(+), 48 deletions(-)
+ po/pt_BR.po | 24 +++++-------------------
+ 1 file changed, 5 insertions(+), 19 deletions(-)
 
-commit 3cdd9723e2669a7355c1772f823b8e308acc15df
+commit 92ff22aa0334f332f48a463697d65a1abd543d2b
+Author: Michel Nedeleg <michel@drouizig.org>
+Date:   Sat Sep 27 17:54:21 2014 +0200
+
+    Updated breton translation
+
+ po/br.po | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+commit 75fdd194844e78cd26c9b95878e5f0cf9de59b68
+Author: Saibal Ray <sray@redhat.com>
+Date:   Wed Sep 24 10:27:23 2014 +0000
+
+    Updated Bengali (India) translation
+
+ po/bn_IN.po | 919 +++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 502 insertions(+), 417 deletions(-)
+
+commit 13f5df10fdd02606e42cbaa30c51a774f51c0b1a
+Author: Krishnababu Krothapalli <k.meetme@gmail.com>
+Date:   Tue Sep 23 14:43:33 2014 +0000
+
+    Updated Telugu translation
+
+ po/te.po | 776 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 469 insertions(+), 307 deletions(-)
+
+commit 3a958f1c7bd8fc004387d7482af91fecbdc0afa5
 Author: Alexander Shopov <ash@kambanaria.org>
 Date:   Mon Sep 22 20:25:39 2014 +0300
 
     Updated Bulgarian translation
 
- po/bg.po | 770 ++++++++++++++++++++++++++++++++++++++-------------------------
- 1 file changed, 461 insertions(+), 309 deletions(-)
+ po/bg.po | 768 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 460 insertions(+), 308 deletions(-)
 
-commit 75352ea7ad230fdfc71120098539d32259b8992a
-Author: Мирослав Николић <miroslavnikolic@rocketmail.com>
-Date:   Fri Sep 26 11:03:16 2014 +0200
-
-    Updated Serbian translation
-
- po/sr.po       | 627 +++++++++++++++++++++++++++++++++++----------------------
- po/sr@latin.po | 627 +++++++++++++++++++++++++++++++++++----------------------
- 2 files changed, 772 insertions(+), 482 deletions(-)
-
-commit 5a42a54c0f8c7cf4ba36eb40242f541874519079
-Author: Krishnababu Krothapalli <k.meetme@gmail.com>
-Date:   Tue Sep 23 14:42:16 2014 +0000
-
-    Updated Telugu translation
-
- po/te.po | 776 +++++++++++++++++++++++++++++++++++++--------------------------
- 1 file changed, 457 insertions(+), 319 deletions(-)
-
-commit 71f5b214a94d6c0246d4f640db0108f3a767a817
+commit 6baf1b24327d7b6d605bf06b35676f67bcf61593
 Author: Marek Černocký <marek@manet.cz>
-Date:   Mon Sep 22 17:35:03 2014 +0200
+Date:   Mon Sep 22 17:35:32 2014 +0200
 
     Updated Czech translation
 
- po/cs.po | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ po/cs.po | 46 +++++++++++++++++++++++-----------------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
-commit fce94a634fa80641637f7dc96299db1a17aae386
+commit f5cb6dab30a6aa50a7e8fc2ee6ba86159334f6d3
 Author: Marek Černocký <marek@manet.cz>
-Date:   Mon Sep 22 17:20:40 2014 +0200
-
-    Updated Czech translation
-
- po/cs.po | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-commit 7c30186256851b79e6e00b2b717b8b67a6a6bca0
-Author: Marek Černocký <marek@manet.cz>
-Date:   Mon Sep 22 17:15:26 2014 +0200
-
-    Updated Czech translation
-
- po/cs.po | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
-
-commit 30fadaae93899b7165b41dd497e65ee11f00621d
-Author: Marek Černocký <marek@manet.cz>
-Date:   Mon Sep 22 17:08:46 2014 +0200
-
-    Updated Czech translation
-
- po/cs.po | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-commit c0337259a815962d0f8c55b5b76cd8f7aab5d762
-Author: Marek Černocký <marek@manet.cz>
-Date:   Mon Sep 22 15:20:10 2014 +0200
-
-    Updated Czech translation
-
- po/cs.po | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-commit d53751bd839ec4b06022298c9a39977d86c78681
-Author: Marek Černocký <marek@manet.cz>
-Date:   Mon Sep 22 15:02:13 2014 +0200
+Date:   Mon Sep 22 15:01:40 2014 +0200
 
     Updated Czech translation
 
  po/cs.po | 56 ++++++++++++++++++++++++++------------------------------
  1 file changed, 26 insertions(+), 30 deletions(-)
 
-commit 84d963b57a4a7df55946596d3862f53da96f033d
-Author: Rajesh Ranjan <rajeshkajha@yahoo.com>
-Date:   Mon Sep 22 08:55:18 2014 +0000
-
-    Updated Hindi translation
-
- po/hi.po | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-commit 0bd4a0d39230b0398d3885d0215183183d6ca9cc
-Author: Shankar Prasad <prasad.mvs@gmail.com>
-Date:   Sun Sep 21 15:47:35 2014 +0000
-
-    Updated Kannada translation
-
- po/kn.po | 885 ++++++++++++++++++++++++++++++++++-----------------------------
- 1 file changed, 480 insertions(+), 405 deletions(-)
-
-commit 0528cd362fdea64556d2e544912841b0d49aa9b0
+commit 20b6599ab0339418119ab41ed3ce3c4bdfbae05d
 Author: A S Alam <aalam@users.sf.net>
-Date:   Sun Sep 21 09:24:14 2014 -0500
+Date:   Sun Sep 21 09:24:38 2014 -0500
 
-    update Punjabi Translation -for 3.14 release
+    update Punjabi Translation -for Master
 
  po/pa.po | 637 ++++++++++++++++++++++++++++++++++++++-------------------------
  1 file changed, 390 insertions(+), 247 deletions(-)
 
-commit ce188f4d75af003d451cd71401f8ee83a9570312
+commit 74dfb29f5a018b884bbff57d8e290e27363cebc6
 Author: Kalev Lember <kalevlember@gmail.com>
 Date:   Sun Sep 21 12:41:14 2014 +0200
 
@@ -172,11 +1092,11 @@ Date:   Sun Sep 21 12:41:14 2014 +0200
  po/el.po | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-commit ba6124848ae4992677f159f388d60f33b1da2d51
+commit 53de0234908ffb974ec2757478c1fef5151031d1
 Author: Christian Persch <chpe@gnome.org>
-Date:   Sun Sep 21 14:04:58 2014 +0200
+Date:   Sun Sep 21 14:05:45 2014 +0200
 
-    Post release version bump
+    Post branch version bump
 
  configure.ac | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

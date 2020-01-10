@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gucharmap.master.te\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gucharmap&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-23 09:18+0000\n"
+"POT-Creation-Date: 2014-09-23 09:20+0000\n"
 "PO-Revision-Date: 2014-09-23 19:12+0530\n"
 "Last-Translator: Krishnababu Krothapalli <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <kde-i18n-doc@kde.org>\n"
@@ -40,9 +40,10 @@ msgid ""
 "script type. It includes brief descriptions of related characters and "
 "occasionally meanings of the character in question."
 msgstr ""
-"గ్నోమ్ కారెక్టర్ మాప్ అనునది యూనికోడ్ కారక్టర్ మాప్ ప్రోగ్రామ్, ఇది గ్నోమ్ డెస్కుటాప్ నందు భాగం. అక్షరాలు "
-"యూనికోడ్ బ్లాక్ లేదా స్క్రిప్ట్ టైప్‌తో ప్రదర్శించుటకు ఈ ప్రోగ్రామ్ అనుమతించును. సంబందిత అక్షరాల వివరణను "
-"ఇది కలిగివుంటుంది మరియు అప్పుడప్పుడు ప్రశ్ననందలి అక్షరాల అర్థం కలిగివుంటుంది."
+"గ్నోమ్ కారెక్టర్ మాప్ అనునది యూనికోడ్ కారక్టర్ మాప్ ప్రోగ్రామ్, ఇది గ్నోమ్ "
+"డెస్కుటాప్ నందు భాగం. అక్షరాలు యూనికోడ్ బ్లాక్ లేదా స్క్రిప్ట్ టైప్‌తో "
+"ప్రదర్శించుటకు ఈ ప్రోగ్రామ్ అనుమతించును. సంబందిత అక్షరాల వివరణను ఇది "
+"కలిగివుంటుంది మరియు అప్పుడప్పుడు ప్రశ్ననందలి అక్షరాల అర్థం కలిగివుంటుంది."
 
 #: ../data/gucharmap.appdata.xml.in.h:4
 msgid ""
@@ -50,9 +51,9 @@ msgid ""
 "The search functionality allows the use of several search methods, including "
 "by unicode name or code point of the character."
 msgstr ""
-"Gucharmap అనునది అక్షరాలు ఇన్పుట్‌కు లేదా ప్రవేశపెట్టుటకు ఉపయోగించవచ్చు (నకలుతీసి అతికించుట "
-"ద్వారా). శోధన ఫంక్షనాలిటీ అనునది వివిధ శోధన పద్దతుల ఉపయోగాన్ని అనుమతించును, యూనికోడ్ పేరు లేదా అక్షరం "
-"యొక్క కోడ్ పాయింట్ తో సహా."
+"Gucharmap అనునది అక్షరాలు ఇన్పుట్‌కు లేదా ప్రవేశపెట్టుటకు ఉపయోగించవచ్చు "
+"(నకలుతీసి అతికించుట ద్వారా). శోధన ఫంక్షనాలిటీ అనునది వివిధ శోధన పద్దతుల "
+"ఉపయోగాన్ని అనుమతించును, యూనికోడ్ పేరు లేదా అక్షరం యొక్క కోడ్ పాయింట్ తో సహా."
 
 #: ../gucharmap.desktop.in.in.h:3
 msgid "font;unicode;"
@@ -491,8 +492,10 @@ msgid ""
 "without limitation the rights to use, copy, modify, merge, publish, "
 "distribute, and/or sell copies."
 msgstr ""
-"అనుమతి ఇక్కడే ఇవ్వబడినది, సుకం లేదు, యూనికోడ్ డాటా దస్త్రముల నకలు ను పొందిన ఏ వ్యక్తైనా నియంత్రణ "
-"లేకుండా వాటితో వ్యవహరించవచ్చు, వాటిని నకలు, సవరింపు, మిళితం, ప్రచురణ, పంపిణి చేయటకు మరియు/లేదా "
+"అనుమతి ఇక్కడే ఇవ్వబడినది, సుకం లేదు, యూనికోడ్ డాటా దస్త్రముల నకలు ను పొందిన ఏ "
+"వ్యక్తైనా నియంత్రణ "
+"లేకుండా వాటితో వ్యవహరించవచ్చు, వాటిని నకలు, సవరింపు, మిళితం, ప్రచురణ, పంపిణి "
+"చేయటకు మరియు/లేదా "
 "నకళ్ళను అమ్ముటకు హక్కులలో ఎటువంటి పరిమితి లేకుండా ఇవ్వబడింది."
 
 #: ../gucharmap/gucharmap-window.c:430
@@ -502,8 +505,10 @@ msgid ""
 "of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General "
 "Public License and Unicode Copyright for more details."
 msgstr ""
-"జియుఅక్షరపటం మరియు యూనికోడ్ డాటా దస్త్రములు ఉపయోగపడతాయనే నమ్మకం తోపంపిణీ చేయబడింది, అయితే ఏ హామి "
-"లేదు; వ్యాపారసంబంధితంగా కాని లేదా ప్రతిపాదితప్రయోజనం కొరకు కాని హామీ లేదు. అధికవివరములకొరకు GNU జనరల్ "
+"జియుఅక్షరపటం మరియు యూనికోడ్ డాటా దస్త్రములు ఉపయోగపడతాయనే నమ్మకం తోపంపిణీ "
+"చేయబడింది, అయితే ఏ హామి "
+"లేదు; వ్యాపారసంబంధితంగా కాని లేదా ప్రతిపాదితప్రయోజనం కొరకు కాని హామీ లేదు. "
+"అధికవివరములకొరకు GNU జనరల్ "
 "పబ్లిక్ లైసెన్సు నుచూడండి."
 
 #: ../gucharmap/gucharmap-window.c:434
@@ -512,7 +517,8 @@ msgid ""
 "Gucharmap; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA  02110-1301  USA"
 msgstr ""
-"Gucharmapతో మీరు GNU సాదారణ ప్రజా లైసెన్స్‍‌ను పొందివుంటారు; పొందకపోతే గనుక, Free Software "
+"Gucharmapతో మీరు GNU సాదారణ ప్రజా లైసెన్స్‍‌ను పొందివుంటారు; పొందకపోతే గనుక, "
+"Free Software "
 "Foundation, Inc., 59 Temple Place, Suite 300, Boston, MA  02110-1301  USA "
 "కువ్రాయండి."
 
@@ -522,7 +528,8 @@ msgid ""
 "Gucharmap; you can always find it at Unicode's website: http://www.unicode."
 "org/copyright.html"
 msgstr ""
-"జియుఅక్షరపటం తో మీరు యూనికోడ్ కాపీరైట్ యొక్క నకలును పొంది ఉంటారు; మీరు దీనిని ఎప్పుడైనా యూనికోడ్ వెబ్‌సైట్: "
+"జియుఅక్షరపటం తో మీరు యూనికోడ్ కాపీరైట్ యొక్క నకలును పొంది ఉంటారు; మీరు దీనిని "
+"ఎప్పుడైనా యూనికోడ్ వెబ్‌సైట్: "
 "http://www.unicode.org/copyright.html నందు పొందవచ్చు"
 
 #: ../gucharmap/gucharmap-window.c:447 ../gucharmap/main.c:39
@@ -530,6 +537,7 @@ msgid "GNOME Character Map"
 msgstr "GNOME ఆక్షర పఠము"
 
 #: ../gucharmap/gucharmap-window.c:449
+#| msgid "Based on the Unicode Character Database 6.2.0"
 msgid "Based on the Unicode Character Database 7.0.0"
 msgstr "యూనికోడ్ కారక్టర్ డాటాబేస్ 7.0.0 పై ఆధారపడి"
 
@@ -588,7 +596,8 @@ msgid ""
 "This is how the characters in the character map are grouped. The characters "
 "can either be grouped by 'script' or 'block'."
 msgstr ""
-"ఇలా అక్షర పటం నందలి అక్షరాలు సమూహం చేయబడును. అక్షరాలు అనునది 'script' లేదా 'block' ద్వారా "
+"ఇలా అక్షర పటం నందలి అక్షరాలు సమూహం చేయబడును. అక్షరాలు అనునది 'script' లేదా "
+"'block' ద్వారా "
 "సమూహం చేయబడును."
 
 #: ../gucharmap/org.gnome.Charmap.gschema.xml.h:3
@@ -601,8 +610,10 @@ msgid ""
 "is the system font with the size doubled. Otherwise it should be a font "
 "description string like 'Sans 24'."
 msgstr ""
-"అక్షరపటం కొరకు వుపయోగించు ఫాంటు. 'nothing' కు అమరిస్తే అప్రమేయంగా సిస్టమ్ ఫాంటు రెట్టింపు "
-"పరిమాణంతో వుపయోగించును. లేదంటే అది ఫాంటు వివరణ స్ట్రింగ్ 'Sans 24' వలె వుండాలి."
+"అక్షరపటం కొరకు వుపయోగించు ఫాంటు. 'nothing' కు అమరిస్తే అప్రమేయంగా సిస్టమ్ "
+"ఫాంటు రెట్టింపు "
+"పరిమాణంతో వుపయోగించును. లేదంటే అది ఫాంటు వివరణ స్ట్రింగ్ 'Sans 24' వలె "
+"వుండాలి."
 
 #: ../gucharmap/org.gnome.Charmap.gschema.xml.h:5
 msgid "Snap number of columns to a power of two"
@@ -614,7 +625,8 @@ msgid ""
 "of the window. If this setting is 'true' then the value will be forced to "
 "the nearest power of two."
 msgstr ""
-"అక్షర పటం గ్రిడ్ నందలి నిలువువరుసల సంఖ్య విండో యొక్క వెడల్పుతో నిర్ణయించబడును. ఈ అమరిక 'true' "
+"అక్షర పటం గ్రిడ్ నందలి నిలువువరుసల సంఖ్య విండో యొక్క వెడల్పుతో "
+"నిర్ణయించబడును. ఈ అమరిక 'true' "
 "అయితే విలువ అనునది దగ్గరలోని 2 యొక్క ఘాతమునకు వత్తిడిచేయబడును."
 
 #: ../gucharmap/org.gnome.Charmap.gschema.xml.h:7
@@ -628,7 +640,8 @@ msgid ""
 "\n"
 "By default, it is the first letter of the alphabet in the current locale."
 msgstr ""
-"ఇది అక్షర పటం నందు ఆఖరిగా యెంపికచేసిన అక్షరం (మరియు అక్షర పటం తరువాతి సారి ప్రారంభమైనప్పుడు మరలా "
+"ఇది అక్షర పటం నందు ఆఖరిగా యెంపికచేసిన అక్షరం (మరియు అక్షర పటం తరువాతి సారి "
+"ప్రారంభమైనప్పుడు మరలా "
 "యెంపికచేయబడును).\n"
 "\n"
 "అప్రమేయంగా, యిది ప్రస్తుత స్థానికం యొక్క మొదటి అక్షరం అగును."
@@ -860,6 +873,7 @@ msgid "Tai Tham"
 msgstr "టాయ్ థామ్"
 
 #: ../gucharmap/unicode-blocks.h:69
+#| msgid "Combining Diacritical Marks"
 msgid "Combining Diacritical Marks Extended"
 msgstr "డయాక్ట్రికల్ మార్క్స్ ఎక్స్‌టెండెడ్ కలుపుట"
 
@@ -1176,6 +1190,7 @@ msgid "Javanese"
 msgstr "జావనీస్"
 
 #: ../gucharmap/unicode-blocks.h:148
+#| msgid "Myanmar Extended-A"
 msgid "Myanmar Extended-B"
 msgstr "మయన్మార్  ఎక్స్‌టెన్డెడ్-B"
 
@@ -1200,6 +1215,7 @@ msgid "Ethiopic Extended-A"
 msgstr "ఇథియోపిక్ ఎక్స్‌టెన్డెడ్ -A"
 
 #: ../gucharmap/unicode-blocks.h:154
+#| msgid "Latin Extended-A"
 msgid "Latin Extended-E"
 msgstr "లాటిన్ ఎక్స్‌టెన్డెడ్-E"
 
@@ -1320,6 +1336,7 @@ msgid "Gothic"
 msgstr "మోటైన"
 
 #: ../gucharmap/unicode-blocks.h:184 ../gucharmap/unicode-scripts.h:100
+#| msgid "Old Persian"
 msgid "Old Permic"
 msgstr "పాత పర్మిక్"
 
@@ -1352,6 +1369,7 @@ msgid "Caucasian Albanian"
 msgstr "కొకేసియన్ అల్బేనియన్"
 
 #: ../gucharmap/unicode-blocks.h:192 ../gucharmap/unicode-scripts.h:75
+#| msgid "Linear B"
 msgid "Linear A"
 msgstr "లీనియర్ A"
 
@@ -1396,6 +1414,7 @@ msgid "Old South Arabian"
 msgstr "పురాణ సౌత్ అరబియన్"
 
 #: ../gucharmap/unicode-blocks.h:203 ../gucharmap/unicode-scripts.h:99
+#| msgid "Old South Arabian"
 msgid "Old North Arabian"
 msgstr "పాత ఉత్తర అరబియన్"
 
@@ -1416,6 +1435,7 @@ msgid "Inscriptional Pahlavi"
 msgstr "ఇంస్క్రిప్షనల్ పహ్లవి "
 
 #: ../gucharmap/unicode-blocks.h:208 ../gucharmap/unicode-scripts.h:111
+#| msgid "Inscriptional Pahlavi"
 msgid "Psalter Pahlavi"
 msgstr "సాల్టర్ పహ్లవి"
 
@@ -1588,6 +1608,7 @@ msgid "Enclosed Ideographic Supplement"
 msgstr "జతపరిచిన ఐడియోగ్రాఫిక్ సప్లిమెంట్"
 
 #: ../gucharmap/unicode-blocks.h:251
+#| msgid "Miscellaneous Symbols And Pictographs"
 msgid "Miscellaneous Symbols and Pictographs"
 msgstr "నానావిధ చిహ్నాలు మరియు పిక్టోగ్రాఫ్స్"
 
@@ -1600,6 +1621,7 @@ msgid "Ornamental Dingbats"
 msgstr "అర్నమెంటల్ డింగ్‌బాట్స్"
 
 #: ../gucharmap/unicode-blocks.h:254
+#| msgid "Transport And Map Symbols"
 msgid "Transport and Map Symbols"
 msgstr "ట్రాన్స్‌పోర్ట్ మరియు మాప్ చిహ్నాలు"
 
@@ -1608,10 +1630,12 @@ msgid "Alchemical Symbols"
 msgstr "అల్ కెమికల్ చిహ్నములు"
 
 #: ../gucharmap/unicode-blocks.h:256
+#| msgid "Geometric Shapes"
 msgid "Geometric Shapes Extended"
 msgstr "భౌగోళిక ఆకృతులు విస్తరించెను"
 
 #: ../gucharmap/unicode-blocks.h:257
+#| msgid "Supplemental Arrows-A"
 msgid "Supplemental Arrows-C"
 msgstr "సప్లిమెంటల్ బాణాలు-C"
 

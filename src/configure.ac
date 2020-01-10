@@ -16,7 +16,7 @@
 # 59 Temple Place, Suite 330, Boston, MA 02110-1301  USA
 
 m4_define([gucharmap_version_major],[3])
-m4_define([gucharmap_version_minor],[14])
+m4_define([gucharmap_version_minor],[18])
 m4_define([gucharmap_version_micro],[2])
 m4_define([gucharmap_version_extra],[])
 m4_define([gucharmap_version],[gucharmap_version_major.gucharmap_version_minor.gucharmap_version_micro()gucharmap_version_extra])
@@ -177,12 +177,6 @@ if test -z "$DESKTOP_FILE_VALIDATE"; then
   AC_MSG_ERROR([desktop-file-validate not found])
 fi
 
-AC_ARG_VAR([APPDATA_VALIDATE],[the appdata-validate programme])
-AC_PATH_PROG([APPDATA_VALIDATE],[appdata-validate],[])
-if test -z "$APPDATA_VALIDATE"; then
-  AC_MSG_ERROR([appdata-validate not found])
-fi
-
 # ****
 # i18n
 # ****
@@ -231,6 +225,7 @@ CC_CHECK_CFLAGS_APPEND([ \
   -Wstrict-aliasing=2 -Winit-self -Wunsafe-loop-optimizations \
   -Wdeclaration-after-statement -Wold-style-definition \
   -Wno-missing-field-initializers -Wno-unused-parameter \
+  -Wformat-signedness \
   -fno-common -Wno-switch-enum])
 
 # ********

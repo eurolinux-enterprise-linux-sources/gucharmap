@@ -33,7 +33,7 @@
 #endif
 
 #define GUCHARMAP_VERSION_MAJOR (3)
-#define GUCHARMAP_VERSION_MINOR (14)
+#define GUCHARMAP_VERSION_MINOR (18)
 #define GUCHARMAP_VERSION_MICRO (2)
 
 #define GUCHARMAP_CHECK_VERSION(major,minor,micro) \
